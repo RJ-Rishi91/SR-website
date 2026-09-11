@@ -1,0 +1,47 @@
+---
+interface Props {
+  step: string;
+  title: string;
+  duration: string;
+  description: string;
+  deliverables: string[];
+  icon: string;
+}
+
+const { step, title, duration, description, deliverables, icon } = Astro.props;
+---
+
+<div class="relative p-6 sm:p-8 rounded-2xl bg-surface-card border border-primary-container/15 hover:border-primary/35 transition-all duration-300 group">
+  <div class="flex items-center justify-between mb-6">
+    <span class="font-serif text-3xl font-light text-primary/40 group-hover:text-primary transition-colors">
+      {step}
+    </span>
+    <div class="flex items-center gap-2">
+      <span class="px-2.5 py-1 rounded-md text-[11px] font-mono text-outline bg-surface-elevated border border-primary-container/10">
+        {duration}
+      </span>
+      <div class="w-8 h-8 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+        <span class="material-symbols-outlined text-[18px]">{icon}</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="font-serif text-2xl text-on-surface font-normal mb-3 group-hover:text-primary transition-colors">
+    {title}
+  </h3>
+  <p class="font-sans text-sm text-on-surface-variant leading-relaxed mb-6">
+    {description}
+  </p>
+
+  <div class="pt-4 border-t border-primary-container/10">
+    <p class="text-xs font-bold uppercase tracking-wider text-outline mb-2">Key Deliverables</p>
+    <ul class="space-y-1.5">
+      {deliverables.map((item) => (
+        <li class="flex items-start gap-2 text-xs text-on-surface-variant">
+          <span class="text-primary text-[14px] leading-none mt-0.5">•</span>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>

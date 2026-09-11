@@ -1,0 +1,381 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Dispatch Editor | Studio Ravya CMS"
+  description="Author and schedule editorial articles with real-time Markdown preview."
+  noindex={true}
+>
+  <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Top Action Bar -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 mb-8 border-b border-primary-container/15">
+      <div class="flex items-center gap-3">
+        <a href="/admin/posts" class="p-2 rounded-lg bg-surface-card hover:bg-surface-elevated text-primary border border-primary-container/20 transition-colors" title="Back to Dispatches">
+          <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+        </a>
+        <div>
+          <h1 class="font-serif text-2xl text-on-surface font-semibold tracking-wide" id="editor-page-title">
+            Compose New Dispatch
+          </h1>
+          <p class="text-xs text-outline font-mono">Markdown &amp; Scheduling Studio</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 w-full sm:w-auto">
+        <button
+          type="button"
+          id="save-draft-btn"
+          class="px-4 py-2.5 rounded-lg bg-surface-elevated hover:bg-surface-card text-on-surface border border-primary-container/20 text-xs font-semibold uppercase tracking-wider transition-all"
+        >
+          Save Draft
+        </button>
+        <button
+          type="button"
+          id="publish-btn"
+          class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-primary-container hover:bg-amber text-charcoal text-xs font-bold uppercase tracking-wider shadow-gold-glow transition-all"
+        >
+          <span class="material-symbols-outlined text-[16px]">send</span>
+          <span id="publish-btn-text">Publish Live</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Alert Message -->
+    <div id="editor-alert" class="hidden mb-6 p-4 rounded-xl text-xs font-medium"></div>
+
+    <!-- Main 2-Column Editor Interface -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Left Column: Fields & Markdown Content (7 cols) -->
+      <div class="lg:col-span-7 space-y-6">
+        <!-- Post Metadata Card -->
+        <div class="p-6 rounded-2xl bg-surface-card border border-primary-container/15 space-y-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5 font-mono">
+              Dispatch Title <span class="text-ember">*</span>
+            </label>
+            <input
+              type="text"
+              id="post-title"
+              placeholder="e.g. How Much Does a Website Cost in 2026? [Pricing Guide]"
+              class="w-full px-4 py-3 bg-surface-elevated border border-primary-container/20 focus:border-primary rounded-lg text-base text-on-surface placeholder:text-outline/40 outline-none font-serif"
+            />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5 font-mono">
+                URL Slug
+              </label>
+              <input
+                type="text"
+                id="post-slug"
+                placeholder="how-much-does-a-website-cost"
+                class="w-full px-3.5 py-2.5 bg-surface-elevated border border-primary-container/20 focus:border-primary rounded-lg text-xs font-mono text-on-surface outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5 font-mono">
+                Category
+              </label>
+              <select
+                id="post-category"
+                class="w-full px-3.5 py-2.5 bg-surface-elevated border border-primary-container/20 focus:border-primary rounded-lg text-xs text-on-surface outline-none cursor-pointer"
+              >
+                <option value="Pricing & Planning">Pricing & Planning</option>
+                <option value="Web Design & UX">Web Design & UX</option>
+                <option value="Development & Engineering">Development & Engineering</option>
+                <option value="Strategy & Business">Strategy & Business</option>
+                <option value="Case Studies">Case Studies</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5 font-mono">
+              Excerpt / Meta Summary
+            </label>
+            <textarea
+              id="post-excerpt"
+              rows="2"
+              placeholder="A 2-3 sentence overview used for preview cards and search engine snippets..."
+              class="w-full px-4 py-2.5 bg-surface-elevated border border-primary-container/20 focus:border-primary rounded-lg text-xs text-on-surface placeholder:text-outline/40 outline-none"
+            ></textarea>
+          </div>
+
+          <!-- Cover Image Upload / URL -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-1.5 font-mono">
+              Cover Image
+            </label>
+            <div class="flex items-center gap-3">
+              <input
+                type="text"
+                id="post-cover"
+                placeholder="/images/showcase-saas-platform.png or https://..."
+                class="flex-1 px-3.5 py-2.5 bg-surface-elevated border border-primary-container/20 focus:border-primary rounded-lg text-xs text-on-surface outline-none"
+              />
+              <label class="px-3.5 py-2.5 rounded-lg bg-surface-elevated hover:bg-surface-card border border-primary-container/25 text-xs text-primary cursor-pointer flex items-center gap-1.5 shrink-0">
+                <span class="material-symbols-outlined text-[16px]">upload_file</span>
+                <span>Upload</span>
+                <input type="file" id="cover-file-input" accept="image/*" class="sr-only" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Markdown Body Editor -->
+        <div class="p-6 rounded-2xl bg-surface-card border border-primary-container/15 space-y-3">
+          <div class="flex items-center justify-between">
+            <label class="text-xs font-bold uppercase tracking-wider text-primary font-mono">
+              Markdown Body Content
+            </label>
+            <span class="text-[11px] font-mono text-outline">Supports GitHub Flavored Markdown</span>
+          </div>
+
+          <textarea
+            id="post-body"
+            rows="18"
+            placeholder="Write your article in Markdown here...&#10;&#10;## Section Heading&#10;&#10;Write with clarity and precision."
+            class="w-full p-4 bg-surface-elevated border border-primary-container/20 focus:border-primary rounded-xl text-sm font-mono text-on-surface placeholder:text-outline/40 outline-none resize-y leading-relaxed"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Right Column: Live Markdown Preview & Schedule Settings (5 cols) -->
+      <div class="lg:col-span-5 space-y-6">
+        <!-- Publishing Controls Card -->
+        <div class="p-6 rounded-2xl bg-surface-card border border-primary-container/15 space-y-4">
+          <h3 class="font-serif text-lg text-on-surface font-semibold">Publishing Parameters</h3>
+
+          <div>
+            <label class="block text-xs font-mono uppercase text-outline mb-1">Status Mode</label>
+            <select
+              id="post-status"
+              class="w-full px-3.5 py-2.5 bg-surface-elevated border border-primary-container/20 focus:border-primary rounded-lg text-xs text-on-surface outline-none cursor-pointer"
+            >
+              <option value="draft">Draft (Private)</option>
+              <option value="published" selected>Published (Live Immediately)</option>
+              <option value="scheduled">Scheduled (Future Dispatch)</option>
+            </select>
+          </div>
+
+          <div id="scheduled-row" class="hidden">
+            <label class="block text-xs font-mono uppercase text-outline mb-1">Schedule Publication Time</label>
+            <input
+              type="datetime-local"
+              id="post-scheduled-at"
+              class="w-full px-3.5 py-2.5 bg-surface-elevated border border-primary-container/20 focus:border-primary rounded-lg text-xs text-on-surface outline-none"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-mono uppercase text-outline mb-1">Estimated Read Time (Minutes)</label>
+            <input
+              type="number"
+              id="post-read-time"
+              value="5"
+              min="1"
+              max="60"
+              class="w-full px-3.5 py-2.5 bg-surface-elevated border border-primary-container/20 focus:border-primary rounded-lg text-xs text-on-surface outline-none"
+            />
+          </div>
+        </div>
+
+        <!-- Real-time Rendered Preview Card -->
+        <div class="p-6 rounded-2xl bg-surface-card border border-primary-container/15 space-y-4 sticky top-28">
+          <div class="flex items-center justify-between pb-3 border-b border-primary-container/10">
+            <span class="text-xs font-mono uppercase tracking-wider text-primary">Live Output Preview</span>
+            <span class="text-[11px] text-outline font-mono" id="word-count">0 words</span>
+          </div>
+
+          <div id="preview-container" class="prose prose-invert max-h-[500px] overflow-y-auto pr-2 text-xs text-on-surface-variant leading-relaxed space-y-3">
+            <p class="text-outline italic">Start typing in the Markdown editor to see rendered preview...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  import { marked } from 'marked';
+
+  const token = localStorage.getItem('studioravya_admin_token');
+  if (!token) {
+    window.location.href = '/admin';
+  }
+
+  const API_URL = (window as any).PUBLIC_API_URL || 'http://localhost:8000';
+  const urlParams = new URLSearchParams(window.location.search);
+  const postId = urlParams.get('id');
+
+  const titleInput = document.getElementById('post-title') as HTMLInputElement;
+  const slugInput = document.getElementById('post-slug') as HTMLInputElement;
+  const categoryInput = document.getElementById('post-category') as HTMLSelectElement;
+  const excerptInput = document.getElementById('post-excerpt') as HTMLTextAreaElement;
+  const coverInput = document.getElementById('post-cover') as HTMLInputElement;
+  const bodyInput = document.getElementById('post-body') as HTMLTextAreaElement;
+  const statusInput = document.getElementById('post-status') as HTMLSelectElement;
+  const scheduledInput = document.getElementById('post-scheduled-at') as HTMLInputElement;
+  const readTimeInput = document.getElementById('post-read-time') as HTMLInputElement;
+  const previewBox = document.getElementById('preview-container');
+  const wordCount = document.getElementById('word-count');
+  const scheduledRow = document.getElementById('scheduled-row');
+  const alertBox = document.getElementById('editor-alert');
+
+  // Slugify helper
+  function slugify(text: string) {
+    return text.toString().toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-');
+  }
+
+  titleInput?.addEventListener('input', () => {
+    if (!postId && (!slugInput.value || slugInput.getAttribute('data-manual') !== 'true')) {
+      slugInput.value = slugify(titleInput.value);
+    }
+    updatePreview();
+  });
+
+  slugInput?.addEventListener('input', () => {
+    slugInput.setAttribute('data-manual', 'true');
+  });
+
+  statusInput?.addEventListener('change', () => {
+    if (statusInput.value === 'scheduled') {
+      scheduledRow?.classList.remove('hidden');
+    } else {
+      scheduledRow?.classList.add('hidden');
+    }
+  });
+
+  function updatePreview() {
+    const raw = bodyInput?.value || '';
+    if (previewBox) {
+      previewBox.innerHTML = marked.parse(raw);
+    }
+    if (wordCount) {
+      const words = raw.trim().split(/\s+/).filter(Boolean).length;
+      wordCount.textContent = `${words} words`;
+      if (readTimeInput && (!readTimeInput.value || readTimeInput.value === '5')) {
+        readTimeInput.value = String(Math.max(1, Math.round(words / 200)));
+      }
+    }
+  }
+
+  bodyInput?.addEventListener('input', updatePreview);
+
+  // Cover image upload
+  const fileInput = document.getElementById('cover-file-input') as HTMLInputElement;
+  fileInput?.addEventListener('change', async () => {
+    if (!fileInput.files || !fileInput.files[0]) return;
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const res = await fetch(`${API_URL}/api/admin/upload`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}` },
+        body: formData,
+      });
+      if (res.ok) {
+        const data = await res.json();
+        coverInput.value = data.url;
+      } else {
+        alert('Image upload failed.');
+      }
+    } catch (err) {
+      alert('Could not upload image: ' + err);
+    }
+  });
+
+  // Load existing post if editing
+  async function loadExistingPost() {
+    if (!postId) return;
+    try {
+      const res = await fetch(`${API_URL}/api/admin/posts/${postId}`, {
+        headers: { 'Authorization': `Bearer ${token}` },
+      });
+      if (res.ok) {
+        const post = await res.json();
+        titleInput.value = post.title || '';
+        slugInput.value = post.slug || '';
+        categoryInput.value = post.category || 'Pricing & Planning';
+        excerptInput.value = post.excerpt || '';
+        coverInput.value = post.cover_image || '';
+        bodyInput.value = post.body || '';
+        statusInput.value = post.status || 'draft';
+        readTimeInput.value = String(post.read_time_minutes || 5);
+        if (post.scheduled_at) {
+          scheduledInput.value = post.scheduled_at.slice(0, 16);
+          scheduledRow?.classList.remove('hidden');
+        }
+        document.getElementById('editor-page-title')!.textContent = `Editing: ${post.title}`;
+        updatePreview();
+      }
+    } catch {}
+  }
+
+  loadExistingPost();
+
+  // Save / Publish
+  async function savePost(targetStatus: string) {
+    if (!titleInput.value || !bodyInput.value) {
+      alert('Please provide at least a title and body content.');
+      return;
+    }
+
+    const payload = {
+      title: titleInput.value,
+      slug: slugInput.value || slugify(titleInput.value),
+      category: categoryInput.value,
+      excerpt: excerptInput.value || titleInput.value,
+      body: bodyInput.value,
+      cover_image: coverInput.value || null,
+      read_time_minutes: parseInt(readTimeInput.value, 10) || 5,
+      status: targetStatus,
+      scheduled_at: targetStatus === 'scheduled' && scheduledInput.value ? new Date(scheduledInput.value).toISOString() : null,
+    };
+
+    const isEditing = Boolean(postId);
+    const url = isEditing ? `${API_URL}/api/admin/posts/${postId}` : `${API_URL}/api/admin/posts`;
+    const method = isEditing ? 'PUT' : 'POST';
+
+    try {
+      const res = await fetch(url, {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        if (alertBox) {
+          alertBox.className = 'mb-6 p-4 rounded-xl text-xs font-medium bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 block';
+          alertBox.textContent = `Dispatch successfully ${targetStatus === 'published' ? 'published' : 'saved'}!`;
+        }
+        setTimeout(() => {
+          window.location.href = '/admin/posts';
+        }, 1200);
+      } else {
+        const err = await res.json();
+        throw new Error(err.detail || 'Save failed');
+      }
+    } catch (err: any) {
+      if (alertBox) {
+        alertBox.className = 'mb-6 p-4 rounded-xl text-xs font-medium bg-error-container/30 border border-error/30 text-error block';
+        alertBox.textContent = `Error: ${err.message || err}`;
+      }
+    }
+  }
+
+  document.getElementById('publish-btn')?.addEventListener('click', () => savePost(statusInput.value || 'published'));
+  document.getElementById('save-draft-btn')?.addEventListener('click', () => savePost('draft'));
+</script>

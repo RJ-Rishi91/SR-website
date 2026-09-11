@@ -1,0 +1,92 @@
+---
+interface Props {
+  name: string;
+  tagline: string;
+  priceRange: string;
+  timeline: string;
+  popular?: boolean;
+  features: string[];
+  ctaText?: string;
+  ctaHref?: string;
+}
+
+const {
+  name,
+  tagline,
+  priceRange,
+  timeline,
+  popular = false,
+  features,
+  ctaText = 'Get a Detailed Quote',
+  ctaHref = '/contact',
+} = Astro.props;
+---
+
+<div
+  class={`relative flex flex-col justify-between p-6 sm:p-8 lg:p-10 rounded-2xl border transition-all duration-300 ${
+    popular
+      ? 'bg-gradient-to-b from-surface-card via-surface-card to-surface-elevated border-primary/50 shadow-solar lg:-translate-y-2'
+      : 'bg-surface-card border-primary-container/15 hover:border-primary/35'
+  }`}
+>
+  {popular && (
+    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+      <span class="px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-primary-container text-charcoal shadow-md">
+        Most Requested
+      </span>
+    </div>
+  )}
+
+  <div>
+    <!-- Header -->
+    <div class="mb-6">
+      <h3 class="font-serif text-2xl sm:text-3xl text-on-surface font-normal mb-2">
+        {name}
+      </h3>
+      <p class="font-sans text-sm text-on-surface-variant leading-relaxed">
+        {tagline}
+      </p>
+    </div>
+
+    <!-- Pricing & Timeline -->
+    <div class="p-4 rounded-xl bg-surface-base/60 border border-primary-container/10 mb-8 space-y-1.5">
+      <div class="flex items-baseline justify-between">
+        <span class="font-serif text-2xl sm:text-3xl text-primary font-medium">
+          {priceRange}
+        </span>
+      </div>
+      <div class="flex items-center gap-1.5 text-xs text-outline font-mono">
+        <span class="material-symbols-outlined text-[14px]">schedule</span>
+        <span>Typical turnaround: {timeline}</span>
+      </div>
+    </div>
+
+    <!-- Deliverables Checklist -->
+    <div class="space-y-3 mb-8">
+      <p class="text-xs font-bold uppercase tracking-wider text-primary">What's Included</p>
+      <ul class="space-y-2.5">
+        {features.map((feat) => (
+          <li class="flex items-start gap-2.5 text-xs sm:text-sm text-on-surface-variant">
+            <span class="material-symbols-outlined text-[18px] text-primary shrink-0">check_circle</span>
+            <span>{feat}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="pt-4 border-t border-primary-container/10">
+    <a
+      href={ctaHref}
+      class={`w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg font-sans text-xs font-bold uppercase tracking-wider transition-all ${
+        popular
+          ? 'bg-primary-container text-charcoal shadow-gold-glow hover:bg-amber'
+          : 'bg-surface-elevated hover:bg-primary-container hover:text-charcoal text-on-surface border border-primary-container/20'
+      }`}
+    >
+      <span>{ctaText}</span>
+      <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+    </a>
+  </div>
+</div>

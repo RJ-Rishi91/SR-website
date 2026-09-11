@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  return [
+    {
+      params: { slug: 'vesper-ai' },
+      props: {
+        title: 'Vesper AI Case Study | Studio Ravya',
+        client: 'Vesper Technologies',
+        role: 'Web Platform & Interactive Showcase',
+        year: '2025',
+        timeline: '6 Weeks',
+        serviceTitle: 'Website Design & Development',
+        serviceHref: '/services/website-design-development',
+        heroImage: '/images/showcase-saas-platform.png',
+        headline: 'A flagship web platform for an enterprise cognitive software suite.',
+        overview: 'Vesper AI had proprietary enterprise AI infrastructure, but their existing marketing website looked like a generic software template. They needed a digital home that matched the intellectual rigor and enterprise security of their product ahead of their $14M Series A fundraising.',
+        theProblem: 'The original website struggled with three distinct issues: complex narrative that confused non-technical enterprise buyers, slow load times due to heavy unoptimized script libraries, and a lack of tangible proof of how the underlying model worked.',
+        whatWeBuilt: 'We designed and engineered a custom Astro + Tailwind web platform featuring a live interactive demo playground. We structured the content around enterprise buying triggers — security certifications, API latency benchmarks, and verifiable deployment case studies.',
+        tools: ['Astro', 'TypeScript', 'Tailwind CSS', 'WebGL Canvas', 'FastAPI', 'Figma'],
+        metrics: [
+          { label: 'PageSpeed Score', value: '99/100' },
+          { label: 'Series A Closed', value: '$14M' },
+          { label: 'Time on Page', value: '+140%' },
+        ],
+      },
+    },
+    {
+      params: { slug: 'aura-living' },
+      props: {
+        title: 'Aura Living Contemporary Commerce | Studio Ravya',
+        client: 'Aura Lifestyle Group',
+        role: 'Custom E-commerce Storefront',
+        year: '2025',
+        timeline: '7 Weeks',
+        serviceTitle: 'E-commerce Websites',
+        serviceHref: '/services/ecommerce-websites',
+        heroImage: '/images/showcase-ecommerce.png',
+        headline: 'Tactile editorial shopping experience for high-craft home lifestyle products.',
+        overview: 'Aura Living crafts high-end furniture and lifestyle objects. Standard e-commerce templates failed to communicate the material craft and tactile weight of their catalog, resulting in high checkout abandonment.',
+        theProblem: 'Standard marketplace layouts forced product descriptions into tiny tabs and compressed rich photography, degrading the perceived luxury value of premium items.',
+        whatWeBuilt: 'We built a bespoke storefront focused on editorial imagery, full-bleed lookbooks, and frictionless single-step mobile checkout. Product pages were restructured as visual architectural essays explaining the provenance and materials of each item.',
+        tools: ['Custom Theme', 'Shopify Storefront API', 'Tailwind CSS', 'Responsive Imagery'],
+        metrics: [
+          { label: 'Checkout Completion', value: '+42%' },
+          { label: 'Average Order Value', value: '+$62' },
+          { label: 'Mobile Bounce Rate', value: '-34%' },
+        ],
+      },
+    },
+    {
+      params: { slug: 'monolith-protocol' },
+      props: {
+        title: 'Monolith Protocol Case Study | Studio Ravya',
+        client: 'Monolith Capital',
+        role: 'Fintech Web Application & Telemetry',
+        year: '2024',
+        timeline: '8 Weeks',
+        serviceTitle: 'Custom Web Apps & Tools',
+        serviceHref: '/services/custom-web-apps',
+        heroImage: '/images/showcase-fintech.png',
+        headline: 'Institutional-grade dark minimal fintech portal and portfolio telemetry.',
+        overview: 'Monolith Capital required an ultra-clean, real-time analytics portal where institutional partners could monitor allocation performance, liquidity pools, and capital flow with sub-second responsiveness.',
+        theProblem: 'Legacy financial web tools were cluttered, poorly responsive on tablets, and burdened by heavy client-side JavaScript that caused frequent UI freezing during volatile market data streams.',
+        whatWeBuilt: 'We engineered a dark minimalist web application using Python FastAPI on the backend with a lightning-fast TypeScript frontend. We implemented custom telemetry data tables with instant keyboard navigation and live SVG charting.',
+        tools: ['Python / FastAPI', 'TypeScript', 'Tailwind CSS', 'SQLite / PostgreSQL', 'WebSockets'],
+        metrics: [
+          { label: 'Weekly Hours Saved', value: '14 hrs' },
+          { label: 'Interface Latency', value: '< 45ms' },
+          { label: 'User Satisfaction', value: '100%' },
+        ],
+      },
+    },
+    {
+      params: { slug: 'lumina-architecture' },
+      props: {
+        title: 'Lumina Architecture Case Study | Studio Ravya',
+        client: 'Lumina Spatial Studio',
+        role: 'Digital Monograph & Visual System',
+        year: '2024',
+        timeline: '4 Weeks',
+        serviceTitle: 'Brand & Web Identity',
+        serviceHref: '/services/brand-and-web-identity',
+        heroImage: '/images/showcase-luxury-flagship.png',
+        headline: 'An architectural digital monograph designed with Swiss precision and solar warmth.',
+        overview: 'Lumina needed a digital portfolio that could stand alongside physical architectural publications when pitching $5M+ commercial construction projects.',
+        theProblem: 'Their existing portfolio was hosted on a slow, generic template that broke on high-DPI displays and failed to convey their minimalist design philosophy.',
+        whatWeBuilt: 'We defined a complete brand design system rooted in classical serif headlines, generous negative space, and razor-sharp golden keylines. The site showcases architectural photography with zero visual distraction.',
+        tools: ['Astro', 'Newsreader Typography', 'Tailwind CSS', 'Design System'],
+        metrics: [
+          { label: 'Commercial Deals', value: '3 Signed' },
+          { label: 'PageSpeed Score', value: '99/100' },
+          { label: 'Client Feedback', value: 'Flagship' },
+        ],
+      },
+    },
+    {
+      params: { slug: 'kinetix-launch' },
+      props: {
+        title: 'Kinetix Labs Launch Campaign | Studio Ravya',
+        client: 'Kinetix BioSciences',
+        role: 'High-Velocity Launch Site',
+        year: '2024',
+        timeline: '3 Weeks',
+        serviceTitle: 'Landing Pages & Campaigns',
+        serviceHref: '/services/landing-pages',
+        heroImage: '/images/studio-workspace.png',
+        headline: 'Conversion-engineered launch funnel capturing 8,500+ waitlist subscribers.',
+        overview: 'Kinetix required a focused, high-conversion landing page to announce their research platform and build an audience of enterprise lab partners before their closed beta.',
+        theProblem: 'With only three weeks until their industry conference announcement, they needed rapid delivery without sacrificing visual pedigree or CRM integration accuracy.',
+        whatWeBuilt: 'We designed, wrote, and deployed a focused single-page landing site with live countdown, interactive research summaries, and direct CRM sync. The page achieved a 22.4% conversion rate.',
+        tools: ['Astro', 'Tailwind CSS', 'Webhook Sync', 'Analytics Pipelines'],
+        metrics: [
+          { label: 'Waitlist Inquiries', value: '8,500+' },
+          { label: 'Conversion Rate', value: '22.4%' },
+          { label: 'Time to Ship', value: '18 Days' },
+        ],
+      },
+    },
+  ];
+}
+
+const {
+  title,
+  client,
+  role,
+  year,
+  timeline,
+  serviceTitle,
+  serviceHref,
+  heroImage,
+  headline,
+  overview,
+  theProblem,
+  whatWeBuilt,
+  tools,
+  metrics,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={overview}>
+  <!-- Hero Section -->
+  <section class="py-16 lg:py-24 relative">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="/work" class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-primary hover:underline mb-6">
+        <span class="material-symbols-outlined text-[14px]">arrow_back</span>
+        <span>Back to All Work</span>
+      </a>
+
+      <div class="max-w-4xl mb-12">
+        <div class="flex items-center gap-3 text-xs font-mono text-outline mb-3">
+          <span class="text-primary font-bold uppercase">{client}</span>
+          <span>•</span>
+          <span>{year}</span>
+          <span>•</span>
+          <span>{timeline}</span>
+        </div>
+        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-on-surface font-normal leading-tight mb-4">
+          {headline}
+        </h1>
+        <p class="font-sans text-lg text-on-surface-variant font-light leading-relaxed max-w-3xl">
+          {overview}
+        </p>
+      </div>
+
+      <!-- Hero Showcase Image -->
+      <div class="rounded-2xl overflow-hidden aspect-[16/9] border border-primary-container/20 shadow-solar bg-surface-card">
+        <img src={heroImage} alt={headline} class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics Strip -->
+  <section class="py-12 bg-surface-container-low border-y border-primary-container/10">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+        {metrics.map((m) => (
+          <div>
+            <p class="font-serif text-4xl sm:text-5xl text-primary font-medium mb-1">{m.value}</p>
+            <p class="font-sans text-xs uppercase tracking-widest text-outline font-mono">{m.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Narrative Breakdown -->
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <!-- The Problem -->
+      <div class="space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary font-mono block">01 / The Challenge</span>
+        <h2 class="font-serif text-3xl text-on-surface font-normal">What was holding the client back</h2>
+        <p class="font-sans text-base sm:text-lg text-on-surface-variant leading-relaxed">
+          {theProblem}
+        </p>
+      </div>
+
+      <!-- What We Built -->
+      <div class="space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary font-mono block">02 / The Solution</span>
+        <h2 class="font-serif text-3xl text-on-surface font-normal">What we designed and engineered</h2>
+        <p class="font-sans text-base sm:text-lg text-on-surface-variant leading-relaxed">
+          {whatWeBuilt}
+        </p>
+      </div>
+
+      <!-- Tools & Approach -->
+      <div class="p-8 rounded-2xl bg-surface-card border border-primary-container/15 space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary font-mono block">03 / Technologies &amp; Stack</span>
+        <h3 class="font-serif text-2xl text-on-surface font-normal">Engineered for longevity and speed</h3>
+        <div class="flex flex-wrap gap-2.5 pt-2">
+          {tools.map((t) => (
+            <span class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface-elevated text-primary border border-primary-container/20">
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Related Service CTA Box -->
+      <div class="p-8 rounded-2xl bg-surface-container-lowest border border-primary-container/25 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <span class="text-xs text-outline font-mono uppercase block mb-1">Related Service</span>
+          <h4 class="font-serif text-xl text-on-surface font-normal">{serviceTitle}</h4>
+          <p class="text-xs text-on-surface-variant mt-1">Explore deliverables and scope benchmarks for this service.</p>
+        </div>
+        <a
+          href={serviceHref}
+          class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-primary-container text-charcoal font-sans text-xs font-bold uppercase tracking-wider shadow-gold-glow hover:bg-amber transition-all shrink-0"
+        >
+          <span>Explore Service</span>
+          <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-20 bg-surface-container-lowest border-t border-primary-container/10 text-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <h2 class="font-serif text-3xl sm:text-5xl text-on-surface font-normal">
+        Ready for a build of this caliber?
+      </h2>
+      <p class="font-sans text-sm sm:text-base text-on-surface-variant">
+        Tell us about your product or brand. We will provide a transparent proposal and scope.
+      </p>
+      <div class="pt-2">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center bg-primary-container text-charcoal font-sans text-sm font-bold uppercase tracking-wider rounded-lg px-8 py-4 shadow-solar hover:bg-amber transition-all"
+        >
+          Start a Project
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

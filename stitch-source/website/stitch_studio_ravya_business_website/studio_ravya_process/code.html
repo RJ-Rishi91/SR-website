@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-error":"#690005","error-container":"#93000a","surface-dim":"#17130e","tertiary-fixed-dim":"#ffb59c","surface-container":"#231f1a","on-tertiary":"#5c1900","primary-fixed":"#ffddb4","secondary":"#ffb787","tertiary-container":"#ff9d7b","on-secondary-fixed":"#311300","surface-container-high":"#2e2924","on-primary-fixed":"#291800","on-surface":"#ebe1d9","surface-container-highest":"#39342f","outline-variant":"#524534","inverse-on-surface":"#352f2b","on-surface-variant":"#d7c3ae","on-primary-fixed-variant":"#633f00","on-tertiary-container":"#832800","outline":"#9f8e7a","surface-tint":"#ffb955","on-primary-container":"#644000","surface-bright":"#3e3833","surface-container-lowest":"#110d09","background":"#17130e","surface":"#17130e","secondary-fixed-dim":"#ffb787","tertiary-fixed":"#ffdbcf","surface-variant":"#39342f","error":"#ffb4ab","on-tertiary-fixed-variant":"#822800","tertiary":"#ffc5b1","inverse-surface":"#ebe1d9","on-secondary-fixed-variant":"#723600","on-tertiary-fixed":"#390c00","secondary-fixed":"#ffdcc7","primary":"#ffc880","inverse-primary":"#835500","primary-container":"#f5a623","on-secondary-container":"#461f00","secondary-container":"#e07312","on-secondary":"#502400","surface-container-low":"#1f1b16","primary-fixed-dim":"#ffb955","on-background":"#ebe1d9","on-error-container":"#ffdad6","on-primary":"#452b00"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"4rem","gutter":"1.5rem","space-md":"1.25rem","margin":"4rem","space-xs":"0.375rem","space-lg":"2.25rem","space-sm":"0.75rem","margin-mobile":"1.25rem","gutter-mobile":"1rem"},"fontFamily":{"headline-lg-mobile":["Newsreader"],"body-sm":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-md":["Newsreader"],"label-md":["Plus Jakarta Sans"],"body-xl":["Plus Jakarta Sans"],"display-lg":["Newsreader"],"label-lg":["Plus Jakarta Sans"],"headline-sm":["Newsreader"],"display-xl":["Newsreader"],"display-lg-mobile":["Newsreader"],"body-lg":["Plus Jakarta Sans"],"headline-lg":["Newsreader"],"display-xl-mobile":["Newsreader"]},"fontSize":{"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0em","fontWeight":"500"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.12em","fontWeight":"700"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"0em","fontWeight":"500"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.08em","fontWeight":"600"}],"body-xl":["20px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-sm":["22px",{"lineHeight":"30px","letterSpacing":"0em","fontWeight":"500"}],"display-xl":["72px",{"lineHeight":"80px","letterSpacing":"-0.02em","fontWeight":"400"}],"display-lg-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"500"}],"display-xl-mobile":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface text-on-surface font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.35)]"><div class="h-20 max-w-[1380px] mx-auto px-margin-mobile lg:px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-sm"><a class="flex items-center gap-space-sm" data-path="home" href="#"><img alt="Studio Ravya Solar Glyph Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VWfj8z13BY6Raj5aKuX3DUW6Oi2zqs1FXpS0gxdpG5rFzU-KEQOyh7YpJpVRzx57VfYu__qZytDg5t4VTUAIUKrQWRBTVzwhH4H5SzOoEGOMuy18DTV4wuCYQsuHRMingjZ51X46ZLkHhkASYVuszR8Yvlmmh2GLfq-w6zsW7qFx6GBX2IyO6t17NUQDHvAdVMq9nvfmf7YYVuArUfnM0vXMHqu-LI0e-RIpH0KPMy2PtZx9hXmFIlbqA"/><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-primary">Studio Ravya</span></a></div><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-semibold"><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="services" href="#">Services</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="work" href="#">Work</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="process" href="#">Process</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="pricing" href="#">Pricing</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="blog" href="#">Blog</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a></nav><div class="flex items-center gap-space-md"><a class="inline-flex items-center justify-center bg-primary-container text-on-primary-container font-label-md text-label-md rounded-lg px-space-md py-space-sm shadow-[0_4px_16px_rgba(245,166,35,0.25)] hover:bg-secondary-container hover:text-on-secondary-container transition-all" data-path="start-a-project" href="#">Start a Project</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Hero Section with Architectural Linework & Radiant Aura -->
+<section class="relative w-full overflow-hidden bg-surface py-space-xl lg:py-24">
+<!-- Ambient Solar Radial Glow -->
+<div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[500px] rounded-full bg-gradient-to-b from-primary-container/15 via-secondary/5 to-transparent blur-3xl opacity-70"></div>
+<div class="pointer-events-none absolute top-1/4 -right-48 w-96 h-96 rounded-full bg-primary/10 blur-2xl"></div>
+<div class="max-w-[1380px] mx-auto px-margin-mobile lg:px-margin relative z-10">
+<!-- Breadcrumb / Eyebrow Badge -->
+<div class="flex items-center gap-space-sm mb-space-md">
+<span class="inline-flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-widest shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          The Studio Methodology
+        </span>
+<span class="text-outline font-label-sm text-label-sm tracking-wider uppercase hidden sm:inline-block">/ Architectural Rigor</span>
+</div>
+<!-- Main Headline & Subtitle Asymmetry -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg lg:gap-gutter items-end">
+<div class="lg:col-span-7">
+<h1 class="font-display-xl text-display-xl-mobile lg:text-display-xl text-on-surface tracking-tight leading-none">
+            How we <span class="italic font-normal text-primary">build.</span>
+</h1>
+</div>
+<div class="lg:col-span-5 pb-2">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            A disciplined, four-phase delivery cycle that eliminates guesswork, maintains absolute momentum, and guarantees production-ready software on schedule.
+          </p>
+</div>
+</div>
+<!-- Architectural Solar Divider Line -->
+<div class="relative w-full h-[1px] bg-surface-container-highest mt-space-xl mb-space-lg flex items-center justify-between">
+<span class="w-2 h-2 rotate-45 bg-primary/60 inline-block"></span>
+<span class="font-label-sm text-label-sm text-outline tracking-widest uppercase bg-surface px-space-md">Standard Studio Delivery Lifecycle • 6–8 Weeks Average</span>
+<span class="w-2 h-2 rotate-45 bg-primary/60 inline-block"></span>
+</div>
+<!-- Micro Metric Counters / Quick Facts -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md pt-space-xs">
+<div class="bg-surface-container-low p-space-md rounded-lg shadow-sm">
+<span class="block font-label-sm text-label-sm text-outline uppercase tracking-wider mb-1">Pacing</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">6–8 Weeks</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant mt-0.5">Kickoff to Production</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg shadow-sm">
+<span class="block font-label-sm text-label-sm text-outline uppercase tracking-wider mb-1">Accountability</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">100% Senior</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant mt-0.5">Zero Junior Delegation</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg shadow-sm">
+<span class="block font-label-sm text-label-sm text-outline uppercase tracking-wider mb-1">Standard</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">99+ Google CWV</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant mt-0.5">Performance Guarantee</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg shadow-sm">
+<span class="block font-label-sm text-label-sm text-outline uppercase tracking-wider mb-1">Ownership</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-semibold">Total Transfer</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant mt-0.5">Zero Proprietary Locks</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Principles Bar (Three Core Commitments) -->
+<section class="w-full bg-surface-container-lowest py-space-xl relative">
+<div class="max-w-[1380px] mx-auto px-margin-mobile lg:px-margin">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest block mb-1">Foundational Guarantees</span>
+<h2 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface">The Three Commitments</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          How we safeguard your capital, timeline, and engineering integrity through unwavering constraints.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md lg:gap-space-lg">
+<!-- Commitment 01 -->
+<div class="relative bg-surface-container p-space-lg rounded-xl shadow-md flex flex-col justify-between overflow-hidden group hover:bg-surface-container-high transition-colors">
+<div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-primary/5 blur-xl group-hover:bg-primary/10 transition-colors"></div>
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-display-lg text-headline-lg text-outline-variant font-light group-hover:text-primary transition-colors">01</span>
+<span class="material-symbols-outlined text-primary text-2xl">schedule</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs font-semibold">Fixed Scope &amp; Timeline</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              No scope creep. No vague billing retainers. Every deliverable, checkpoint, and milestone is contractually locked before a single line of code is produced.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container-highest/30 rounded px-space-sm py-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">Guarantee</span>
+<p class="font-body-sm text-body-sm text-on-surface">Late launches incur daily contractual credits back to your ledger.</p>
+</div>
+</div>
+<!-- Commitment 02 -->
+<div class="relative bg-surface-container p-space-lg rounded-xl shadow-md flex flex-col justify-between overflow-hidden group hover:bg-surface-container-high transition-colors">
+<div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-primary-container/5 blur-xl group-hover:bg-primary-container/10 transition-colors"></div>
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-display-lg text-headline-lg text-outline-variant font-light group-hover:text-primary transition-colors">02</span>
+<span class="material-symbols-outlined text-primary text-2xl">group_work</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs font-semibold">Direct Senior Access</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              You will never be routed through account handlers or intermediate project managers. You work shoulder-to-shoulder with our principal system designers and staff engineers.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container-highest/30 rounded px-space-sm py-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">Channel</span>
+<p class="font-body-sm text-body-sm text-on-surface">Direct private Slack channel with sub-4hr partner SLA.</p>
+</div>
+</div>
+<!-- Commitment 03 -->
+<div class="relative bg-surface-container p-space-lg rounded-xl shadow-md flex flex-col justify-between overflow-hidden group hover:bg-surface-container-high transition-colors">
+<div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-secondary-container/5 blur-xl group-hover:bg-secondary-container/10 transition-colors"></div>
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-display-lg text-headline-lg text-outline-variant font-light group-hover:text-primary transition-colors">03</span>
+<span class="material-symbols-outlined text-primary text-2xl">verified_user</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs font-semibold">Code You Truly Own</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Zero vendor lock-in, proprietary runtime black-boxes, or licensing fees. Every Figma library, Git repository, and cloud configuration belongs completely to your company.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container-highest/30 rounded px-space-sm py-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">Deliverable</span>
+<p class="font-body-sm text-body-sm text-on-surface">Clean MIT-licensed repository transferred directly to your GitHub org.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: 5-Stage Step-by-Step Roadmap / Timeline -->
+<section class="w-full bg-surface py-space-xl lg:py-28 relative">
+<div class="max-w-[1380px] mx-auto px-margin-mobile lg:px-margin">
+<!-- Section Header -->
+<div class="flex flex-col max-w-3xl mb-space-xl">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-space-xs">The Sequential Blueprint</span>
+<h2 class="font-display-lg text-display-lg-mobile lg:text-display-lg text-on-surface mb-space-sm">
+          Precision execution across five definitive gates.
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          We treat digital production like structural architecture. Each stage establishes a concrete foundation that strictly locks before construction advances.
+        </p>
+</div>
+<!-- Roadmap Sequence List -->
+<div class="space-y-space-xl">
+<!-- PHASE 01 -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg bg-surface-container-low p-space-lg lg:p-space-xl rounded-xl shadow-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary"></div>
+<div class="lg:col-span-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Phase 01</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md text-outline">Weeks 1–2</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface font-semibold mb-space-sm">
+                Discovery &amp; Technical Mapping
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+                Deep architectural audit, user persona synthesis, content hierarchy mapping, and business metric baseline definition. We eliminate assumptions before pen touches paper.
+              </p>
+</div>
+<!-- Mini SVG Milestone Flow -->
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-2">Phase Cadence</span>
+<div class="flex items-center justify-between text-on-surface">
+<div class="flex flex-col items-center">
+<span class="w-2 h-2 rounded-full bg-primary mb-1"></span>
+<span class="font-label-sm text-label-sm text-outline">Kickoff</span>
+</div>
+<div class="h-0.5 flex-1 bg-surface-container-highest mx-2"></div>
+<div class="flex flex-col items-center">
+<span class="w-2 h-2 rounded-full bg-primary mb-1"></span>
+<span class="font-label-sm text-label-sm text-outline">Interviews</span>
+</div>
+<div class="h-0.5 flex-1 bg-surface-container-highest mx-2"></div>
+<div class="flex flex-col items-center">
+<span class="w-2 h-2 rounded-full bg-secondary mb-1"></span>
+<span class="font-label-sm text-label-sm text-outline">Approval</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Content & Deliverables Side -->
+<div class="lg:col-span-8 flex flex-col justify-between">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-md">
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl mb-1">architecture</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Architecture Blueprint</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Complete map of cloud services, CMS schema, third-party APIs, and security requirements.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl mb-1">account_tree</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Information IA Map</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Visual content layout and user trajectory models calibrated for high commercial conversion.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl mb-1">handshake</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Scope Contract</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Iron-clad specifications sheet outlining every page, modal, micro-interaction, and API endpoint.</p>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden h-52 w-full bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Dark luxury design studio moodboard with technical schematics, architectural sketches of website wireframes, warm golden lamp illumination casting long shadows on rich wood desk with brass instruments and high-end design tokens in obsidian and amber tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB84y0tuCajNbEOpous6yPfFV5F7SnTmunZRugfb4KkED_oSmfwg3uLcQm2d-NezJGayFAZZwjEFX-WCi3_sb--iJDP_kbtlnqOUW2ZqruDD8ngyhCWJKbGb6B4KpVP-ru57M5p07Zfn4ZDNeT0mTJg57C-3P_9wraAmpzGJJF4DponWxMKvB2YXoNwF8t2D8DebZBPMtNJpk8Y54gyYAnplllWEIHqDPJHgB9uvgEmpxnPmKOElRNx"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/40 to-transparent flex items-end p-space-md">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">fact_check</span> Deliverable Gate 01: Signed Specification Document
+                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- PHASE 02 -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg bg-surface-container-low p-space-lg lg:p-space-xl rounded-xl shadow-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary-container"></div>
+<div class="lg:col-span-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-bold">Phase 02</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md text-outline">Weeks 2–4</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface font-semibold mb-space-sm">
+                High-Fidelity Design &amp; Prototyping
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+                Translating brand essence into custom design tokens, responsive layout mockups, interactive Figma prototypes, and complete component design systems.
+              </p>
+</div>
+<!-- Design Fidelity Indicator -->
+<div class="bg-surface-container p-space-md rounded-lg">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Prototype Completeness</span>
+<span class="font-label-md text-label-md text-primary">Interactive 60fps</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-full h-full bg-primary-container rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Deliverables & Visual Representation -->
+<div class="lg:col-span-8 flex flex-col justify-between">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-md">
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-primary-container text-xl mb-1">palette</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Figma UI System</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Production-grade atomic Figma library with auto-layout variables, dark/light states, and asset sheets.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-primary-container text-xl mb-1">devices</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Click-Through Protos</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Full fidelity mobile and desktop interactive previews with native feel, modal animations, and menu states.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-primary-container text-xl mb-1">tune</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Design Token Spec</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Exportable JSON color, typographic scale, and spatial spacing tokens directly mapped to engineering classes.</p>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden h-52 w-full bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="High-end user interface design preview displayed on dual ultra-thin monitors in a minimalist dark concrete office with glowing amber accent backlights, showcasing polished responsive web layouts, custom typographic grids, and golden brand highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUokpi3mAJfQlKFxOyOyIeKhxe5ju2AU4NR5p3NCekE1PUeS4JbTjXtqxr9-dq6GOmIcOXlzezGk35N7M6_RfcXqQoSCoHzTTokew6UlB2z92nYjoODWF_R9f_dnuNuP7-ej7ifK0Q0hoZc6sQQonnUyUFouuGBa--vl86S_xvH0RQqyq5qwJxCLOaqhKb05Zfb4vH-tCSBx3n7IEkwnXL9bP1y4l7yyXewRawVlk32cSTgMcjphQ7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/40 to-transparent flex items-end p-space-md">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">check_circle</span> Deliverable Gate 02: 100% Client Visual Approval
+                </span>
+</div>
+</div>
+</div>
+</div>
+<!-- PHASE 03 -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg bg-surface-container-low p-space-lg lg:p-space-xl rounded-xl shadow-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-secondary-container"></div>
+<div class="lg:col-span-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container font-bold">Phase 03</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md text-outline">Weeks 4–6</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface font-semibold mb-space-sm">
+                Engineering &amp; Performance
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+                Semantic HTML5, modern Tailwind CSS, Next.js/Headless CMS integration, cross-device QA, and strict 100 Core Web Vitals tuning.
+              </p>
+</div>
+<!-- Lighthouse Target Inline Graphic -->
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-2">Vitals Target</span>
+<div class="grid grid-cols-4 gap-2 text-center">
+<div class="bg-surface-container-highest p-1.5 rounded">
+<span class="text-primary font-bold text-sm">100</span>
+<span class="block text-[10px] text-outline uppercase">Perf</span>
+</div>
+<div class="bg-surface-container-highest p-1.5 rounded">
+<span class="text-primary font-bold text-sm">100</span>
+<span class="block text-[10px] text-outline uppercase">A11y</span>
+</div>
+<div class="bg-surface-container-highest p-1.5 rounded">
+<span class="text-primary font-bold text-sm">100</span>
+<span class="block text-[10px] text-outline uppercase">SEO</span>
+</div>
+<div class="bg-surface-container-highest p-1.5 rounded">
+<span class="text-primary font-bold text-sm">100</span>
+<span class="block text-[10px] text-outline uppercase">B.P.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Deliverables -->
+<div class="lg:col-span-8 flex flex-col justify-between">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-md">
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-secondary-container text-xl mb-1">terminal</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Clean Git Repository</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Strictly organized TypeScript, React, or modern server components with zero dead dependencies.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-secondary-container text-xl mb-1">database</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Headless CMS Setup</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Custom visual publishing environment configured so your marketing team can edit content safely.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-secondary-container text-xl mb-1">preview</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Staging Preview</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live password-protected URL with automated CI/CD branch deployments for real-time validation.</p>
+</div>
+</div>
+<!-- Terminal / Code Preview Block -->
+<div class="rounded-lg bg-surface-container-lowest p-space-md font-mono text-body-sm text-on-surface-variant flex flex-col justify-between">
+<div class="flex items-center justify-between pb-2 mb-2 border-b border-surface-container-highest">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-error-container"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="text-xs text-outline ml-2">build-pipeline • node 20.x • edge-network</span>
+</div>
+<span class="text-xs text-primary font-semibold">Ready for Staging</span>
+</div>
+<p class="text-on-surface text-xs leading-relaxed">
+<span class="text-primary">&gt; ravya-core</span> compiling dynamic route tree: 18 static pages, 4 headless endpoints.<br/>
+<span class="text-secondary">&gt; optimization</span> assets compressed with WebP/AVIF, Core Web Vitals score: 99.8/100.<br/>
+<span class="text-outline">&gt; test-suite</span> 142 visual regression tests passed across Chrome, Safari iOS, and Android.
+              </p>
+</div>
+</div>
+</div>
+<!-- PHASE 04 -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg bg-surface-container-low p-space-lg lg:p-space-xl rounded-xl shadow-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-secondary"></div>
+<div class="lg:col-span-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">Phase 04</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md text-outline">Week 6</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface font-semibold mb-space-sm">
+                Flight &amp; Production Deployment
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+                Zero-downtime domain cutover, global CDN caching verification, SEO metadata validation, and automated analytics telemetry instrumentation.
+              </p>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-1">Launch Protocol</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">cloud_sync</span>
+                Zero-Downtime DNS Propagation
+              </span>
+</div>
+</div>
+<div class="lg:col-span-8 flex flex-col justify-between">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-md">
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-secondary text-xl mb-1">rocket_launch</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Production Release</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live production switchover on Vercel/Cloudflare Edge with automated rollback fallbacks.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-secondary text-xl mb-1">dns</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">DNS &amp; SSL Routing</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Full TXT, CNAME, CAA records verification, automated wildcard TLS certificate renewals.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-secondary text-xl mb-1">insights</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Telemetry Pipeline</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cookieless analytics, GA4 conversions, and PostHog funnels mapped directly to your dashboards.</p>
+</div>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">network_check</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Flight Checklist Execution</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">38-point pre-launch validation signed off by engineering lead.</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest bg-surface-container-highest px-3 py-1 rounded">Live Cutover</span>
+</div>
+</div>
+</div>
+<!-- PHASE 05 -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg bg-surface-container-low p-space-lg lg:p-space-xl rounded-xl shadow-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary"></div>
+<div class="lg:col-span-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Phase 05</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="font-label-md text-label-md text-outline">Post-Launch</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg text-on-surface font-semibold mb-space-sm">
+                30-Day White-Glove Support
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
+                Dedicated priority Slack channel, custom video training library, comprehensive bug-fix warranty, and 30-day telemetry evaluation.
+              </p>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-1">Post-Launch SLA</span>
+<span class="font-label-md text-label-md text-primary font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">support_agent</span>
+                Sub-2 Hour Priority Response Window
+              </span>
+</div>
+</div>
+<div class="lg:col-span-8 flex flex-col justify-between">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-md">
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl mb-1">video_library</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Video Library</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Custom asynchronous video documentation teaching your team how to update copy, media, and blog posts.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl mb-1">shield</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">30-Day Warranty</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Any unforeseen bug, visual rendering defect, or edge-case glitch is fixed instantly at zero cost.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl mb-1">query_stats</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">Performance Audit</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Comprehensive 30-day post-launch review measuring real-world traffic, conversion rates, and bounce stats.</p>
+</div>
+</div>
+<div class="bg-surface-container p-space-md rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Ongoing Slack Standby</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Direct chat line remains active with your lead engineers for one full month.</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">No Ticket Queues</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: What We Need From You (Expectations & Collaboration Checklist) -->
+<section class="w-full bg-surface-container-lowest py-space-xl lg:py-24 relative">
+<div class="max-w-[1380px] mx-auto px-margin-mobile lg:px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Left Column: Context -->
+<div class="lg:col-span-5">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest block mb-space-xs">Mutual Accountability</span>
+<h2 class="font-display-lg text-display-lg-mobile lg:text-display-lg text-on-surface mb-space-md leading-tight">
+            What we need from you.
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-space-lg leading-relaxed">
+            Flawless execution requires two aligned forces. We operate at uncompromising velocity, and we ask our client partners to provide the specific inputs required to preserve our delivery dates.
+          </p>
+<div class="bg-surface-container p-space-lg rounded-xl shadow-md">
+<div class="flex items-center gap-space-sm mb-space-sm">
+<span class="material-symbols-outlined text-primary text-2xl">bolt</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">The 48-Hour Velocity Rule</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              When design gates or staging deployments are presented, client feedback loops must resolve within two business days. This guarantees momentum remains unbroken and launch dates stay fixed.
+            </p>
+</div>
+</div>
+<!-- Right Column: The 3 Operational Checklist Cards -->
+<div class="lg:col-span-7 space-y-space-md">
+<!-- Item 1 -->
+<div class="bg-surface-container p-space-lg rounded-xl shadow-md flex flex-col sm:flex-row items-start gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-2xl">folder_zip</span>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Content &amp; Brand Assets</h4>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider bg-surface-container-highest px-2 py-0.5 rounded">Phase 01</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-sm">
+                High-resolution vector logos (.SVG), original photography or media libraries, typography licenses, and approved copy drafts must be provided prior to Phase 02 design kickoff.
+              </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-xs bg-surface-container-lowest text-on-surface-variant px-2.5 py-1 rounded">Vector Brand Marks</span>
+<span class="text-xs bg-surface-container-lowest text-on-surface-variant px-2.5 py-1 rounded">Media Assets</span>
+<span class="text-xs bg-surface-container-lowest text-on-surface-variant px-2.5 py-1 rounded">Core Product Copy</span>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container p-space-lg rounded-xl shadow-md flex flex-col sm:flex-row items-start gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-2xl">person_pin</span>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Designated Decision-Maker</h4>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider bg-surface-container-highest px-2 py-0.5 rounded">Continuous</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-sm">
+                A single point of contact empowered to give definitive approvals, resolve stakeholder conflicting opinions internally, and sign off on technical gates within 48 hours.
+              </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-xs bg-surface-container-lowest text-on-surface-variant px-2.5 py-1 rounded">Single Lead Authority</span>
+<span class="text-xs bg-surface-container-lowest text-on-surface-variant px-2.5 py-1 rounded">Unified Feedback</span>
+<span class="text-xs bg-surface-container-lowest text-on-surface-variant px-2.5 py-1 rounded">48-Hr Approvals</span>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container p-space-lg rounded-xl shadow-md flex flex-col sm:flex-row items-start gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-2xl">key</span>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Access &amp; Cloud Credentials</h4>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider bg-surface-container-highest px-2 py-0.5 rounded">Phase 01 / 03</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-sm">
+                Upfront access to DNS registrars (Cloudflare, GoDaddy, Route53), existing production repositories, Stripe/payment APIs, and team communication channels via 1Password vault.
+              </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-xs bg-surface-container-lowest text-on-surface-variant px-2.5 py-1 rounded">DNS Management</span>
+<span class="text-xs bg-surface-container-lowest text-on-surface-variant px-2.5 py-1 rounded">Payment Gateways</span>
+<span class="text-xs bg-surface-container-lowest text-on-surface-variant px-2.5 py-1 rounded">1Password Shared Vault</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Closing CTA Band with Radial Solar Glow -->
+<section class="relative w-full bg-surface py-space-xl lg:py-28 overflow-hidden">
+<!-- Concentrated Solar Glow Core -->
+<div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-gradient-to-r from-primary-container/20 via-primary/15 to-secondary/10 blur-3xl opacity-80"></div>
+<div class="max-w-[1380px] mx-auto px-margin-mobile lg:px-margin relative z-10 text-center">
+<!-- Status Badge -->
+<div class="inline-flex items-center gap-2 px-space-md py-1.5 rounded-full bg-surface-container text-on-surface mb-space-md shadow-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold">Intake Active</span>
+<span class="text-outline font-body-sm text-body-sm">• Accepting 2 flagship projects for Q3/Q4</span>
+</div>
+<!-- Headline & Subtitle -->
+<h2 class="font-display-xl text-display-xl-mobile lg:text-display-xl text-on-surface mb-space-sm tracking-tight max-w-4xl mx-auto">
+        Ready to start <span class="italic text-primary font-normal">your build?</span>
+</h2>
+<p class="font-body-xl text-body-xl text-on-surface-variant max-w-2xl mx-auto mb-space-xl leading-relaxed">
+        Let’s map your technical scope, lock the timeline, and deliver a digital artifact that stands leagues above your market.
+      </p>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-space-md">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary-container font-label-lg text-label-lg px-space-lg py-space-md rounded-lg shadow-xl hover:bg-secondary-container hover:text-on-secondary-container transition-all" data-path="start-a-project" href="#">
+<span>Start a Project</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-surface-container-high text-on-surface font-label-lg text-label-lg px-space-lg py-space-md rounded-lg hover:bg-surface-container-highest transition-all shadow-sm" data-path="pricing" href="#">
+<span>Review Our Pricing</span>
+<span class="material-symbols-outlined text-lg">arrow_outward</span>
+</a>
+</div>
+<!-- Guarantee Footer Strip -->
+<div class="mt-space-xl pt-space-lg flex flex-wrap items-center justify-center gap-x-space-xl gap-y-space-sm text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-base">verified</span> Fixed price contracts</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-base">verified</span> 100% IP transfer</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-base">verified</span> 30-day post-launch warranty</span>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-lowest text-on-surface-variant shadow-[0_-1px_0_rgba(245,166,35,0.14)]"><div class="max-w-[1380px] mx-auto px-margin-mobile lg:px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl"><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><img alt="Studio Ravya Solar Glyph Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VWfj8z13BY6Raj5aKuX3DUW6Oi2zqs1FXpS0gxdpG5rFzU-KEQOyh7YpJpVRzx57VfYu__qZytDg5t4VTUAIUKrQWRBTVzwhH4H5SzOoEGOMuy18DTV4wuCYQsuHRMingjZ51X46ZLkHhkASYVuszR8Yvlmmh2GLfq-w6zsW7qFx6GBX2IyO6t17NUQDHvAdVMq9nvfmf7YYVuArUfnM0vXMHqu-LI0e-RIpH0KPMy2PtZx9hXmFIlbqA"/><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-primary">Studio Ravya</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Websites and digital products built to grow your business.</p><p class="font-body-sm text-body-sm text-outline mt-auto">© 2024 Studio Ravya. All rights reserved.</p></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md uppercase tracking-wider text-on-surface mb-space-xs">Services</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="services" href="#">Website Design &amp; Development</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="services" href="#">Landing Pages</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="services" href="#">E-commerce</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="services" href="#">Brand &amp; Web Identity</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="services" href="#">Custom Web Apps</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md uppercase tracking-wider text-on-surface mb-space-xs">Work &amp; Insights</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="work" href="#">Case Studies</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="work" href="#">Work Hub</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="process" href="#">Process</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="pricing" href="#">Pricing</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="blog" href="#">Blog</a></div><div class="flex flex-col gap-space-sm"><span class="font-label-md text-label-md uppercase tracking-wider text-on-surface mb-space-xs">Connect &amp; Legal</span><a class="font-body-sm text-body-sm text-primary hover:underline" href="mailto:contact@studioravya.com">contact@studioravya.com</a><span class="font-body-sm text-body-sm text-on-surface-variant">San Francisco &amp; London</span><div class="flex gap-space-md py-space-xs"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Twitter / X</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">LinkedIn</a></div><div class="flex gap-space-md pt-space-xs"><a class="font-body-sm text-body-sm text-outline hover:text-on-surface transition-colors" data-path="privacy-policy" href="#">Privacy</a><a class="font-body-sm text-body-sm text-outline hover:text-on-surface transition-colors" data-path="terms-of-service" href="#">Terms</a></div></div></div></div></footer></body></html>

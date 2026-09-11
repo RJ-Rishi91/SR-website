@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-secondary-fixed":"#311300","surface-container-low":"#1f1b16","on-tertiary-container":"#832800","surface-dim":"#17130e","surface":"#17130e","on-primary-fixed":"#291800","surface-container-highest":"#39342f","surface-container-lowest":"#110d09","on-secondary-container":"#461f00","on-tertiary":"#5c1900","on-error":"#690005","on-surface":"#ebe1d9","primary-container":"#f5a623","tertiary-fixed":"#ffdbcf","surface-bright":"#3e3833","surface-container-high":"#2e2924","inverse-surface":"#ebe1d9","secondary-fixed":"#ffdcc7","on-tertiary-fixed-variant":"#822800","surface-container":"#231f1a","primary-fixed-dim":"#ffb955","error":"#ffb4ab","secondary":"#ffb787","primary":"#ffc880","on-error-container":"#ffdad6","on-tertiary-fixed":"#390c00","on-secondary":"#502400","inverse-on-surface":"#352f2b","background":"#17130e","outline-variant":"#524534","tertiary":"#ffc5b1","tertiary-fixed-dim":"#ffb59c","secondary-fixed-dim":"#ffb787","on-surface-variant":"#d7c3ae","surface-tint":"#ffb955","on-primary-container":"#644000","on-primary":"#452b00","error-container":"#93000a","secondary-container":"#e07312","on-background":"#ebe1d9","surface-variant":"#39342f","on-secondary-fixed-variant":"#723600","tertiary-container":"#ff9d7b","primary-fixed":"#ffddb4","on-primary-fixed-variant":"#633f00","outline":"#9f8e7a","inverse-primary":"#835500"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.375rem","space-xl":"4rem","gutter-mobile":"1rem","space-lg":"2.25rem","gutter":"1.5rem","margin-mobile":"1.25rem","margin":"4rem","space-md":"1.25rem","space-sm":"0.75rem"},"fontFamily":{"display-lg":["Newsreader"],"label-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Newsreader"],"display-xl":["Newsreader"],"headline-md":["Newsreader"],"label-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Newsreader"],"headline-sm":["Newsreader"],"body-lg":["Plus Jakarta Sans"],"headline-lg":["Newsreader"],"body-xl":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-xl-mobile":["Newsreader"]},"fontSize":{"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.04em","fontWeight":"600"}],"display-lg-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"400"}],"display-xl":["72px",{"lineHeight":"80px","letterSpacing":"-0.02em","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"0em","fontWeight":"500"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.08em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0em","fontWeight":"500"}],"headline-sm":["22px",{"lineHeight":"30px","letterSpacing":"0em","fontWeight":"500"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"500"}],"body-xl":["20px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.12em","fontWeight":"700"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"display-xl-mobile":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-[1380px] mx-auto px-margin-mobile lg:px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #f5a623
+- Font: newsreader
+- Mode: dark
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VWfj8z13BY6Raj5aKuX3DUW6Oi2zqs1FXpS0gxdpG5rFzU-KEQOyh7YpJpVRzx57VfYu__qZytDg5t4VTUAIUKrQWRBTVzwhH4H5SzOoEGOMuy18DTV4wuCYQsuHRMingjZ51X46ZLkHhkASYVuszR8Yvlmmh2GLfq-w6zsW7qFx6GBX2IyO6t17NUQDHvAdVMq9nvfmf7YYVuArUfnM0vXMHqu-LI0e-RIpH0KPMy2PtZx9hXmFIlbqA"/><div class="flex flex-col"><span class="font-label-md text-label-md tracking-wider text-on-surface uppercase">Studio Ravya</span><span class="font-label-sm text-label-sm text-primary tracking-widest uppercase">CMS Internal</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 bg-surface-container-lowest rounded-lg" data-active-classes="bg-surface-container-high text-primary font-semibold"><a class="px-space-sm py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="posts" href="#">Posts</a><a class="px-space-sm py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="calendar" href="#">Calendar</a><a aria-current="page" class="px-space-sm py-1.5 rounded-md transition-all bg-surface-container-high text-primary font-semibold" data-path="settings" href="#">Settings</a></nav></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span><span>Production v2.4</span></div><div class="hidden xl:flex items-center gap-space-xs"><span class="font-body-sm text-body-sm text-on-surface-variant">Admin Session</span></div><a class="px-space-sm py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-secondary-container hover:text-on-secondary transition-all" data-path="login" href="#">Log Out</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 flex-1 bg-surface"><div class="max-w-[1380px] mx-auto px-margin-mobile lg:px-margin py-space-lg"><div class="flex flex-col w-full relative">
+<div class="relative mb-space-xl flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col max-w-2xl">
+<div class="flex items-center gap-space-xs mb-space-xs text-primary">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim">Engine Configuration</span>
+<span class="text-outline-variant text-[11px] font-mono">/ ROOT // LEVEL_0</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Settings</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Configure global CMS metadata, editorial taxonomies, and high-trust edge infrastructure.</p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto bg-surface-container-lowest px-space-md py-space-xs rounded-lg shadow-sm">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider font-semibold">Edge Mesh: Synchronized</span>
+</div>
+<span class="text-outline-variant">·</span>
+<span class="font-mono text-body-sm text-on-surface-variant">v2.4.1-prod</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<div class="lg:col-span-3 sticky top-24 z-20">
+<div class="bg-surface-container-low rounded-xl p-space-sm shadow-md flex flex-col gap-1">
+<div class="px-space-sm py-space-xs flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm tracking-widest uppercase">Registry</span>
+<span class="font-mono text-[10px] text-on-surface-variant">INDEX</span>
+</div>
+<button class="nav-btn w-full flex items-center justify-between px-space-sm py-2.5 rounded-lg text-left font-label-md text-label-md transition-all bg-surface-container text-primary shadow-sm" data-target="sec-general" onclick="scrollToSection('sec-general')">
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">domain</span>
+<span>General Settings</span>
+</span>
+<span class="font-mono text-[11px] opacity-60">01</span>
+</button>
+<button class="nav-btn w-full flex items-center justify-between px-space-sm py-2.5 rounded-lg text-left font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-target="sec-taxonomy" onclick="scrollToSection('sec-taxonomy')">
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">category</span>
+<span>Content &amp; Taxonomy</span>
+</span>
+<span class="font-mono text-[11px] opacity-60">02</span>
+</button>
+<button class="nav-btn w-full flex items-center justify-between px-space-sm py-2.5 rounded-lg text-left font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-target="sec-security" onclick="scrollToSection('sec-security')">
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">security</span>
+<span>Admin &amp; Credentials</span>
+</span>
+<span class="font-mono text-[11px] opacity-60">03</span>
+</button>
+<button class="nav-btn w-full flex items-center justify-between px-space-sm py-2.5 rounded-lg text-left font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-target="sec-system" onclick="scrollToSection('sec-system')">
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">hub</span>
+<span>System &amp; Edge Sync</span>
+</span>
+<span class="font-mono text-[11px] opacity-60">04</span>
+</button>
+<div class="mt-space-md p-space-sm bg-surface-container-lowest rounded-lg shadow-inner flex flex-col gap-2">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm tracking-wider uppercase text-[10px]">Active Vault Session</span>
+<span class="material-symbols-outlined text-[14px] text-primary">verified_user</span>
+</div>
+<div class="font-mono text-[11px] text-on-surface truncate">admin@studioravya.com</div>
+<div class="flex items-center justify-between text-[11px] text-on-surface-variant font-mono">
+<span>Auth Latency</span>
+<span class="text-primary font-semibold">14ms (TLS 1.3)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-9 flex flex-col gap-space-xl">
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-lg relative overflow-hidden" id="sec-general">
+<div class="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-primary-container/10 via-transparent to-transparent pointer-events-none rounded-bl-full"></div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pb-space-md">
+<div>
+<div class="flex items-center gap-space-xs font-mono text-[11px] text-primary tracking-wider uppercase mb-1">
+<span>Section 01</span>
+<span>//</span>
+<span>Core Identity</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">General Settings</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider bg-surface-container px-space-sm py-1 rounded-full w-fit">Engine Sync v2</span>
+</div>
+<form class="flex flex-col gap-space-md mt-space-sm" onsubmit="event.preventDefault(); notifySave('General settings deployed successfully.');">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase flex items-center justify-between">
+<span>Studio Identity Name</span>
+<span class="text-outline text-[10px] font-mono">REQUIRED</span>
+</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px]">badge</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md pl-10 pr-3 py-2.5 rounded-lg shadow-inner focus:outline-none focus:bg-surface-container-high transition-all" type="text" value="Studio Ravya"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase flex items-center justify-between">
+<span>Site Baseline URL</span>
+<span class="text-outline text-[10px] font-mono">CANONICAL ORIGIN</span>
+</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px]">link</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-mono text-body-md pl-10 pr-3 py-2.5 rounded-lg shadow-inner focus:outline-none focus:bg-surface-container-high transition-all" type="url" value="https://studioravya.com"/>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">
+                Primary Timezone
+              </label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px]">schedule</span>
+<select class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md pl-10 pr-8 py-2.5 rounded-lg shadow-inner focus:outline-none appearance-none cursor-pointer">
+<option selected="" value="America/Los_Angeles">America/Los_Angeles (PST / UTC-8)</option>
+<option value="America/New_York">America/New_York (EST / UTC-5)</option>
+<option value="Europe/London">Europe/London (GMT / UTC+0)</option>
+<option value="Asia/Tokyo">Asia/Tokyo (JST / UTC+9)</option>
+</select>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">
+                Content Language
+              </label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px]">translate</span>
+<select class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md pl-10 pr-8 py-2.5 rounded-lg shadow-inner focus:outline-none appearance-none cursor-pointer">
+<option selected="" value="en-US">English (US)</option>
+<option value="en-GB">English (UK)</option>
+<option value="fr-FR">Français</option>
+<option value="de-DE">Deutsch</option>
+</select>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<div class="pt-space-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<span class="font-body-sm text-body-sm text-outline">Modifications update edge metadata in active CDN worker layer.</span>
+<button class="px-space-md py-2.5 bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-md hover:bg-primary-fixed-dim transition-all flex items-center gap-space-xs font-semibold" type="submit">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Save General Settings</span>
+</button>
+</div>
+</form>
+</section>
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-lg relative" id="sec-taxonomy">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pb-space-md">
+<div>
+<div class="flex items-center gap-space-xs font-mono text-[11px] text-primary tracking-wider uppercase mb-1">
+<span>Section 02</span>
+<span>//</span>
+<span>Taxonomic Graph</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Content &amp; Taxonomy</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider bg-surface-container px-space-sm py-1 rounded-full w-fit">Editorial Logic</span>
+</div>
+<div class="flex flex-col gap-space-md mt-space-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Default Post Status</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px]">edit_note</span>
+<select class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md pl-10 pr-8 py-2.5 rounded-lg shadow-inner focus:outline-none appearance-none cursor-pointer">
+<option selected="" value="Draft">Draft (Requires editorial signoff)</option>
+<option value="In Review">In Review (Sent to Studio lead)</option>
+<option value="Published">Published immediately to CDN</option>
+<option value="Archived">Archived repository mode</option>
+</select>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Default Content Author</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px]">person</span>
+<select class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md pl-10 pr-8 py-2.5 rounded-lg shadow-inner focus:outline-none appearance-none cursor-pointer">
+<option selected="" value="aris">Aris Thorne — Principal Systems &amp; Typography</option>
+<option value="elena">Elena Vance — Architectural Lead</option>
+<option value="ravya-collective">Studio Ravya Editorial Collective</option>
+<option value="dev">Systems Autonomous Pipeline</option>
+</select>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container rounded-xl p-space-md shadow-inner flex flex-col gap-space-sm mt-space-xs">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<span class="font-label-md text-label-md text-on-surface block font-semibold">Available Editorial Categories</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Taxonomies applied to portfolio entries, technical monographs, and case studies.</span>
+</div>
+<span class="font-mono text-body-sm text-primary" id="cat-count">6 Active Nodes</span>
+</div>
+<div class="flex flex-wrap gap-2.5 py-space-xs" id="category-container">
+<span class="category-chip inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm shadow-sm transition-all hover:bg-surface-bright group">
+<span>Headless Engineering</span>
+<button aria-label="Remove category" class="hover:text-error transition-colors flex items-center" onclick="removeCategory(this)" type="button">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</span>
+<span class="category-chip inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm shadow-sm transition-all hover:bg-surface-bright group">
+<span>Design &amp; Typography</span>
+<button aria-label="Remove category" class="hover:text-error transition-colors flex items-center" onclick="removeCategory(this)" type="button">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</span>
+<span class="category-chip inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm shadow-sm transition-all hover:bg-surface-bright group">
+<span>Motion &amp; UX Craft</span>
+<button aria-label="Remove category" class="hover:text-error transition-colors flex items-center" onclick="removeCategory(this)" type="button">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</span>
+<span class="category-chip inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm shadow-sm transition-all hover:bg-surface-bright group">
+<span>Planning &amp; Scoping</span>
+<button aria-label="Remove category" class="hover:text-error transition-colors flex items-center" onclick="removeCategory(this)" type="button">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</span>
+<span class="category-chip inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm shadow-sm transition-all hover:bg-surface-bright group">
+<span>Commerce &amp; Architecture</span>
+<button aria-label="Remove category" class="hover:text-error transition-colors flex items-center" onclick="removeCategory(this)" type="button">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</span>
+<span class="category-chip inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm shadow-sm transition-all hover:bg-surface-bright group">
+<span>Philosophy &amp; Governance</span>
+<button aria-label="Remove category" class="hover:text-error transition-colors flex items-center" onclick="removeCategory(this)" type="button">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</span>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-space-xs pt-space-xs">
+<div class="relative flex-1 w-full">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px]">add_circle</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md pl-10 pr-3 py-2 rounded-lg shadow-inner focus:outline-none focus:bg-surface-container-high transition-all" id="new-cat-input" onkeydown="if(event.key==='Enter'){event.preventDefault(); addCategory();}" placeholder="Enter new taxonomy category (e.g. Spatial Interfaces)..." type="text"/>
+</div>
+<button class="w-full sm:w-auto px-space-md py-2 bg-surface-container-highest text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-bright transition-all flex items-center justify-center gap-1.5 shadow-sm" onclick="addCategory()" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">add</span>
+<span>Add Category</span>
+</button>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-end">
+<button class="px-space-md py-2.5 bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-md hover:bg-primary-fixed-dim transition-all flex items-center gap-space-xs font-semibold" onclick="notifySave('Taxonomies and routing tables updated.')" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Update Categories</span>
+</button>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-lg relative overflow-hidden" id="sec-security">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pb-space-md">
+<div>
+<div class="flex items-center gap-space-xs font-mono text-[11px] text-primary tracking-wider uppercase mb-1">
+<span>Section 03</span>
+<span>//</span>
+<span>Cryptographic Access</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Admin Account &amp; Security</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider bg-surface-container px-space-sm py-1 rounded-full w-fit flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+            Master Vault
+          </span>
+</div>
+<form class="flex flex-col gap-space-md mt-space-sm" onsubmit="event.preventDefault(); notifySave('Master Key updated. Please re-authenticate on secondary devices.');">
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">shield_person</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase">Master Seat Principal</span>
+<span class="font-mono text-body-lg text-on-surface font-semibold">admin@studioravya.com</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Non-delegable root seat with direct Vercel Edge IAM privileges.</span>
+</div>
+</div>
+<span class="px-space-sm py-1 bg-surface-container-lowest text-outline-variant font-mono text-label-sm rounded-md uppercase tracking-wider shadow-inner self-start md:self-auto">
+              Read-Only Identifier
+            </span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-semibold">Rotate Master Cryptographic Key</span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Current Password</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px]">key</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-mono text-body-md pl-10 pr-3 py-2.5 rounded-lg shadow-inner focus:outline-none focus:bg-surface-container-high transition-all" placeholder="••••••••••••••••" type="password"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">New Master Key</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px]">lock_reset</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-mono text-body-md pl-10 pr-3 py-2.5 rounded-lg shadow-inner focus:outline-none focus:bg-surface-container-high transition-all" placeholder="Min. 24 characters..." type="password"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Confirm Master Key</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[18px]">task_alt</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-mono text-body-md pl-10 pr-3 py-2.5 rounded-lg shadow-inner focus:outline-none focus:bg-surface-container-high transition-all" placeholder="Re-enter key..." type="password"/>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Session Lifetime &amp; Hardening</label>
+<div class="flex items-center gap-space-sm bg-surface-container p-space-sm rounded-lg shadow-inner">
+<span class="material-symbols-outlined text-primary text-[20px]">cookie</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">7 Days (Hardware-bound cookie)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Rotates entropy token every 24h via Edge Middleware</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Two-Factor Authenticator</label>
+<div class="flex items-center justify-between bg-surface-container p-space-sm rounded-lg shadow-inner">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">fingerprint</span>
+<span class="font-body-md text-body-md text-on-surface">WebAuthn / YubiKey Active</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary-container/20 text-primary font-mono text-[11px] font-semibold">ENFORCED</span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-end">
+<button class="px-space-md py-2.5 bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-md hover:bg-primary-fixed-dim transition-all flex items-center gap-space-xs font-semibold" type="submit">
+<span class="material-symbols-outlined text-[18px]">vpn_key</span>
+<span>Update Master Key</span>
+</button>
+</div>
+</form>
+</section>
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-lg relative overflow-hidden" id="sec-system">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pb-space-md">
+<div>
+<div class="flex items-center gap-space-xs font-mono text-[11px] text-primary tracking-wider uppercase mb-1">
+<span>Section 04</span>
+<span>//</span>
+<span>Global Topology</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">System &amp; Edge Sync</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider bg-surface-container px-space-sm py-1 rounded-full w-fit">Continuous Delivery</span>
+</div>
+<div class="flex flex-col gap-space-md mt-space-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between gap-space-sm shadow-sm">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase">Edge Network Health</span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(245,166,35,0.7)]"></span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block">Operational</span>
+<p class="font-mono text-body-sm text-on-surface-variant mt-1">All 28 Edge Nodes Healthy (TTFB &lt;60ms)</p>
+</div>
+<div class="pt-2 flex items-center gap-2">
+<span class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<span class="block bg-primary h-full w-[99.98%]"></span>
+</span>
+<span class="font-mono text-[11px] text-primary">99.98%</span>
+</div>
+</div>
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between gap-space-sm shadow-sm">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase">Build Pipeline</span>
+<span class="material-symbols-outlined text-outline text-[18px]">sync_alt</span>
+</div>
+<div>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold block">Vercel + Next.js ISR</span>
+<p class="font-mono text-body-sm text-on-surface-variant mt-1">Server Components · Auto-revalidate On Publish</p>
+</div>
+<div class="pt-2 flex items-center justify-between font-mono text-[11px] text-on-surface-variant">
+<span>Deploy: 42s avg</span>
+<span class="text-primary font-semibold">Active Hook OK</span>
+</div>
+</div>
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between gap-space-sm shadow-sm">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase">CMS Core Architecture</span>
+<span class="material-symbols-outlined text-outline text-[18px]">memory</span>
+</div>
+<div>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold block">Studio Ravya Engine</span>
+<p class="font-mono text-body-sm text-on-surface-variant mt-1">Version v2.4.1 (Rust WASM Parser)</p>
+</div>
+<div class="pt-2 flex items-center justify-between font-mono text-[11px] text-on-surface-variant">
+<span>Kernel Integrity</span>
+<span class="text-primary font-semibold">Verified</span>
+</div>
+</div>
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between gap-space-sm shadow-sm">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase">Git Source Sync</span>
+<span class="material-symbols-outlined text-outline text-[18px]">commit</span>
+</div>
+<div>
+<span class="font-mono text-body-md text-on-surface block truncate">github.com/studioravya/digital-flagship</span>
+<p class="font-mono text-body-sm text-on-surface-variant mt-1">Branch: main (HEAD 8f3d10c)</p>
+</div>
+<div class="pt-2 flex items-center justify-between font-mono text-[11px] text-on-surface-variant">
+<span>Webhook Status</span>
+<span class="text-primary font-semibold">Listening</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md shadow-inner">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">cached</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Global CDN Cache Flush</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Force evicts edge KV key stores across all 28 worldwide PoPs. Requires 10-15s warmup.</span>
+</div>
+</div>
+<button class="px-space-md py-2.5 bg-surface-container-high text-secondary hover:bg-secondary hover:text-on-secondary font-label-md text-label-md rounded-lg shadow-sm transition-all flex items-center gap-space-xs self-stretch sm:self-auto justify-center" id="purge-btn" onclick="confirmPurge()" type="button">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Purge Edge Cache</span>
+</button>
+</div>
+</div>
+</section>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-md flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">sync</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Unsaved Configuration Changes</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Any modified values persist locally until confirmed to production.</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full md:w-auto">
+<button class="flex-1 md:flex-none px-space-md py-2 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" onclick="location.reload()" type="button">
+            Discard
+          </button>
+<button class="flex-1 md:flex-none px-space-md py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-fixed-dim transition-all shadow-md" onclick="notifySave('All configuration registries synced to CDN.')" type="button">
+            Save All Changes
+          </button>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-surface-container-highest text-on-surface px-space-md py-space-sm rounded-xl shadow-2xl flex items-center gap-space-sm" id="toast">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+<span class="font-body-md text-body-md" id="toast-msg">Action confirmed</span>
+</div>
+</div>
+<script>
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    document.querySelectorAll('.nav-btn').forEach(b => {
+      b.classList.remove('bg-surface-container', 'text-primary', 'shadow-sm');
+      b.classList.add('text-on-surface-variant');
+      if (b.dataset.target === id) {
+        b.classList.add('bg-surface-container', 'text-primary', 'shadow-sm');
+        b.classList.remove('text-on-surface-variant');
+      }
+    });
+  }
+
+  function updateCategoryCount() {
+    const count = document.querySelectorAll('#category-container .category-chip').length;
+    const label = document.getElementById('cat-count');
+    if (label) {
+      label.textContent = count + ' Active Nodes';
+    }
+  }
+
+  function removeCategory(btn) {
+    const chip = btn.closest('.category-chip');
+    if (chip) {
+      chip.remove();
+      updateCategoryCount();
+    }
+  }
+
+  function addCategory() {
+    const input = document.getElementById('new-cat-input');
+    const val = input.value.trim();
+    if (!val) return;
+
+    const container = document.getElementById('category-container');
+    const chip = document.createElement('span');
+    chip.className = 'category-chip inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm shadow-sm transition-all hover:bg-surface-bright group animate-fadeIn';
+    chip.innerHTML = `
+      <span>` + escapeHtml(val) + `</span>
+      <button type="button" onclick="removeCategory(this)" class="hover:text-error transition-colors flex items-center" aria-label="Remove category">
+        <span class="material-symbols-outlined text-[14px]">close</span>
+      </button>
+    `;
+    container.appendChild(chip);
+    input.value = '';
+    updateCategoryCount();
+    notifySave('Added category "' + val + '". Click Update to save.');
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, function(m) {
+      return {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      }[m];
+    });
+  }
+
+  function confirmPurge() {
+    const btn = document.getElementById('purge-btn');
+    if (!btn) return;
+    if (btn.dataset.confirming === "true") {
+      btn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Flushing 28 PoPs...</span>`;
+      setTimeout(() => {
+        btn.dataset.confirming = "false";
+        btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">bolt</span><span>Purge Edge Cache</span>`;
+        notifySave('Global Edge Cache successfully flushed.');
+      }, 1200);
+    } else {
+      btn.dataset.confirming = "true";
+      btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">warning</span><span>Confirm Global Purge?</span>`;
+      setTimeout(() => {
+        if (btn.dataset.confirming === "true") {
+          btn.dataset.confirming = "false";
+          btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">bolt</span><span>Purge Edge Cache</span>`;
+        }
+      }, 4000);
+    }
+  }
+
+  let toastTimer;
+  function notifySave(text) {
+    const toast = document.getElementById('toast');
+    const msg = document.getElementById('toast-msg');
+    if (!toast || !msg) return;
+    msg.textContent = text;
+    toast.classList.remove('translate-y-20', 'opacity-0');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.classList.add('translate-y-20', 'opacity-0');
+    }, 2800);
+  }
+</script></div></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"><div class="max-w-[1380px] mx-auto px-margin-mobile lg:px-margin py-space-sm flex flex-col sm:flex-row items-center justify-between gap-space-xs text-on-surface-variant font-label-sm text-label-sm"><span>Studio Ravya Internal CMS · Systems Architecture v2.4</span><div class="flex items-center gap-space-sm"><span>All changes sync to Edge CDN</span><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span></div></div></footer></body></html>

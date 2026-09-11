@@ -1,0 +1,82 @@
+---
+interface Props {
+  title: string;
+  client: string;
+  category: string;
+  outcome: string;
+  image: string;
+  href: string;
+  tags?: string[];
+  featured?: boolean;
+}
+
+const {
+  title,
+  client,
+  category,
+  outcome,
+  image,
+  href,
+  tags = [],
+  featured = false,
+} = Astro.props;
+---
+
+<div class={`group flex flex-col bg-surface-card border border-primary-container/15 hover:border-primary/40 rounded-2xl overflow-hidden shadow-sm hover:shadow-solar transition-all duration-300 ${featured ? 'lg:col-span-2' : ''}`}>
+  <!-- Mockup Image Preview -->
+  <a href={href} class="relative block overflow-hidden aspect-[16/10] bg-surface-elevated">
+    <img
+      src={image}
+      alt={title}
+      loading="lazy"
+      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-surface-card via-surface-card/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+    <div class="absolute top-4 left-4">
+      <span class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-surface-base/80 backdrop-blur-md border border-primary-container/25 text-primary">
+        {category}
+      </span>
+    </div>
+  </a>
+
+  <!-- Content -->
+  <div class="p-6 sm:p-8 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="text-xs font-mono uppercase tracking-widest text-outline mb-2">
+        {client}
+      </div>
+      <h3 class="font-serif text-2xl sm:text-[28px] text-on-surface font-normal group-hover:text-primary transition-colors leading-snug mb-3">
+        <a href={href}>
+          {title}
+        </a>
+      </h3>
+      <p class="font-sans text-sm sm:text-base text-on-surface-variant leading-relaxed mb-6">
+        {outcome}
+      </p>
+
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-6">
+          {tags.map((tag) => (
+            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-surface-elevated text-on-surface-variant/90 border border-primary-container/10">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <!-- CTA Row -->
+    <div class="pt-4 border-t border-primary-container/10 flex items-center justify-between">
+      <a
+        href={href}
+        class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary group-hover:text-amber transition-colors"
+      >
+        <span>View Case Study</span>
+        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
+          arrow_forward
+        </span>
+      </a>
+      <span class="text-xs text-outline font-mono">Case Study</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,309 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Dispatches Dashboard | Studio Ravya CMS"
+  description="Manage all editorial content, draft states, and publishing pipelines."
+  noindex={true}
+>
+  <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <!-- CMS Top Bar Navigation -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-8 border-b border-primary-container/15 gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-primary-container/15 border border-primary-container/30 flex items-center justify-center text-primary">
+          <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="6" fill="#F5A623"/>
+            <path d="M16 4V8M16 24V28M4 16H8M24 16H28" stroke="#F5A623" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="font-serif text-2xl text-on-surface font-semibold tracking-wide">
+            Studio Ravya CMS
+          </h1>
+          <p class="text-xs text-outline font-mono">Dispatches &amp; Pipeline Engine</p>
+        </div>
+      </div>
+
+      <!-- Admin Nav Links -->
+      <nav class="flex flex-wrap items-center gap-2 sm:gap-4 text-xs font-semibold uppercase tracking-wider">
+        <a href="/admin/posts" class="px-3 py-1.5 rounded-lg bg-primary-container/20 text-primary border border-primary-container/30">
+          Dispatches
+        </a>
+        <a href="/admin/editor" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-elevated transition-colors">
+          Editor
+        </a>
+        <a href="/admin/inquiries" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-elevated transition-colors flex items-center gap-1.5">
+          <span>Inquiries</span>
+          <span id="inquiry-badge" class="hidden px-1.5 py-0.2 rounded-full bg-primary-container text-charcoal text-[10px] font-bold">New</span>
+        </a>
+        <a href="/admin/calendar" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-elevated transition-colors">
+          Calendar
+        </a>
+        <a href="/admin/settings" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-elevated transition-colors">
+          Settings
+        </a>
+        <button
+          type="button"
+          id="logout-btn"
+          class="px-3 py-1.5 rounded-lg text-error hover:bg-error-container/20 transition-colors cursor-pointer"
+        >
+          Logout
+        </button>
+      </nav>
+    </div>
+
+    <!-- Summary Metrics Cards -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div class="p-5 rounded-xl bg-surface-card border border-primary-container/15">
+        <p class="text-xs font-mono uppercase text-outline mb-1">Total Dispatches</p>
+        <p class="font-serif text-3xl text-on-surface" id="stat-total">1</p>
+      </div>
+      <div class="p-5 rounded-xl bg-surface-card border border-primary-container/15">
+        <p class="text-xs font-mono uppercase text-primary mb-1">Published Live</p>
+        <p class="font-serif text-3xl text-primary" id="stat-published">1</p>
+      </div>
+      <div class="p-5 rounded-xl bg-surface-card border border-primary-container/15">
+        <p class="text-xs font-mono uppercase text-amber mb-1">Scheduled Queue</p>
+        <p class="font-serif text-3xl text-amber" id="stat-scheduled">0</p>
+      </div>
+      <div class="p-5 rounded-xl bg-surface-card border border-primary-container/15">
+        <p class="text-xs font-mono uppercase text-outline mb-1">Draft State</p>
+        <p class="font-serif text-3xl text-outline" id="stat-drafts">0</p>
+      </div>
+    </div>
+
+    <!-- Controls Bar -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+      <div class="flex items-center gap-3 w-full sm:w-auto">
+        <div class="relative flex-1 sm:w-72">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Filter by title, tag, slug..."
+            class="w-full pl-10 pr-4 py-2 bg-surface-card border border-primary-container/15 rounded-lg text-xs text-on-surface placeholder:text-outline/50 outline-none focus:border-primary transition-all"
+          />
+        </div>
+        <select
+          id="status-filter"
+          class="px-3 py-2 bg-surface-card border border-primary-container/15 rounded-lg text-xs text-on-surface outline-none focus:border-primary cursor-pointer"
+        >
+          <option value="all">All Statuses</option>
+          <option value="published">Published</option>
+          <option value="scheduled">Scheduled</option>
+          <option value="draft">Drafts</option>
+        </select>
+      </div>
+
+      <a
+        href="/admin/editor"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary-container text-charcoal font-sans text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-lg shadow-gold-glow hover:bg-amber transition-all shrink-0"
+      >
+        <span class="material-symbols-outlined text-[16px]">add</span>
+        <span>Create Dispatch</span>
+      </a>
+    </div>
+
+    <!-- Posts Table -->
+    <div class="rounded-2xl bg-surface-card border border-primary-container/15 overflow-hidden shadow-sm">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-on-surface-variant">
+          <thead class="bg-surface-elevated/70 border-b border-primary-container/15 text-[11px] font-mono uppercase tracking-wider text-primary">
+            <tr>
+              <th class="py-3.5 px-6">Title &amp; Slug</th>
+              <th class="py-3.5 px-4">Category</th>
+              <th class="py-3.5 px-4">Status</th>
+              <th class="py-3.5 px-4">Read Time</th>
+              <th class="py-3.5 px-4">Date / Scheduled</th>
+              <th class="py-3.5 px-6 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="posts-table-body" class="divide-y divide-primary-container/10">
+            <tr>
+              <td colspan="6" class="py-8 text-center text-outline">
+                Loading editorial database...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Check auth
+  const token = localStorage.getItem('studioravya_admin_token');
+  if (!token) {
+    window.location.href = '/admin';
+  }
+
+  // Logout
+  const logoutBtn = document.getElementById('logout-btn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('studioravya_admin_token');
+      window.location.href = '/admin';
+    });
+  }
+
+  const API_URL = (window as any).PUBLIC_API_URL || 'http://localhost:8000';
+  let allPosts: any[] = [];
+
+  // Default fallback sample post
+  const defaultPosts = [
+    {
+      id: 1,
+      slug: 'how-much-does-a-website-cost',
+      title: 'How Much Does a Website Cost in 2026? A Practical Breakdown',
+      category: 'Pricing & Planning',
+      excerpt: 'A practical breakdown of what actually drives website pricing — from simple landing pages to custom web apps.',
+      status: 'published',
+      read_time_minutes: 6,
+      created_at: new Date().toISOString(),
+      published_at: new Date().toISOString(),
+    }
+  ];
+
+  async function loadPosts() {
+    const tbody = document.getElementById('posts-table-body');
+    if (!tbody) return;
+
+    try {
+      const res = await fetch(`${API_URL}/api/admin/posts`, {
+        headers: { 'Authorization': `Bearer ${token}` },
+      });
+      if (res.ok) {
+        allPosts = await res.json();
+      } else {
+        allPosts = defaultPosts;
+      }
+    } catch {
+      allPosts = defaultPosts;
+    }
+
+    renderPosts(allPosts);
+    updateStats(allPosts);
+  }
+
+  function updateStats(posts: any[]) {
+    const total = posts.length;
+    const published = posts.filter((p) => p.status === 'published').length;
+    const scheduled = posts.filter((p) => p.status === 'scheduled').length;
+    const drafts = posts.filter((p) => p.status === 'draft').length;
+
+    const elTotal = document.getElementById('stat-total');
+    const elPub = document.getElementById('stat-published');
+    const elSched = document.getElementById('stat-scheduled');
+    const elDraft = document.getElementById('stat-drafts');
+
+    if (elTotal) elTotal.textContent = String(total);
+    if (elPub) elPub.textContent = String(published);
+    if (elSched) elSched.textContent = String(scheduled);
+    if (elDraft) elDraft.textContent = String(drafts);
+  }
+
+  function renderPosts(posts: any[]) {
+    const tbody = document.getElementById('posts-table-body');
+    if (!tbody) return;
+
+    if (posts.length === 0) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="6" class="py-8 text-center text-outline">
+            No matching dispatches found.
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    tbody.innerHTML = posts.map((p) => {
+      const statusBadge = p.status === 'published'
+        ? '<span class="px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-semibold text-[10px] uppercase">Published</span>'
+        : p.status === 'scheduled'
+        ? '<span class="px-2.5 py-0.5 rounded-full bg-amber/15 border border-amber/30 text-amber font-semibold text-[10px] uppercase">Scheduled</span>'
+        : '<span class="px-2.5 py-0.5 rounded-full bg-outline/15 border border-outline/30 text-outline font-semibold text-[10px] uppercase">Draft</span>';
+
+      const dateStr = p.published_at
+        ? new Date(p.published_at).toLocaleDateString()
+        : p.scheduled_at
+        ? `Sched: ${new Date(p.scheduled_at).toLocaleDateString()}`
+        : 'Draft';
+
+      return `
+        <tr class="hover:bg-surface-elevated/40 transition-colors">
+          <td class="py-4 px-6 max-w-xs sm:max-w-md">
+            <p class="font-serif text-sm text-on-surface font-medium truncate">${p.title}</p>
+            <p class="font-mono text-[11px] text-outline truncate">/blog/${p.slug}</p>
+          </td>
+          <td class="py-4 px-4 font-mono text-[11px] text-primary whitespace-nowrap">
+            ${p.category}
+          </td>
+          <td class="py-4 px-4 whitespace-nowrap">
+            ${statusBadge}
+          </td>
+          <td class="py-4 px-4 font-mono text-outline whitespace-nowrap">
+            ${p.read_time_minutes || 5}m read
+          </td>
+          <td class="py-4 px-4 font-mono text-outline whitespace-nowrap">
+            ${dateStr}
+          </td>
+          <td class="py-4 px-6 text-right whitespace-nowrap space-x-2">
+            <a href="/blog/${p.slug}" target="_blank" class="p-1.5 rounded-md hover:bg-surface-elevated text-on-surface-variant hover:text-primary transition-colors inline-block" title="View live article">
+              <span class="material-symbols-outlined text-[16px]">visibility</span>
+            </a>
+            <a href="/admin/editor?id=${p.id || ''}&slug=${p.slug}" class="p-1.5 rounded-md hover:bg-surface-elevated text-on-surface-variant hover:text-primary transition-colors inline-block" title="Edit dispatch">
+              <span class="material-symbols-outlined text-[16px]">edit</span>
+            </a>
+            <button type="button" class="delete-post-btn p-1.5 rounded-md hover:bg-error-container/20 text-on-surface-variant hover:text-error transition-colors" data-id="${p.id || ''}" title="Delete dispatch">
+              <span class="material-symbols-outlined text-[16px]">delete</span>
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    // Attach delete handlers
+    document.querySelectorAll('.delete-post-btn').forEach((btn) => {
+      btn.addEventListener('click', async (e: any) => {
+        const id = e.currentTarget.getAttribute('data-id');
+        if (!id) return;
+        if (confirm('Permanently delete this dispatch?')) {
+          try {
+            await fetch(`${API_URL}/api/admin/posts/${id}`, {
+              method: 'DELETE',
+              headers: { 'Authorization': `Bearer ${token}` },
+            });
+            loadPosts();
+          } catch (err) {
+            alert('Could not delete post via API: ' + err);
+          }
+        }
+      });
+    });
+  }
+
+  // Filter & search
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const statusFilter = document.getElementById('status-filter') as HTMLSelectElement;
+
+  function filterPosts() {
+    const q = (searchInput?.value || '').toLowerCase();
+    const st = statusFilter?.value || 'all';
+
+    const filtered = allPosts.filter((p) => {
+      const matchesSearch = p.title.toLowerCase().includes(q) || p.slug.toLowerCase().includes(q) || p.category.toLowerCase().includes(q);
+      const matchesStatus = st === 'all' || p.status === st;
+      return matchesSearch && matchesStatus;
+    });
+
+    renderPosts(filtered);
+  }
+
+  searchInput?.addEventListener('input', filterPosts);
+  statusFilter?.addEventListener('change', filterPosts);
+
+  loadPosts();
+</script>

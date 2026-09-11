@@ -1,0 +1,351 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+export async function getStaticPaths() {
+  return [
+    {
+      params: { service: 'website-design-development' },
+      props: {
+        title: 'Website Design & Development Services',
+        metaDescription: 'Website design and development built around business growth — from strategy and UI/UX design through production-grade engineering. Get a quote for your project.',
+        h1: 'Website Design & Development',
+        subtitle: 'Flagship digital storefronts and marketing websites engineered for high conversion, lightning performance, and category authority.',
+        included: [
+          { title: 'Custom UI/UX Architecture', desc: 'Bespoke wireframes and high-fidelity Figma prototypes designed around user psychology.', icon: 'design_services' },
+          { title: 'Clean Component Engineering', desc: 'Handcrafted HTML/Astro/React with zero unneeded third-party plugins or bloated page builders.', icon: 'code' },
+          { title: 'Technical SEO & Metadata', desc: 'Complete OpenGraph, Schema.org JSON-LD, sitemaps, and robots.txt ready for search engines.', icon: 'search' },
+          { title: 'Core Web Vitals & Speed', desc: 'Engineered to score 95+ on Google PageSpeed with sub-second LCP and responsive image pipelines.', icon: 'speed' },
+          { title: 'Mobile & Tablet Optimization', desc: 'Pixel-perfect responsiveness across phones, foldables, tablets, and 4K ultra-wide monitors.', icon: 'devices' },
+          { title: 'Launch & Hosting Provisioning', desc: 'Seamless DNS routing, GitHub Pages / Vercel deployment, SSL setup, and 30 days post-launch warranty.', icon: 'rocket_launch' },
+        ],
+        caseStudy: {
+          title: 'Vesper AI Flagship Platform',
+          image: '/images/showcase-saas-platform.png',
+          outcome: 'Achieved 99 Google PageSpeed score and elevated perceived enterprise valuation ahead of Series A.',
+          href: '/work/vesper-ai',
+        },
+        pricingTeaser: {
+          range: '$5,000 – $10,000',
+          timeline: '4 to 6 Weeks',
+          summary: 'Standard 5–10 page bespoke business website with complete SEO, motion design, and responsive engineering.',
+        },
+        faq: [
+          { question: 'Do you build on WordPress or custom code?', answer: 'We build primarily with modern static-site architectures like Astro, Tailwind CSS, and lightweight React/TypeScript components. This ensures your site loads in under a second, never gets hacked through outdated WordPress plugins, and costs virtually nothing to host.' },
+          { question: 'Who writes the copy and provides the images?', answer: 'We can work with your existing content, or provide end-to-end messaging, copywriting, and visual asset sourcing as part of the engagement.' },
+          { question: 'Who owns the website and code once completed?', answer: 'You own 100% of the intellectual property, design files, code repositories, and domain assets. There are no proprietary lock-ins or recurring studio license fees.' },
+        ],
+      },
+    },
+    {
+      params: { service: 'landing-pages' },
+      props: {
+        title: 'Landing Page Design Services',
+        metaDescription: 'High-conversion landing page design and development built for product launches, paid ad funnels, and enterprise campaigns. See our process and get a quote.',
+        h1: 'Landing Pages & Campaign Sites',
+        subtitle: 'Laser-focused single-page digital experiences engineered to maximize conversion rates and return on ad spend.',
+        included: [
+          { title: 'Direct-Response Narrative Flow', desc: 'Hero section, objection handling, social proof stacking, and friction-free conversion loops.', icon: 'psychology' },
+          { title: 'A/B Testing Infrastructure', desc: 'Set up for split testing headlines, offers, and visual variants with Google Analytics & Meta Pixels.', icon: 'splitscreen' },
+          { title: 'Sub-second Load Times', desc: 'Eliminate bounce rates caused by slow landing pages with edge-cached static delivery.', icon: 'bolt' },
+          { title: 'Form & Lead Capture Sync', desc: 'Direct webhook integration with your CRM, Zapier, email provider, or database.', icon: 'input' },
+          { title: 'Rapid 2–3 Week Delivery', desc: 'Streamlined design and engineering sprints to hit urgent product launch dates.', icon: 'timer' },
+          { title: 'High-Impact Visual Assets', desc: 'Custom 3D-style mockups, interactive calculators, and micro-interactions that captivate visitors.', icon: 'auto_awesome' },
+        ],
+        caseStudy: {
+          title: 'Fintech Protocol Launch Funnel',
+          image: '/images/showcase-fintech.png',
+          outcome: 'Generated 4,200+ qualified waitlist registrations in the first 72 hours of product announcement.',
+          href: '/work/monolith-protocol',
+        },
+        pricingTeaser: {
+          range: '$3,000 – $5,000',
+          timeline: '2 to 3 Weeks',
+          summary: 'End-to-end high-converting single page build with CRM integrations and full mobile optimization.',
+        },
+        faq: [
+          { question: 'How quickly can you ship a landing page?', answer: 'Typical turnaround for a bespoke landing page is 2 to 3 weeks from kickoff to live deployment.' },
+          { question: 'Can you integrate our CRM or email software?', answer: 'Yes. We seamlessly connect contact forms and lead capture tools to HubSpot, Mailchimp, ConvertKit, Slack, Notion, or custom webhooks.' },
+          { question: 'Will this page look good on mobile devices?', answer: 'Over 65% of paid traffic lands on mobile. We design mobile-first with thumb-accessible buttons and rapid mobile rendering.' },
+        ],
+      },
+    },
+    {
+      params: { service: 'ecommerce-websites' },
+      props: {
+        title: 'Ecommerce Website Development',
+        metaDescription: 'Custom e-commerce website development designed for luxury brands and modern merchants — from bespoke storefronts to friction-free checkout flows.',
+        h1: 'E-commerce Websites',
+        subtitle: 'Digital storefronts crafted to showcase high-craft products, elevate brand prestige, and drive frictionless transactions.',
+        included: [
+          { title: 'Bespoke Catalog Architecture', desc: 'Editorial product display pages, variant selectors, and immersive lookbooks.', icon: 'storefront' },
+          { title: 'Friction-Free Checkout', desc: 'Optimized 1-click payment flows via Stripe, Apple Pay, Google Pay, and Klarna.', icon: 'credit_card' },
+          { title: 'Inventory & Order Automation', desc: 'Seamless synchronization with merchant backends, fulfillment software, and ERPs.', icon: 'inventory_2' },
+          { title: 'High AOV Features', desc: 'Smart product bundling, cross-sells, and tiered order incentives.', icon: 'trending_up' },
+          { title: 'Mobile Commerce First', desc: 'Fluid touch gestures, instant product filtering, and quick cart drawers on phones.', icon: 'smartphone' },
+          { title: 'Security & PCI Compliance', desc: 'Enterprise-grade encryption and secure payment processing protocols.', icon: 'lock' },
+        ],
+        caseStudy: {
+          title: 'Aura Living Contemporary Commerce',
+          image: '/images/showcase-ecommerce.png',
+          outcome: 'Reduced cart abandonment by 28% and increased average order value with custom editorial styling.',
+          href: '/work/aura-living',
+        },
+        pricingTeaser: {
+          range: '$8,000 – $18,000',
+          timeline: '6 to 8 Weeks',
+          summary: 'Complete custom e-commerce solution including catalog modeling, payment integrations, and merchant training.',
+        },
+        faq: [
+          { question: 'Can you build custom storefronts on Shopify?', answer: 'Yes. We build custom Shopify liquid themes as well as headless Shopify setups for merchants who require bespoke editorial design beyond off-the-shelf templates.' },
+          { question: 'How do you handle shipping and sales tax?', answer: 'We integrate automated tax calculation services (like Stripe Tax or TaxJar) and live carrier shipping rate calculations.' },
+          { question: 'Can our internal team update products easily?', answer: 'Absolutely. We provide a clean dashboard where your team can add products, update prices, manage inventory, and export orders without touching code.' },
+        ],
+      },
+    },
+    {
+      params: { service: 'brand-and-web-identity' },
+      props: {
+        title: 'Brand & Web Identity Design',
+        metaDescription: 'Brand identity and website design systems for visionary founders — typography, chromatic tokens, solar motifs, and digital brand guidelines.',
+        h1: 'Brand & Web Identity',
+        subtitle: 'Visual systems, distinctive digital typography, and cohesive design tokens that separate category leaders from generic competitors.',
+        included: [
+          { title: 'Core Wordmark & Emblem', desc: 'Distinctive brand logos, geometric glyphs, and responsive vector emblems.', icon: 'token' },
+          { title: 'Typographic Hierarchy', desc: 'Curated serif headline pairings and high-precision body fonts with complete type scales.', icon: 'format_size' },
+          { title: 'Chromatic Color Architecture', desc: 'Deep background surfaces, glowing solar accents, and contrast-tested accessibility tokens.', icon: 'palette' },
+          { title: 'UI Component Kit', desc: 'Figma design tokens, button variants, inputs, cards, and modal window specifications.', icon: 'view_quilt' },
+          { title: 'Brand Guidelines Documentation', desc: 'Comprehensive online design manual covering usage rules, spacing, and voice.', icon: 'menu_book' },
+          { title: 'Digital Asset Export Suite', desc: 'High-res SVG, PNG, WebP, and vector packages formatted for web, print, and social media.', icon: 'file_download' },
+        ],
+        caseStudy: {
+          title: 'Architectural Luxury Identity',
+          image: '/images/showcase-luxury-flagship.png',
+          outcome: 'Established a premium digital presence that allowed client to command 3x higher retainers.',
+          href: '/work/vesper-ai',
+        },
+        pricingTeaser: {
+          range: '$4,000 – $8,000',
+          timeline: '3 to 4 Weeks',
+          summary: 'Complete visual identity system and digital design tokens ready for handoff or direct web implementation.',
+        },
+        faq: [
+          { question: 'Can you design the identity and then build the site?', answer: 'Yes! In fact, pairing Brand Identity with Website Design & Development yields the highest quality results, ensuring every visual token is engineered into code.' },
+          { question: 'What formats do we receive the logo files in?', answer: 'You receive vector files (.SVG, .AI, .EPS) as well as high-resolution transparent PNGs, WebP formats, and favicon packages.' },
+          { question: 'How many design directions do you present?', answer: 'We present 2–3 distinct creative directions rooted in strategy, then refine your chosen direction through structured revision rounds.' },
+        ],
+      },
+    },
+    {
+      params: { service: 'custom-web-apps' },
+      props: {
+        title: 'Custom Web Application Development',
+        metaDescription: 'Custom web application development and bespoke business tools — internal dashboards, interactive portals, and software MVPs.',
+        h1: 'Custom Web Apps & Digital Tools',
+        subtitle: 'Production-grade web software, customer portals, and internal platforms built on modern Python and TypeScript stacks.',
+        included: [
+          { title: 'Full-Stack Engineering', desc: 'Modern TypeScript frontend paired with Python FastAPI / Node backends and robust databases.', icon: 'terminal' },
+          { title: 'Interactive Data Telemetry', desc: 'Real-time charts, metric summaries, data tables, and dynamic filtering engines.', icon: 'monitoring' },
+          { title: 'Secure Authentication & Roles', desc: 'Role-based access control, session management, OAuth, and API security.', icon: 'verified_user' },
+          { title: 'REST & Webhook APIs', desc: 'Clean, documented APIs built for third-party integrations and automation pipelines.', icon: 'api' },
+          { title: 'Database Design & Migrations', desc: 'Optimized PostgreSQL/SQLite schemas with automated migrations and automated backups.', icon: 'database' },
+          { title: 'Automated Testing & CI/CD', desc: 'Automated test pipelines and zero-downtime deployment environments.', icon: 'sync' },
+        ],
+        caseStudy: {
+          title: 'Cognitive Enterprise Portal',
+          image: '/images/showcase-fintech.png',
+          outcome: 'Automated 14 hours of manual weekly reporting with an intuitive browser-based telemetry portal.',
+          href: '/work/monolith-protocol',
+        },
+        pricingTeaser: {
+          range: '$15,000+',
+          timeline: '8 to 12 Weeks',
+          summary: 'Bespoke full-stack web application with custom database schemas, authenticated portals, and API integrations.',
+        },
+        faq: [
+          { question: 'What tech stack do you use for web applications?', answer: 'We favor Astro, Next.js, and TypeScript on the frontend with Python (FastAPI/SQLAlchemy) or Node on the backend, paired with PostgreSQL or SQLite.' },
+          { question: 'Can you build an MVP for an early-stage startup?', answer: 'Yes! We specialize in scoping lean, production-ready MVPs that allow founders to launch quickly without accumulating technical debt.' },
+          { question: 'How do you handle maintenance and feature updates?', answer: 'We offer post-launch maintenance retainers and dedicated sprint blocks for continuous feature development.' },
+        ],
+      },
+    },
+  ];
+}
+
+const {
+  title,
+  metaDescription,
+  h1,
+  subtitle,
+  included,
+  caseStudy,
+  pricingTeaser,
+  faq,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={metaDescription}>
+  <!-- Hero Section -->
+  <section class="py-20 lg:py-28 relative overflow-hidden">
+    <div class="pointer-events-none absolute top-12 left-1/2 -translate-x-1/2 w-[640px] h-[400px] bg-gradient-to-tr from-amber/15 via-primary-container/15 to-transparent rounded-full blur-[130px] opacity-70"></div>
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-4xl text-center">
+      <a href="/services" class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest text-primary hover:underline mb-4">
+        <span class="material-symbols-outlined text-[14px]">arrow_back</span>
+        <span>All Services</span>
+      </a>
+      <h1 class="font-serif text-4xl sm:text-6xl text-on-surface font-normal leading-tight mb-6">
+        {h1}
+      </h1>
+      <p class="font-sans text-lg sm:text-xl text-on-surface-variant font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+        {subtitle}
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/contact"
+          class="w-full sm:w-auto inline-flex items-center justify-center bg-primary-container text-charcoal font-sans text-sm font-bold uppercase tracking-wider rounded-lg px-8 py-4 shadow-solar hover:bg-amber transition-all"
+        >
+          Get a Quote for This Service
+        </a>
+        <a
+          href="/pricing"
+          class="w-full sm:w-auto inline-flex items-center justify-center font-sans text-sm font-medium text-on-surface hover:text-primary px-6 py-4 transition-colors"
+        >
+          See Pricing Ranges
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included Grid -->
+  <section class="py-20 bg-surface-container-lowest border-y border-primary-container/10">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-2 font-mono">
+          Scope &amp; Deliverables
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-on-surface font-normal">
+          What is included
+        </h2>
+        <p class="font-sans text-sm sm:text-base text-on-surface-variant mt-2">
+          Every project is built from scratch with rigorous attention to detail, performance, and commercial efficacy.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {included.map((item) => (
+          <div class="p-6 rounded-xl bg-surface-card border border-primary-container/15 hover:border-primary/35 transition-all">
+            <div class="w-10 h-10 rounded-lg bg-primary-container/15 flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-[22px]">{item.icon}</span>
+            </div>
+            <h3 class="font-serif text-xl text-on-surface font-normal mb-2">{item.title}</h3>
+            <p class="font-sans text-sm text-on-surface-variant leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Case Study & Pricing Teaser Row -->
+  <section class="py-24">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <!-- Case Study Preview (7 cols) -->
+        <div class="lg:col-span-7 bg-surface-card border border-primary-container/15 rounded-2xl overflow-hidden flex flex-col justify-between p-6 sm:p-8">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-primary font-mono block mb-2">
+              Representative Case Study
+            </span>
+            <h3 class="font-serif text-2xl sm:text-3xl text-on-surface mb-3 font-normal">
+              {caseStudy.title}
+            </h3>
+            <p class="font-sans text-sm text-on-surface-variant leading-relaxed mb-6">
+              {caseStudy.outcome}
+            </p>
+            <div class="rounded-xl overflow-hidden aspect-[16/9] mb-6 bg-surface-elevated">
+              <img src={caseStudy.image} alt={caseStudy.title} class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <div>
+            <a
+              href={caseStudy.href}
+              class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary hover:underline"
+            >
+              <span>Read Full Case Study</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pricing Teaser (5 cols) -->
+        <div class="lg:col-span-5 bg-gradient-to-b from-surface-card to-surface-elevated border border-primary-container/20 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-solar">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-primary font-mono block mb-2">
+              Investment Benchmark
+            </span>
+            <h3 class="font-serif text-2xl sm:text-3xl text-on-surface mb-4 font-normal">
+              Standard Scope Range
+            </h3>
+            <div class="p-4 rounded-xl bg-surface-base/60 border border-primary-container/10 mb-6">
+              <p class="font-serif text-3xl sm:text-4xl text-primary font-medium">{pricingTeaser.range}</p>
+              <p class="text-xs text-outline mt-1 font-mono">Turnaround: {pricingTeaser.timeline}</p>
+            </div>
+            <p class="font-sans text-sm text-on-surface-variant leading-relaxed mb-6">
+              {pricingTeaser.summary}
+            </p>
+          </div>
+          <div class="space-y-3">
+            <a
+              href="/contact"
+              class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg bg-primary-container text-charcoal font-sans text-xs font-bold uppercase tracking-wider shadow-gold-glow hover:bg-amber transition-all"
+            >
+              <span>Get a Custom Scope</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+            <a
+              href="/pricing"
+              class="w-full inline-flex items-center justify-center py-2.5 text-xs text-primary hover:underline"
+            >
+              View Full Studio Pricing Structure →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service FAQ Section -->
+  <section class="py-20 bg-surface-container-lowest border-y border-primary-container/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-2 font-mono">
+          Clarity &amp; Questions
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-on-surface font-normal">
+          Common Questions About This Service
+        </h2>
+      </div>
+      <FAQAccordion items={faq} />
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-24 text-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <h2 class="font-serif text-3xl sm:text-5xl text-on-surface font-normal">
+        Ready to build your <br/>
+        <span class="italic text-primary">{h1}</span>?
+      </h2>
+      <p class="font-sans text-sm sm:text-base text-on-surface-variant">
+        Reach out with your goals and timeline. We will reply with a scoped estimate.
+      </p>
+      <div class="pt-2">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center bg-primary-container text-charcoal font-sans text-sm font-bold uppercase tracking-wider rounded-lg px-8 py-4 shadow-solar hover:bg-amber transition-all"
+        >
+          Start a Project
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

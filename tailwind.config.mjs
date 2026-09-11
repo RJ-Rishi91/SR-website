@@ -1,0 +1,83 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        background: '#17130e',
+        surface: '#17130e',
+        'surface-base': '#120e0a',
+        'surface-card': '#1b1510',
+        'surface-elevated': '#241c15',
+        'surface-dim': '#17130e',
+        'surface-bright': '#3e3833',
+        'surface-container-lowest': '#110d09',
+        'surface-container-low': '#1f1b16',
+        'surface-container': '#231f1a',
+        'surface-container-high': '#2e2924',
+        'surface-container-highest': '#39342f',
+        
+        primary: '#ffc880',
+        'primary-container': '#f5a623',
+        'on-primary': '#452b00',
+        'on-primary-container': '#644000',
+        
+        secondary: '#ffb787',
+        'secondary-container': '#e07312',
+        'on-secondary': '#502400',
+        'on-secondary-container': '#461f00',
+        
+        tertiary: '#ffc5b1',
+        'tertiary-container': '#ff9d7b',
+        'on-tertiary': '#5c1900',
+        'on-tertiary-container': '#832800',
+        
+        ember: '#c1440e',
+        gold: '#f5a623',
+        amber: '#e8791a',
+        ivory: '#fdf6ec',
+        charcoal: '#120e0a',
+        
+        'on-surface': '#ebe1d9',
+        'on-surface-variant': '#d7c3ae',
+        outline: '#9f8e7a',
+        'outline-variant': '#524534',
+        error: '#ffb4ab',
+        'error-container': '#93000a',
+        'on-error': '#690005',
+      },
+      fontFamily: {
+        serif: ['Newsreader', 'Fraunces', 'Georgia', 'serif'],
+        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Newsreader', 'Fraunces', 'Georgia', 'serif'],
+        body: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+      },
+      spacing: {
+        'space-xs': '0.375rem',
+        'space-sm': '0.75rem',
+        'space-md': '1.25rem',
+        'space-lg': '2.25rem',
+        'space-xl': '4rem',
+        margin: '4rem',
+        'margin-mobile': '1.25rem',
+        gutter: '1.5rem',
+        'gutter-mobile': '1rem',
+      },
+      boxShadow: {
+        solar: '0 0 40px -10px rgba(245, 166, 35, 0.3)',
+        'solar-lg': '0 0 60px -15px rgba(245, 166, 35, 0.4)',
+        'gold-glow': '0 4px 20px rgba(245, 166, 35, 0.3)',
+      },
+      borderRadius: {
+        DEFAULT: '0.25rem',
+        lg: '0.5rem',
+        xl: '0.75rem',
+        '2xl': '1rem',
+        '3xl': '1.5rem',
+        full: '9999px',
+      },
+    },
+  },
+  plugins: [],
+};

@@ -1,0 +1,230 @@
+---
+// ContactForm.astro - Studio Ravya Bespoke Scoping Form
+---
+
+<div class="w-full bg-surface-card border border-primary-container/20 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-solar">
+  <form id="scoping-form" class="space-y-6">
+    <div id="form-alert" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+
+    <!-- Personal & Company Details -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div>
+        <label for="name" class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+          Your Name <span class="text-ember">*</span>
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="e.g. Eleanor Vance"
+          class="w-full px-4 py-3 bg-surface-elevated border border-primary-container/20 focus:border-primary focus:ring-1 focus:ring-primary rounded-lg text-sm text-on-surface placeholder:text-outline/50 outline-none transition-all"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+          Work Email <span class="text-ember">*</span>
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="eleanor@company.com"
+          class="w-full px-4 py-3 bg-surface-elevated border border-primary-container/20 focus:border-primary focus:ring-1 focus:ring-primary rounded-lg text-sm text-on-surface placeholder:text-outline/50 outline-none transition-all"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label for="company" class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+        Company / Brand / Project Name
+      </label>
+      <input
+        type="text"
+        id="company"
+        name="company"
+        placeholder="e.g. Vance & Co."
+        class="w-full px-4 py-3 bg-surface-elevated border border-primary-container/20 focus:border-primary focus:ring-1 focus:ring-primary rounded-lg text-sm text-on-surface placeholder:text-outline/50 outline-none transition-all"
+      />
+    </div>
+
+    <!-- Project Type Selection -->
+    <div>
+      <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+        Project Type <span class="text-ember">*</span>
+      </label>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5" id="project-type-options">
+        {[
+          'Website Design & Dev',
+          'Landing Page / Campaign',
+          'E-commerce Store',
+          'Brand & Web Identity',
+          'Custom Web App / Tool',
+          'Other / Full Consultation'
+        ].map((type, idx) => (
+          <label class="flex items-center gap-2.5 p-3 rounded-lg bg-surface-elevated border border-primary-container/15 hover:border-primary/40 cursor-pointer text-xs font-medium text-on-surface transition-all select-none">
+            <input
+              type="radio"
+              name="project_type"
+              value={type}
+              checked={idx === 0}
+              class="w-3.5 h-3.5 text-primary focus:ring-0 focus:ring-offset-0 bg-surface-base border-outline"
+            />
+            <span>{type}</span>
+          </label>
+        ))}
+      </div>
+    </div>
+
+    <!-- Budget Range -->
+    <div>
+      <label class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+        Estimated Budget (USD) <span class="text-ember">*</span>
+      </label>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+        {[
+          '$3,000 – $5,000',
+          '$5,000 – $10,000',
+          '$10,000 – $25,000',
+          '$25,000+'
+        ].map((range, idx) => (
+          <label class="flex items-center justify-center p-3 rounded-lg bg-surface-elevated border border-primary-container/15 hover:border-primary/40 cursor-pointer text-xs font-semibold text-on-surface text-center transition-all select-none">
+            <input
+              type="radio"
+              name="budget_range"
+              value={range}
+              checked={idx === 1}
+              class="sr-only"
+            />
+            <span class="budget-label">{range}</span>
+          </label>
+        ))}
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div>
+      <label for="timeline" class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+        Target Launch Timeline
+      </label>
+      <select
+        id="timeline"
+        name="timeline"
+        class="w-full px-4 py-3 bg-surface-elevated border border-primary-container/20 focus:border-primary focus:ring-1 focus:ring-primary rounded-lg text-sm text-on-surface outline-none transition-all"
+      >
+        <option value="Urgent (< 3 weeks)">Urgent (Less than 3 weeks)</option>
+        <option value="1 to 2 Months" selected>1 to 2 Months (Standard)</option>
+        <option value="2 to 3 Months">2 to 3 Months</option>
+        <option value="Flexible / Q3 Planning">Flexible / Forward Planning</option>
+      </select>
+    </div>
+
+    <!-- Project Goals & Scope -->
+    <div>
+      <label for="message" class="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+        Project Goals &amp; Overview <span class="text-ember">*</span>
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        required
+        placeholder="Tell us about the current state of your site, your core audience, business objectives, and any reference sites you admire..."
+        class="w-full px-4 py-3 bg-surface-elevated border border-primary-container/20 focus:border-primary focus:ring-1 focus:ring-primary rounded-lg text-sm text-on-surface placeholder:text-outline/50 outline-none transition-all resize-y"
+      ></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="pt-2">
+      <button
+        type="submit"
+        id="submit-btn"
+        class="w-full py-4 px-8 rounded-lg bg-primary-container hover:bg-amber text-charcoal font-sans text-sm font-bold uppercase tracking-wider shadow-[0_4px_20px_rgba(245,166,35,0.35)] hover:shadow-[0_6px_28px_rgba(245,166,35,0.5)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+      >
+        <span id="btn-text">Submit Scoping Inquiry</span>
+        <span class="material-symbols-outlined text-[18px]" id="btn-icon">arrow_forward</span>
+      </button>
+      <p class="text-center text-xs text-outline mt-3">
+        We personally review every inquiry and reply within 1–2 business days.
+      </p>
+    </div>
+  </form>
+</div>
+
+<script>
+  // Dynamic radio button styling for budget
+  const budgetRadios = document.querySelectorAll('input[name="budget_range"]');
+  function updateBudgetStyles() {
+    budgetRadios.forEach((radio: any) => {
+      const parent = radio.parentElement;
+      if (radio.checked) {
+        parent.classList.add('border-primary', 'bg-primary-container/15', 'text-primary');
+        parent.classList.remove('border-primary-container/15');
+      } else {
+        parent.classList.remove('border-primary', 'bg-primary-container/15', 'text-primary');
+        parent.classList.add('border-primary-container/15');
+      }
+    });
+  }
+  budgetRadios.forEach((r) => r.addEventListener('change', updateBudgetStyles));
+  updateBudgetStyles();
+
+  // Form submission handling
+  const form = document.getElementById('scoping-form') as HTMLFormElement;
+  const alertBox = document.getElementById('form-alert');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const btnText = document.getElementById('btn-text');
+  const btnIcon = document.getElementById('btn-icon');
+
+  if (form && alertBox && submitBtn && btnText && btnIcon) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const payload = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        company: formData.get('company') || null,
+        project_type: formData.get('project_type'),
+        budget_range: formData.get('budget_range'),
+        timeline: formData.get('timeline') || null,
+        message: formData.get('message'),
+      };
+
+      submitBtn.disabled = true;
+      btnText.textContent = 'Transmitting Inquiry...';
+      btnIcon.textContent = 'hourglass_empty';
+
+      const API_URL = (window as any).PUBLIC_API_URL || 'http://localhost:8000';
+
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+        const res = await fetch(`${API_URL}/api/inquiries`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          signal: controller.signal,
+        });
+        clearTimeout(timeoutId);
+
+        if (res.ok) {
+          window.location.href = '/thank-you';
+          return;
+        } else {
+          throw new Error('Backend returned status ' + res.status);
+        }
+      } catch (err) {
+        console.warn('Backend unavailable, redirecting to confirmation with email fallback', err);
+        // Save to sessionStorage and redirect to thank-you page so visitor gets confirmation
+        try {
+          sessionStorage.setItem('last_inquiry', JSON.stringify(payload));
+        } catch {}
+        window.location.href = '/thank-you?status=recorded';
+      }
+    });
+  }
+</script>

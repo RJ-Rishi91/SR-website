@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-secondary-fixed":"#311300","surface-container-low":"#1f1b16","on-tertiary-container":"#832800","surface-dim":"#17130e","surface":"#17130e","on-primary-fixed":"#291800","surface-container-highest":"#39342f","surface-container-lowest":"#110d09","on-secondary-container":"#461f00","on-tertiary":"#5c1900","on-error":"#690005","on-surface":"#ebe1d9","primary-container":"#f5a623","tertiary-fixed":"#ffdbcf","surface-bright":"#3e3833","surface-container-high":"#2e2924","inverse-surface":"#ebe1d9","secondary-fixed":"#ffdcc7","on-tertiary-fixed-variant":"#822800","surface-container":"#231f1a","primary-fixed-dim":"#ffb955","error":"#ffb4ab","secondary":"#ffb787","primary":"#ffc880","on-error-container":"#ffdad6","on-tertiary-fixed":"#390c00","on-secondary":"#502400","inverse-on-surface":"#352f2b","background":"#17130e","outline-variant":"#524534","tertiary":"#ffc5b1","tertiary-fixed-dim":"#ffb59c","secondary-fixed-dim":"#ffb787","on-surface-variant":"#d7c3ae","surface-tint":"#ffb955","on-primary-container":"#644000","on-primary":"#452b00","error-container":"#93000a","secondary-container":"#e07312","on-background":"#ebe1d9","surface-variant":"#39342f","on-secondary-fixed-variant":"#723600","tertiary-container":"#ff9d7b","primary-fixed":"#ffddb4","on-primary-fixed-variant":"#633f00","outline":"#9f8e7a","inverse-primary":"#835500"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.375rem","space-xl":"4rem","gutter-mobile":"1rem","space-lg":"2.25rem","gutter":"1.5rem","margin-mobile":"1.25rem","margin":"4rem","space-md":"1.25rem","space-sm":"0.75rem"},"fontFamily":{"display-lg":["Newsreader"],"label-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Newsreader"],"display-xl":["Newsreader"],"headline-md":["Newsreader"],"label-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Newsreader"],"headline-sm":["Newsreader"],"body-lg":["Plus Jakarta Sans"],"headline-lg":["Newsreader"],"body-xl":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-xl-mobile":["Newsreader"]},"fontSize":{"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.04em","fontWeight":"600"}],"display-lg-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"400"}],"display-xl":["72px",{"lineHeight":"80px","letterSpacing":"-0.02em","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"0em","fontWeight":"500"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.08em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0em","fontWeight":"500"}],"headline-sm":["22px",{"lineHeight":"30px","letterSpacing":"0em","fontWeight":"500"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"500"}],"body-xl":["20px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.12em","fontWeight":"700"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"display-xl-mobile":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-[1380px] mx-auto px-margin-mobile lg:px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #f5a623
+- Font: newsreader
+- Mode: dark
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VWfj8z13BY6Raj5aKuX3DUW6Oi2zqs1FXpS0gxdpG5rFzU-KEQOyh7YpJpVRzx57VfYu__qZytDg5t4VTUAIUKrQWRBTVzwhH4H5SzOoEGOMuy18DTV4wuCYQsuHRMingjZ51X46ZLkHhkASYVuszR8Yvlmmh2GLfq-w6zsW7qFx6GBX2IyO6t17NUQDHvAdVMq9nvfmf7YYVuArUfnM0vXMHqu-LI0e-RIpH0KPMy2PtZx9hXmFIlbqA"/><div class="flex flex-col"><span class="font-label-md text-label-md tracking-wider text-on-surface uppercase">Studio Ravya</span><span class="font-label-sm text-label-sm text-primary tracking-widest uppercase">CMS Internal</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 bg-surface-container-lowest rounded-lg" data-active-classes="bg-surface-container-high text-primary font-semibold"><a class="px-space-sm py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="posts" href="#">Posts</a><a aria-current="page" class="px-space-sm py-1.5 rounded-md transition-all bg-surface-container-high text-primary font-semibold" data-path="calendar" href="#">Calendar</a><a class="px-space-sm py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" data-path="settings" href="#">Settings</a></nav></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span><span>Production v2.4</span></div><div class="hidden xl:flex items-center gap-space-xs"><span class="font-body-sm text-body-sm text-on-surface-variant">Admin Session</span></div><a class="px-space-sm py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-secondary-container hover:text-on-secondary transition-all" data-path="login" href="#">Log Out</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 flex-1 bg-surface"><div class="max-w-[1380px] mx-auto px-margin-mobile lg:px-margin py-space-lg"><div class="flex flex-col w-full">
+<!-- Top Command & Perspective Switcher -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center bg-surface-container-lowest p-1 rounded-lg">
+<a class="px-space-sm py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface flex items-center gap-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[15px]">view_list</span>
+<span>List</span>
+</a>
+<div class="px-space-sm py-1 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<span>Calendar</span>
+</div>
+</div>
+<span class="text-outline text-label-sm">/</span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface-variant">Dispatches Schedule</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight">Editorial Calendar</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Visual release schedule for published and upcoming dispatches.</p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto">
+<div class="hidden lg:flex items-center gap-space-xs px-space-sm py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">sync</span>
+<span>Synced with Edge CDN</span>
+</div>
+<button class="px-space-md py-2.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-secondary-container hover:text-on-secondary font-label-md text-label-md font-semibold transition-all shadow-[0_4px_20px_rgba(245,166,35,0.22)] flex items-center gap-1.5 active:scale-95" onclick="triggerNewPostModal()">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>+ New Post</span>
+</button>
+</div>
+</div>
+<!-- Calendar Control Ribbon -->
+<div class="bg-surface-container-low rounded-xl p-space-sm md:p-space-md mb-space-md shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Date Navigator -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1">
+<button class="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" title="Previous Month">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" title="Next Month">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight font-normal">September 2026</h2>
+<span class="hidden sm:inline font-label-sm text-label-sm text-primary tracking-widest uppercase">Q3 Publishing Window</span>
+</div>
+<button class="px-space-sm py-1.5 rounded-md bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm transition-all ml-1">
+          Today
+        </button>
+</div>
+<!-- Categories Filter Strip -->
+<div class="flex flex-wrap items-center gap-1.5" id="categoryFilterContainer">
+<button class="px-3 py-1.5 rounded-full text-label-sm font-label-sm bg-primary text-on-primary font-medium transition-all shadow-sm">
+          All Scheduled &amp; Published
+        </button>
+<button class="px-3 py-1.5 rounded-full text-label-sm font-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all">
+          Headless Engineering
+        </button>
+<button class="px-3 py-1.5 rounded-full text-label-sm font-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all">
+          Design &amp; Typography
+        </button>
+<button class="px-3 py-1.5 rounded-full text-label-sm font-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all">
+          Motion &amp; UX Craft
+        </button>
+</div>
+</div>
+</div>
+<!-- Editorial Calendar 7-Column Master Grid -->
+<div class="rounded-xl overflow-hidden shadow-lg bg-surface-container-lowest">
+<!-- Weekday Header Strip -->
+<div class="grid grid-cols-7 bg-surface-container-lowest text-center">
+<div class="py-2.5 font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Sun</div>
+<div class="py-2.5 font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Mon</div>
+<div class="py-2.5 font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Tue</div>
+<div class="py-2.5 font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Wed</div>
+<div class="py-2.5 font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Thu</div>
+<div class="py-2.5 font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Fri</div>
+<div class="py-2.5 font-label-sm text-label-sm text-on-surface-variant tracking-wider uppercase">Sat</div>
+</div>
+<!-- Calendar Matrix (September 2026 starts on Tuesday, 30 days) -->
+<div class="grid grid-cols-7 gap-[1px] bg-surface-container-highest">
+<!-- Week 1: Aug 30, Aug 31 (Outside Days) -->
+<div class="min-h-[140px] p-2 bg-surface-dim opacity-35 flex flex-col justify-between select-none">
+<span class="font-body-sm text-body-sm text-on-surface-variant">30</span>
+</div>
+<div class="min-h-[140px] p-2 bg-surface-dim opacity-35 flex flex-col justify-between select-none">
+<span class="font-body-sm text-body-sm text-on-surface-variant">31</span>
+</div>
+<!-- Sep 01 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors relative">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">01</span>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 02 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors relative">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">02</span>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 03 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors relative">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">03</span>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 04 (PUBLISHED POST) -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors relative">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">04</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim shadow-[0_0_8px_rgba(255,185,85,0.8)]"></span>
+</div>
+<!-- Post Chip -->
+<a class="w-full text-left p-2 rounded-lg bg-surface-container-high hover:bg-surface-bright transition-all shadow-sm block group/card" href="#editor">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider font-bold">Published</span>
+<span class="text-on-surface-variant font-label-sm text-[10px] ml-auto">10:00 AM</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface leading-snug line-clamp-2 group-hover/card:text-primary transition-colors">
+            Client Sovereignty: Clean MIT Handover
+          </p>
+</a>
+<div class="h-1"></div>
+</div>
+<!-- Sep 05 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors relative">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">05</span>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Week 2: Sep 06 - 12 -->
+<!-- Sep 06 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">06</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 07 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">07</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 08 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">08</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 09 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">09</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 10 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">10</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 11 (PUBLISHED POST) -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">11</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim shadow-[0_0_8px_rgba(255,185,85,0.8)]"></span>
+</div>
+<a class="w-full text-left p-2 rounded-lg bg-surface-container-high hover:bg-surface-bright transition-all shadow-sm block group/card" href="#editor">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider font-bold">Published</span>
+<span class="text-on-surface-variant font-label-sm text-[10px] ml-auto">09:30 AM</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface leading-snug line-clamp-2 group-hover/card:text-primary transition-colors">
+            Scoping Without Fixed Price Cards
+          </p>
+</a>
+<div class="h-1"></div>
+</div>
+<!-- Sep 12 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">12</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Week 3: Sep 13 - 19 -->
+<!-- Sep 13 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">13</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 14 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">14</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 15 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">15</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 16 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">16</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 17 (TODAY - SPECIAL STUDIO HIGHLIGHT) -->
+<div class="min-h-[140px] p-2.5 bg-surface-container-low flex flex-col justify-between group transition-colors relative overflow-hidden shadow-inner">
+<div class="absolute top-0 inset-x-0 h-1 bg-primary"></div>
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">17</span>
+<span class="px-1.5 py-0.5 rounded bg-primary text-on-primary font-label-sm text-[9px] tracking-wider uppercase font-bold">Today</span>
+</div>
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container text-center flex flex-col items-center justify-center py-3">
+<span class="material-symbols-outlined text-primary text-[18px] mb-1">radar</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">No Releases Slated</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Editorial pipeline active</span>
+</div>
+<button class="text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-0.5 hover:underline">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span>+ Add dispatch</span>
+</button>
+</div>
+<!-- Sep 18 (MULTI-POST DAY: 3 PUBLISHED DISPATCHES) -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors relative" id="multiPostDay">
+<div class="flex items-center justify-between mb-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">18</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-primary font-label-sm text-[10px]">3 Items</span>
+</div>
+<!-- Post Chip 1 -->
+<a class="w-full text-left p-1.5 mb-1 rounded-md bg-surface-container-high hover:bg-surface-bright transition-all block" href="#editor">
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="text-on-surface-variant font-label-sm text-[9px]">11:00 AM</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface leading-snug line-clamp-1">
+            The Typography of Authority
+          </p>
+</a>
+<!-- Post Chip 2 -->
+<a class="w-full text-left p-1.5 rounded-md bg-surface-container-high hover:bg-surface-bright transition-all block" href="#editor">
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="text-on-surface-variant font-label-sm text-[9px]">16:45 PM</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface leading-snug line-clamp-1">
+            Spatial Geometry: Architecture of White Space
+          </p>
+</a>
+<!-- +More Expandable Badge Trigger -->
+<div class="relative mt-1">
+<button class="w-full text-center py-1 rounded bg-surface-container text-primary hover:text-on-surface font-label-sm text-[11px] font-semibold transition-colors flex items-center justify-center gap-1" onclick="togglePopover(event)">
+<span>+1 more dispatch</span>
+<span class="material-symbols-outlined text-[13px]">expand_more</span>
+</button>
+<!-- Hidden Popover Stack -->
+<div class="hidden absolute left-0 right-0 bottom-full mb-2 p-2.5 rounded-xl bg-surface-container-highest shadow-2xl z-30 flex flex-col gap-2" id="extraPostsPopover">
+<div class="flex items-center justify-between pb-1">
+<span class="font-label-sm text-label-sm font-semibold text-primary">Sep 18 Addendum</span>
+<button class="text-on-surface-variant hover:text-on-surface" onclick="togglePopover(event)">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<a class="p-2 rounded bg-surface-container hover:bg-surface-bright transition-all block" href="#editor">
+<span class="font-label-sm text-[10px] text-primary-fixed uppercase tracking-wider block mb-0.5">Published · 18:30 PM</span>
+<p class="font-label-sm text-label-sm text-on-surface">Digital Flagships vs Generic Software SaaS</p>
+</a>
+</div>
+</div>
+</div>
+<!-- Sep 19 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">19</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Week 4: Sep 20 - 26 -->
+<!-- Sep 20 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">20</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 21 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">21</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 22 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">22</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 23 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">23</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 24 (SCHEDULED POST) -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors relative">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">24</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse shadow-[0_0_8px_rgba(224,115,18,0.9)]"></span>
+</div>
+<!-- Scheduled Amber Chip -->
+<a class="w-full text-left p-2 rounded-lg bg-surface-container-high hover:bg-surface-bright transition-all shadow-[0_4px_12px_rgba(224,115,18,0.15)] block group/card" href="#editor">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-ping"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-bold">Scheduled</span>
+<span class="text-on-surface-variant font-label-sm text-[10px] ml-auto">09:00 AM</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface leading-snug line-clamp-2 group-hover/card:text-secondary transition-colors">
+            Kinetic Shader Systems: 60fps Physics
+          </p>
+</a>
+<div class="h-1"></div>
+</div>
+<!-- Sep 25 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">25</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 26 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">26</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Week 5: Sep 27 - Oct 03 -->
+<!-- Sep 27 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">27</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 28 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">28</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Sep 29 (SCHEDULED POST) -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors relative">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">29</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-pulse shadow-[0_0_8px_rgba(224,115,18,0.9)]"></span>
+</div>
+<a class="w-full text-left p-2 rounded-lg bg-surface-container-high hover:bg-surface-bright transition-all shadow-[0_4px_12px_rgba(224,115,18,0.15)] block group/card" href="#editor">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-ping"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-bold">Scheduled</span>
+<span class="text-on-surface-variant font-label-sm text-[10px] ml-auto">14:00 PM</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface leading-snug line-clamp-2 group-hover/card:text-secondary transition-colors">
+            Headless Shopify vs Monolithic DTC
+          </p>
+</a>
+<div class="h-1"></div>
+</div>
+<!-- Sep 30 -->
+<div class="min-h-[140px] p-2.5 bg-surface flex flex-col justify-between group hover:bg-surface-container-low transition-colors">
+<span class="font-headline-sm text-headline-sm text-on-surface font-light">30</span>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-left text-label-sm font-label-sm text-primary flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-[14px]">add_circle</span>
+<span class="hidden sm:inline">Schedule</span>
+</button>
+</div>
+<!-- Oct 01, Oct 02, Oct 03 (Next Month Overflow) -->
+<div class="min-h-[140px] p-2 bg-surface-dim opacity-35 flex flex-col justify-between select-none">
+<span class="font-body-sm text-body-sm text-on-surface-variant">01</span>
+</div>
+<div class="min-h-[140px] p-2 bg-surface-dim opacity-35 flex flex-col justify-between select-none">
+<span class="font-body-sm text-body-sm text-on-surface-variant">02</span>
+</div>
+<div class="min-h-[140px] p-2 bg-surface-dim opacity-35 flex flex-col justify-between select-none">
+<span class="font-body-sm text-body-sm text-on-surface-variant">03</span>
+</div>
+</div>
+</div>
+<!-- Bottom Administrative Ledger & Legend -->
+<div class="mt-space-md p-space-sm md:p-space-md rounded-xl bg-surface-container-lowest flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm">
+<!-- Legend Status Chips -->
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-[0_0_8px_rgba(245,166,35,0.7)]"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Published (3 dispatches)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container shadow-[0_0_8px_rgba(224,115,18,0.7)]"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Scheduled (2 dispatches)</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-outline">info</span>
+<span>Draft posts are strictly excluded from calendar view until scheduled.</span>
+</div>
+</div>
+<!-- Quick Metadata Metric -->
+<div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant">
+<span>Auto-revalidation enabled</span>
+<span class="text-outline">·</span>
+<span class="text-primary">Next publish: Sep 24, 09:00 AM</span>
+</div>
+</div>
+<!-- Scheduled Dispatch Quick-Inspector Drawer / Notification Trigger (Hidden Interactive Overlay) -->
+<div class="fixed inset-0 z-50 bg-surface-dim/80 backdrop-blur-md hidden items-center justify-center p-4" id="scheduleModal">
+<div class="w-full max-w-lg bg-surface-container rounded-xl shadow-2xl p-space-lg relative flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest block mb-1">Dispatch Provisioning</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Schedule New Dispatch</h3>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="triggerNewPostModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="space-y-3">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Post Title</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="e.g. Design Systems as Enterprise Capital" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Launch Date</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container" type="date" value="2026-09-17"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Publish Time (UTC)</label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container" type="time" value="09:00"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Editorial Vertical</label>
+<select class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option>Headless Engineering</option>
+<option>Design &amp; Typography</option>
+<option>Motion &amp; UX Craft</option>
+<option>Studio Strategy</option>
+</select>
+</div>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md" onclick="triggerNewPostModal()">Cancel</button>
+<button class="px-space-md py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-all" onclick="triggerNewPostModal()">Register Dispatch</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function togglePopover(e) {
+    if (e) e.stopPropagation();
+    const pop = document.getElementById('extraPostsPopover');
+    if (pop) {
+      pop.classList.toggle('hidden');
+    }
+  }
+
+  function triggerNewPostModal() {
+    const modal = document.getElementById('scheduleModal');
+    if (modal) {
+      modal.classList.toggle('hidden');
+      modal.classList.toggle('flex');
+    }
+  }
+
+  // Filter Pill active toggle interaction
+  document.querySelectorAll('#categoryFilterContainer button').forEach(button => {
+    button.addEventListener('click', function() {
+      document.querySelectorAll('#categoryFilterContainer button').forEach(b => {
+        b.className = 'px-3 py-1.5 rounded-full text-label-sm font-label-sm bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all';
+      });
+      this.className = 'px-3 py-1.5 rounded-full text-label-sm font-label-sm bg-primary text-on-primary font-medium transition-all shadow-sm';
+    });
+  });
+</script></div></main><footer class="w-full bg-surface-container-lowest shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"><div class="max-w-[1380px] mx-auto px-margin-mobile lg:px-margin py-space-sm flex flex-col sm:flex-row items-center justify-between gap-space-xs text-on-surface-variant font-label-sm text-label-sm"><span>Studio Ravya Internal CMS · Systems Architecture v2.4</span><div class="flex items-center gap-space-sm"><span>All changes sync to Edge CDN</span><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span></div></div></footer></body></html>

@@ -1,0 +1,176 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProcessStep from '../components/ProcessStep.astro';
+
+const steps = [
+  {
+    step: '01',
+    title: 'Discovery & Strategic Alignment',
+    duration: 'Week 1',
+    description: 'We audit your current digital footprint, analyze customer psychology, define user flows, and finalize the complete technical sitemap and scope before touching a line of code.',
+    deliverables: [
+      'Comprehensive Site Architecture & SITEMAP',
+      'Target Customer Journey & Conversion Map',
+      'Technical Stack Selection & Infrastructure Plan',
+      'Content Requirements Checklist',
+    ],
+    icon: 'search',
+  },
+  {
+    step: '02',
+    title: 'Art Direction & Bespoke Design',
+    duration: 'Weeks 2–3',
+    description: 'We craft high-fidelity Figma prototypes incorporating custom typography scales, chromatic solar tokens, and interactive micro-animations tailored to your brand identity.',
+    deliverables: [
+      'Full-Fidelity Desktop & Mobile UI/UX in Figma',
+      'Interactive Clickable Component Prototype',
+      'Typography & Color System Tokens',
+      'Structured Revision Round with Stakeholders',
+    ],
+    icon: 'palette',
+  },
+  {
+    step: '03',
+    title: 'Production-Grade Engineering',
+    duration: 'Weeks 3–5',
+    description: 'We build your site with clean, hand-crafted code using modern static architectures (Astro, Tailwind, TypeScript) and robust Python/FastAPI backends with zero bloated plugins.',
+    deliverables: [
+      'Component-Driven Responsive Frontend Code',
+      'Custom API & Database Integrations',
+      'Form & CRM Webhook Pipelines',
+      'Core Web Vitals Optimization (Sub-second LCP)',
+    ],
+    icon: 'terminal',
+  },
+  {
+    step: '04',
+    title: 'Pre-Flight Audits & SEO Hardening',
+    duration: 'Week 5',
+    description: 'Rigorous cross-browser testing across mobile, tablet, and desktop viewports, alongside technical SEO verification (Schema.org, OpenGraph, sitemaps, and robots.txt).',
+    deliverables: [
+      '95+ Google PageSpeed & Lighthouse Verification',
+      'Structured JSON-LD Schema Validation',
+      'Cross-Device & Cross-Browser Quality Assurance',
+      '404 and Error State Handling Checks',
+    ],
+    icon: 'verified',
+  },
+  {
+    step: '05',
+    title: 'Launch & 30-Day Support Warranty',
+    duration: 'Week 6 & Beyond',
+    description: 'Zero-downtime DNS provisioning, SSL encryption, production deployment, and 30 days of dedicated studio warranty to guarantee flawless stability.',
+    deliverables: [
+      'Production Domain Cutover & SSL Configuration',
+      'Analytics & Conversion Event Verification',
+      'CMS Admin Dashboard Training & Video Walkthrough',
+      '30-Day Post-Launch Bug Warranty & Support',
+    ],
+    icon: 'rocket_launch',
+  },
+];
+
+const clientInputs = [
+  {
+    title: 'Content & Messaging',
+    desc: 'Existing brand assets, logos, and raw text (or collaboration with our copywriting sprint).',
+    icon: 'article',
+  },
+  {
+    title: 'Prompt Feedback Windows',
+    desc: 'Design and prototype reviews completed within 48–72 hours to keep the timeline on schedule.',
+    icon: 'schedule',
+  },
+  {
+    title: 'Access Credentials',
+    desc: 'DNS, domain registrar, and CRM access credentials during the engineering sprint.',
+    icon: 'key',
+  },
+];
+---
+
+<BaseLayout
+  title="Our Process | How We Build"
+  description="How a project with Studio Ravya actually works — from discovery to launch. See the steps, timeline, and what to expect."
+>
+  <!-- Header -->
+  <section class="py-20 lg:py-28 relative">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-3 font-mono">
+        Methodology &amp; Standards
+      </span>
+      <h1 class="font-serif text-4xl sm:text-6xl text-on-surface font-normal leading-tight mb-6">
+        How we build
+      </h1>
+      <p class="font-sans text-lg sm:text-xl text-on-surface-variant font-light leading-relaxed">
+        A disciplined, five-phase delivery framework designed to eliminate guesswork, respect your schedule, and ship exceptional software.
+      </p>
+    </div>
+  </section>
+
+  <!-- Process Steps Timeline -->
+  <section class="pb-24 lg:pb-32">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-6 max-w-4xl mx-auto">
+        {steps.map((step) => (
+          <ProcessStep {...step} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Inputs / What We Need From You -->
+  <section class="py-24 bg-surface-container-lowest border-y border-primary-container/10">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-2 font-mono">
+          Collaborative Partnership
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-on-surface font-normal">
+          What we need from you
+        </h2>
+        <p class="font-sans text-sm sm:text-base text-on-surface-variant mt-2">
+          Great websites are born from transparent collaboration. Here is what we count on from your team:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {clientInputs.map((item) => (
+          <div class="p-6 rounded-2xl bg-surface-card border border-primary-container/15 text-center">
+            <div class="w-12 h-12 rounded-xl bg-primary-container/15 text-primary flex items-center justify-center mx-auto mb-4">
+              <span class="material-symbols-outlined text-[24px]">{item.icon}</span>
+            </div>
+            <h3 class="font-serif text-xl text-on-surface font-normal mb-2">{item.title}</h3>
+            <p class="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="py-24 text-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <h2 class="font-serif text-3xl sm:text-5xl text-on-surface font-normal">
+        Ready to start your build?
+      </h2>
+      <p class="font-sans text-sm sm:text-base text-on-surface-variant">
+        Review our packages or tell us your custom scope to receive a tailored timeline.
+      </p>
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/contact"
+          class="w-full sm:w-auto inline-flex items-center justify-center bg-primary-container text-charcoal font-sans text-sm font-bold uppercase tracking-wider rounded-lg px-8 py-4 shadow-solar hover:bg-amber transition-all"
+        >
+          Start a Project
+        </a>
+        <a
+          href="/pricing"
+          class="w-full sm:w-auto inline-flex items-center justify-center font-sans text-sm font-medium text-on-surface hover:text-primary px-6 py-4 transition-colors"
+        >
+          See Pricing &amp; Packages
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

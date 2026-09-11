@@ -1,0 +1,201 @@
+---
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReadingProgress from '../../components/ReadingProgress.astro';
+
+export async function getStaticPaths() {
+  const API_URL = import.meta.env.PUBLIC_API_URL || process.env.PUBLIC_API_URL || 'http://localhost:8000';
+  let posts: any[] = [];
+
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 2000);
+    const res = await fetch(`${API_URL}/api/posts`, { signal: controller.signal });
+    clearTimeout(timeoutId);
+    if (res.ok) {
+      const apiPosts = await res.json();
+      if (Array.isArray(apiPosts) && apiPosts.length > 0) {
+        posts = apiPosts.map((p) => ({
+          slug: p.slug,
+          data: {
+            title: p.title,
+            description: p.excerpt,
+            category: p.category,
+            date: p.published_at
+              ? new Date(p.published_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+              : 'Recently',
+            readTime: `${p.read_time_minutes || 5} min read`,
+            coverImage: p.cover_image,
+            effective_meta_title: p.effective_meta_title || p.title,
+            effective_meta_description: p.effective_meta_description || p.excerpt,
+            effective_og_image: p.effective_og_image || p.cover_image,
+          },
+          body: p.body,
+        }));
+      }
+    }
+  } catch {
+    // Graceful fallback to local collection
+  }
+
+  if (posts.length === 0) {
+    const entries = await getCollection('blog');
+    posts = entries.map((entry) => ({
+      slug: entry.slug,
+      data: {
+        ...entry.data,
+        effective_meta_title: entry.data.title,
+        effective_meta_description: entry.data.description,
+        effective_og_image: entry.data.coverImage,
+      },
+      body: entry.body,
+    }));
+  }
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const renderedContent = marked.parse(post.body);
+---
+
+<BaseLayout
+  title={post.data.effective_meta_title}
+  description={post.data.effective_meta_description}
+  ogImage={post.data.effective_og_image || '/images/showcase-saas-platform.png'}
+>
+  <ReadingProgress />
+
+  <article class="py-16 lg:py-24 relative">
+    <div class="max-w-[820px] mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb & Category -->
+      <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-outline mb-6">
+        <a href="/blog" class="text-primary hover:underline">Blog</a>
+        <span>/</span>
+        <span class="text-on-surface-variant">{post.data.category}</span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-12">
+        <h1 class="font-serif text-3xl sm:text-5xl lg:text-[52px] leading-[1.15] text-on-surface font-normal mb-6">
+          {post.data.title}
+        </h1>
+        <p class="font-sans text-lg sm:text-xl text-on-surface-variant font-light leading-relaxed mb-8">
+          {post.data.description}
+        </p>
+
+        <!-- Meta Author Strip -->
+        <div class="flex items-center justify-between py-4 border-y border-primary-container/15 text-xs font-mono text-outline">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-primary-container/15 flex items-center justify-center text-primary font-serif">
+              SR
+            </div>
+            <div>
+              <p class="font-sans text-xs font-bold text-on-surface uppercase">Studio Ravya Editorial</p>
+              <p class="text-[11px] text-outline">Strategy &amp; Engineering</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span>{post.data.date}</span>
+            <span>•</span>
+            <span class="text-primary">{post.data.readTime}</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Cover Image if present -->
+      {post.data.coverImage && (
+        <div class="rounded-2xl overflow-hidden aspect-[16/9] mb-12 border border-primary-container/20 shadow-solar bg-surface-card">
+          <img src={post.data.coverImage} alt={post.data.title} class="w-full h-full object-cover" />
+        </div>
+      )}
+
+      <!-- Article Prose Content -->
+      <div class="prose prose-invert max-w-none font-sans text-base sm:text-lg text-on-surface/90 leading-relaxed space-y-6">
+        <div set:html={renderedContent} class="article-body" />
+      </div>
+
+      <!-- Post End Divider -->
+      <div class="my-16 pt-12 border-t border-primary-container/15">
+        <div class="p-8 rounded-2xl bg-gradient-to-br from-surface-card to-surface-elevated border border-primary-container/20 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-solar">
+          <div class="space-y-2">
+            <span class="text-xs font-bold uppercase tracking-widest text-primary font-mono block">
+              Direct Assistance
+            </span>
+            <h3 class="font-serif text-2xl text-on-surface font-normal">
+              Want a scoped estimate for your project?
+            </h3>
+            <p class="font-sans text-xs sm:text-sm text-on-surface-variant">
+              Tell us what you are looking to build. We will review your requirements and provide clear options.
+            </p>
+          </div>
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-lg bg-primary-container text-charcoal font-sans text-xs font-bold uppercase tracking-wider shadow-gold-glow hover:bg-amber transition-all shrink-0"
+          >
+            <span>Start a Project</span>
+            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .article-body h2 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.85rem;
+    font-weight: 400;
+    color: #ebe1d9;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  .article-body h3 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #ebe1d9;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .article-body p {
+    color: rgba(235, 225, 217, 0.85);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  .article-body ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: rgba(235, 225, 217, 0.85);
+  }
+  .article-body li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+  .article-body strong {
+    color: #ebe1d9;
+    font-weight: 600;
+  }
+  .article-body a {
+    color: #f5a623;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover {
+    color: #ffb955;
+  }
+  .article-body blockquote {
+    border-left: 3px solid #f5a623;
+    padding-left: 1.25rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #ebe1d9;
+  }
+</style>

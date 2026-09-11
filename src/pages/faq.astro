@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const generalFaqs = [
+  {
+    question: 'What types of businesses do you work with?',
+    answer: 'We partner primarily with ambitious founders, growing B2B companies, tech startups, luxury brands, and independent creators who treat their website as a strategic revenue driver rather than just a digital brochure.',
+  },
+  {
+    question: 'How long does a typical website build take?',
+    answer: 'Standard bespoke business websites take between 4 to 6 weeks from kickoff to launch. Single landing pages take 2 to 3 weeks, and complex custom web apps or large e-commerce platforms take 6 to 12 weeks. We provide an exact project milestone schedule before kickoff.',
+  },
+  {
+    question: 'How much does a website cost with Studio Ravya?',
+    answer: 'Our project tiers range from $3,000–$5,000 for focused landing pages, $5,000–$10,000 for flagship business websites, and $15,000+ for custom web applications. See our full pricing page for scope breakdowns.',
+  },
+  {
+    question: 'Do you use WordPress, Webflow, or custom code?',
+    answer: 'We primarily build custom code architectures using Astro, Tailwind CSS, TypeScript, and Python FastAPI. This approach yields sub-second load times (95+ Google PageSpeed), zero plugin security vulnerabilities, and zero mandatory monthly CMS licensing fees.',
+  },
+  {
+    question: 'Who owns the code and design files after launch?',
+    answer: 'You own 100% of the intellectual property, Figma design files, source code repositories, and assets. We do not charge recurring license fees to "keep your site alive."',
+  },
+];
+
+const processFaqs = [
+  {
+    question: 'What is required from our team during the build?',
+    answer: 'We require an initial discovery call, timely feedback on wireframes and designs within 48–72 hours, and access to any existing brand assets, copy, or domain DNS settings. If you need copywriting, we offer end-to-end messaging sprints.',
+  },
+  {
+    question: 'How do revisions work?',
+    answer: 'Every phase (wireframing, high-fidelity design, and pre-launch staging) includes dedicated revision rounds. We address all feedback systematically before moving into production engineering.',
+  },
+  {
+    question: 'What happens after the website is launched?',
+    answer: 'Every build comes with a 30-day post-launch warranty. During this period, any unexpected bugs, display quirks, or alignment issues are resolved immediately at no cost. We also provide CMS documentation and optional ongoing retainer support.',
+  },
+];
+---
+
+<BaseLayout
+  title="FAQ | Studio Ravya — Common Questions"
+  description="Common questions about hiring Studio Ravya for website design, pricing, development timelines, revisions, and code ownership."
+>
+  <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+    <!-- Header -->
+    <header class="max-w-3xl mb-16 text-center mx-auto">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-3 font-mono">
+        Clarity &amp; Assurance
+      </span>
+      <h1 class="font-serif text-4xl sm:text-6xl text-on-surface font-normal leading-tight mb-4">
+        Common questions
+      </h1>
+      <p class="font-sans text-lg sm:text-xl text-on-surface-variant font-light leading-relaxed">
+        Everything you need to know about working with Studio Ravya, our engineering standards, pricing, and timelines.
+      </p>
+    </header>
+
+    <div class="max-w-4xl mx-auto space-y-16">
+      <!-- Section 1: General & Scoping -->
+      <div>
+        <h2 class="font-serif text-2xl sm:text-3xl text-on-surface font-normal mb-6 flex items-center gap-2">
+          <span class="text-primary font-mono text-xl">01.</span>
+          <span>General &amp; Scoping</span>
+        </h2>
+        <FAQAccordion items={generalFaqs} />
+      </div>
+
+      <!-- Section 2: Process & Post-Launch -->
+      <div>
+        <h2 class="font-serif text-2xl sm:text-3xl text-on-surface font-normal mb-6 flex items-center gap-2">
+          <span class="text-primary font-mono text-xl">02.</span>
+          <span>Process &amp; Ownership</span>
+        </h2>
+        <FAQAccordion items={processFaqs} />
+      </div>
+
+      <!-- Still Have Questions Box -->
+      <div class="p-8 rounded-2xl bg-surface-card border border-primary-container/20 text-center space-y-4 shadow-solar">
+        <h3 class="font-serif text-2xl text-on-surface font-normal">Still have a question?</h3>
+        <p class="font-sans text-sm text-on-surface-variant max-w-md mx-auto">
+          We are happy to answer any questions about your specific technical requirements or timeline.
+        </p>
+        <div class="pt-2">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 bg-primary-container text-charcoal font-sans text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg shadow-gold-glow hover:bg-amber transition-all"
+          >
+            <span>Ask Us Directly</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

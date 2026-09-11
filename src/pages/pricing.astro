@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PricingTierCard from '../components/PricingTierCard.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const tiers = [
+  {
+    name: 'Landing Page',
+    tagline: 'Ideal for product launches, venture funding announcements, and ad campaigns.',
+    priceRange: '$3,000 – $5,000',
+    timeline: '2 to 3 Weeks',
+    features: [
+      'Single-page conversion architecture',
+      'Bespoke Figma UI/UX design',
+      'Mobile-first responsive build',
+      'CRM / email webhook integration',
+      'A/B split testing readiness',
+      'Sub-second edge caching',
+      '14-day launch bug warranty',
+    ],
+  },
+  {
+    name: 'Flagship Business Website',
+    tagline: 'Our most requested service for companies demanding category authority.',
+    priceRange: '$5,000 – $10,000',
+    timeline: '4 to 6 Weeks',
+    popular: true,
+    features: [
+      '5 to 10 bespoke pages',
+      'Complete custom visual system & typography',
+      'Technical SEO (Schema.org, OpenGraph)',
+      'Sub-second Core Web Vitals (95+ score)',
+      'Blog or resource library setup',
+      'Bespoke scoping & contact forms',
+      'Domain, DNS & SSL cutover',
+      '30-day dedicated post-launch support',
+    ],
+  },
+  {
+    name: 'Custom E-commerce',
+    tagline: 'For luxury lifestyle brands and merchants who need editorial shopping UX.',
+    priceRange: '$8,000 – $18,000',
+    timeline: '6 to 8 Weeks',
+    features: [
+      'Bespoke catalog and product lookbooks',
+      'Frictionless 1-click checkout flows',
+      'Inventory, shipping & tax automation',
+      'Stripe, Apple Pay & Google Pay integration',
+      'High AOV cross-sell features',
+      'Merchant management dashboard training',
+      '30-day post-launch warranty',
+    ],
+  },
+  {
+    name: 'Custom Web App / MVP',
+    tagline: 'For startups and teams requiring authenticated portals, dashboards, or MVPs.',
+    priceRange: '$15,000+',
+    timeline: '8 to 12 Weeks',
+    features: [
+      'Full-stack Python (FastAPI) & TypeScript build',
+      'Role-based authentication & permissions',
+      'Interactive data visualization & tables',
+      'Custom database design & automated backups',
+      'Third-party REST & Webhook APIs',
+      'Automated CI/CD deployment pipeline',
+      '60-day enterprise stability warranty',
+    ],
+  },
+];
+
+const priceFactors = [
+  { title: 'Page Count & Scope', desc: 'A focused 5-page site requires less surface area than a 25-page library with complex category sorting.', icon: 'layers' },
+  { title: 'Custom UI vs. Modified Templates', desc: 'We build bespoke designs tailored to your buyer persona, which commands higher craft than theme modifications.', icon: 'brush' },
+  { title: 'Functionality & Logins', desc: 'Adding user accounts, database logic, payment processing, or custom calculations introduces engineering scope.', icon: 'code' },
+  { title: 'Content & Copywriting', desc: 'Projects with complete client-provided copy move faster; end-to-end messaging sprints are scoped accordingly.', icon: 'edit_note' },
+  { title: 'Urgency & Timeline', desc: 'Compressing a standard 6-week build into 2 weeks requires parallelized studio sprints and dedicated resourcing.', icon: 'bolt' },
+];
+
+const pricingFaq = [
+  { question: 'Do you charge a fixed price or hourly rate?', answer: 'We work on a fixed-price model for defined project scopes. You receive a clear proposal with deliverables, milestones, and payment schedule before any work begins. No surprise bills.' },
+  { question: 'What is your standard payment schedule?', answer: 'Standard projects are split into milestones: 50% deposit upon kickoff to reserve studio calendar time, and 50% upon final approval prior to domain cutover.' },
+  { question: 'What happens if our requirements change mid-project?', answer: 'If you want to add new pages or features after signing, we discuss the scope change openly and issue a simple addendum with the adjusted price and timeline.' },
+  { question: 'Are there any recurring monthly fees paid to Studio Ravya?', answer: 'None. Once your site is launched and handed over, you own the code and design 100%. Hosting on platforms like GitHub Pages or Cloudflare Pages is completely free, and standard custom domains cost ~$12/year.' },
+];
+---
+
+<BaseLayout
+  title="Website Design & Development Pricing"
+  description="Transparent pricing for website design, development, and custom builds. See package ranges and what's included before you reach out."
+>
+  <!-- Header -->
+  <section class="py-20 lg:py-28 relative">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-3 font-mono">
+        Transparent Investment
+      </span>
+      <h1 class="font-serif text-4xl sm:text-6xl text-on-surface font-normal leading-tight mb-6">
+        Pricing built around scope, <br class="hidden sm:inline"/>
+        <span class="italic text-primary">not guesswork</span>
+      </h1>
+      <p class="font-sans text-lg sm:text-xl text-on-surface-variant font-light leading-relaxed">
+        Fixed-price contracts, clear milestones, and complete intellectual property ownership. No hidden retainer lock-ins.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing Cards Grid -->
+  <section class="pb-24 lg:pb-32">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        {tiers.map((tier) => (
+          <PricingTierCard {...tier} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What Affects Price -->
+  <section class="py-24 bg-surface-container-lowest border-y border-primary-container/10">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-2 font-mono">
+          Scope Economics
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-on-surface font-normal">
+          What actually moves the price
+        </h2>
+        <p class="font-sans text-sm sm:text-base text-on-surface-variant mt-2">
+          Every website quote is driven by five concrete project variables:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {priceFactors.map((item) => (
+          <div class="p-6 rounded-2xl bg-surface-card border border-primary-container/15">
+            <div class="w-10 h-10 rounded-lg bg-primary-container/15 text-primary flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-[20px]">{item.icon}</span>
+            </div>
+            <h3 class="font-serif text-xl text-on-surface font-normal mb-2">{item.title}</h3>
+            <p class="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+        <div class="p-6 rounded-2xl bg-gradient-to-br from-surface-card to-surface-elevated border border-primary-container/30 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-primary block mb-2">Want a straight answer?</span>
+            <h3 class="font-serif text-xl text-on-surface font-normal mb-2">Get a Scoped Estimate</h3>
+            <p class="font-sans text-xs text-on-surface-variant leading-relaxed">Tell us what you're building and we'll reply with a defined scope and price.</p>
+          </div>
+          <div class="pt-4">
+            <a href="/contact" class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:underline">
+              <span>Start Scoping</span>
+              <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing FAQ -->
+  <section class="py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-2 font-mono">
+          Transparency
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-on-surface font-normal">
+          Frequently Asked Questions About Pricing
+        </h2>
+      </div>
+      <FAQAccordion items={pricingFaq} />
+    </div>
+  </section>
+</BaseLayout>

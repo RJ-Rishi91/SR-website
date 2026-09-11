@@ -1,0 +1,305 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+
+const services = [
+  {
+    title: 'Website Design & Development',
+    description: 'Custom, blazing-fast marketing websites and digital flagships built to communicate prestige and convert prospects into high-ticket clients.',
+    href: '/services/website-design-development',
+    icon: 'web',
+    tags: ['Astro / Next.js', 'Bespoke UI/UX', 'SEO Architecture', 'Motion Design'],
+    badge: 'Flagship Service',
+    featured: true,
+  },
+  {
+    title: 'Landing Pages & Campaigns',
+    description: 'High-velocity, conversion-optimized landing pages engineered for product launches, ad campaigns, and venture announcements.',
+    href: '/services/landing-pages',
+    icon: 'rocket_launch',
+    tags: ['Conversion Rate Opt', 'A/B Testing Ready', 'Sub-second Load'],
+  },
+  {
+    title: 'E-commerce Websites',
+    description: 'Bespoke digital shopping experiences with tailored catalog architecture, seamless payment flows, and high average order value.',
+    href: '/services/ecommerce-websites',
+    icon: 'shopping_bag',
+    tags: ['Custom Checkout', 'High AOV Flow', 'Inventory Sync'],
+  },
+  {
+    title: 'Brand & Web Identity',
+    description: 'Comprehensive design systems, digital typography, chromatic palettes, and art direction that define category leaders.',
+    href: '/services/brand-and-web-identity',
+    icon: 'palette',
+    tags: ['Visual Systems', 'Design Tokens', 'Editorial Direction'],
+  },
+  {
+    title: 'Custom Web Apps & Tools',
+    description: 'Full-stack internal platforms, customer portals, interactive calculators, and specialized digital products built on modern web stacks.',
+    href: '/services/custom-web-apps',
+    icon: 'terminal',
+    tags: ['Full-Stack Python/TS', 'REST & GraphQL', 'Admin Portals'],
+  },
+];
+
+const featuredWork = [
+  {
+    title: 'Vesper AI — Enterprise Cognitive Suite Flagship',
+    client: 'Vesper Technologies',
+    category: 'Custom Web Platform',
+    outcome: 'Elevated brand credibility to close a $14M Series A round with a sub-second load time and interactive product demo playground.',
+    image: '/images/showcase-saas-platform.png',
+    href: '/work/vesper-ai',
+    tags: ['Astro', 'TypeScript', 'Tailwind', 'Interactive Canvas'],
+    featured: true,
+  },
+  {
+    title: 'Aura Living — Editorial Contemporary Commerce',
+    client: 'Aura Lifestyle',
+    category: 'E-commerce Storefront',
+    outcome: 'Increased mobile checkout completion by 42% through a stripped-back, high-craft editorial aesthetic.',
+    image: '/images/showcase-ecommerce.png',
+    href: '/work/aura-living',
+    tags: ['E-Commerce', 'Performance UX', 'Responsive'],
+  },
+  {
+    title: 'Monolith Protocol — Dark Minimalist Fintech',
+    client: 'Monolith Capital',
+    category: 'Fintech Web Application',
+    outcome: 'Delivered an institutional-grade visual interface with real-time portfolio telemetry and biometric-level security feel.',
+    image: '/images/showcase-fintech.png',
+    href: '/work/monolith-protocol',
+    tags: ['Fintech', 'Realtime UI', 'Design System'],
+  },
+];
+---
+
+<BaseLayout
+  title="Studio Ravya — Web Design & Digital Product Studio"
+  description="Studio Ravya builds fast, custom websites and digital products for businesses and creators — from landing pages to full web apps. Built to grow your business."
+>
+  <!-- Ambient Hero Section -->
+  <section class="relative w-full overflow-hidden pt-16 pb-24 lg:pt-28 lg:pb-36">
+    <!-- Atmospheric Radial Luminous Aura -->
+    <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[520px] bg-gradient-to-tr from-amber/20 via-primary-container/15 to-transparent rounded-full blur-[140px] opacity-75"></div>
+    <div class="pointer-events-none absolute top-12 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-[100px] opacity-50"></div>
+
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
+      <!-- Studio Availability Status Pill -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface-card border border-primary-container/20 shadow-md mb-8">
+        <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_#f5a623]"></span>
+        <span class="font-sans text-xs uppercase tracking-widest text-primary font-bold">
+          Accepting Q2 / Q3 Flagship Partnerships
+        </span>
+      </div>
+
+      <!-- Hero Headline -->
+      <h1 class="font-serif text-4xl sm:text-6xl lg:text-[76px] leading-[1.08] text-on-surface max-w-5xl tracking-tight mb-6 font-normal">
+        Websites and digital products, <br class="hidden sm:inline"/>
+        <span class="italic text-primary">built to grow</span> your business.
+      </h1>
+
+      <!-- Crisp Subhead -->
+      <p class="font-sans text-lg sm:text-xl text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+        For ambitious founders, category disruptors, and growing brands ready for high-converting design paired with production-grade engineering.
+      </p>
+
+      <!-- Primary Action Row -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+        <a
+          href="/contact"
+          class="w-full sm:w-auto inline-flex items-center justify-center bg-primary-container text-charcoal font-sans text-sm font-bold uppercase tracking-wider rounded-lg px-8 py-4 shadow-[0_6px_28px_rgba(245,166,35,0.32)] hover:bg-amber hover:shadow-[0_8px_32px_rgba(245,166,35,0.45)] hover:-translate-y-0.5 transition-all"
+        >
+          Start a Project
+        </a>
+        <a
+          href="#work"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-sans text-sm font-semibold text-on-surface hover:text-primary transition-colors px-6 py-4"
+        >
+          <span>See Our Work</span>
+          <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust-Signal Horizontal Strip -->
+  <section class="w-full bg-surface-container-low border-y border-primary-container/10 py-8 relative z-10">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3 whitespace-nowrap">
+          <div class="w-10 h-10 rounded-full bg-primary-container/15 flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[20px]">verified</span>
+          </div>
+          <div>
+            <p class="font-sans text-sm font-bold text-on-surface tracking-wide">48+ digital products shipped</p>
+            <p class="font-sans text-xs text-outline">Production-grade builds since 2024</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center lg:justify-end gap-x-8 gap-y-4 opacity-75">
+          <span class="font-serif text-sm uppercase tracking-widest text-on-surface-variant font-medium">AURA HEALTH</span>
+          <span class="text-primary-container/30 hidden sm:inline">•</span>
+          <span class="font-serif text-sm uppercase tracking-widest text-on-surface-variant font-medium">VESPER AI</span>
+          <span class="text-primary-container/30 hidden sm:inline">•</span>
+          <span class="font-serif text-sm uppercase tracking-widest text-on-surface-variant font-medium">LUMINA LABS</span>
+          <span class="text-primary-container/30 hidden sm:inline">•</span>
+          <span class="font-serif text-sm uppercase tracking-widest text-on-surface-variant font-medium">KINETIX</span>
+          <span class="text-primary-container/30 hidden sm:inline">•</span>
+          <span class="font-serif text-sm uppercase tracking-widest text-on-surface-variant font-medium">MONOLITH</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Bento Grid Section -->
+  <section class="py-24 lg:py-32 relative">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-2 font-mono">
+            Core Capabilities
+          </span>
+          <h2 class="font-serif text-3xl sm:text-5xl text-on-surface font-normal">
+            Services built around what your <br class="hidden sm:inline"/>
+            <span class="italic text-primary">business actually needs</span>
+          </h2>
+        </div>
+        <a
+          href="/services"
+          class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary hover:text-amber transition-colors self-start md:self-end"
+        >
+          <span>Compare All Services</span>
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((svc) => (
+          <ServiceCard {...svc} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Work Showcase -->
+  <section id="work" class="py-24 lg:py-32 bg-surface-container-lowest border-t border-primary-container/10 relative">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-2 font-mono">
+            Selected Case Studies
+          </span>
+          <h2 class="font-serif text-3xl sm:text-5xl text-on-surface font-normal">
+            Work we're proud of
+          </h2>
+        </div>
+        <a
+          href="/work"
+          class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary hover:text-amber transition-colors self-start md:self-end"
+        >
+          <span>View All Case Studies</span>
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {featuredWork.map((item) => (
+          <CaseStudyCard {...item} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Teaser Strip -->
+  <section class="py-24 lg:py-32 relative">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-2 font-mono">
+          Delivery Framework
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-on-surface font-normal mb-4">
+          How we build
+        </h2>
+        <p class="font-sans text-sm sm:text-base text-on-surface-variant">
+          A disciplined, five-phase process engineered to eliminate surprises and ship on schedule.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { step: '01', title: 'Discovery', desc: 'Deep dive into your business model, customer psychology, and site architecture.' },
+          { step: '02', title: 'Design', desc: 'Bespoke UI/UX, typography, design tokens, and interactive prototypes.' },
+          { step: '03', title: 'Build', desc: 'Clean, production-grade frontend & backend engineering with zero bloat.' },
+          { step: '04', title: 'Launch', desc: 'SEO audits, domain provisioning, analytics setup, and go-live deployment.' },
+        ].map((item) => (
+          <div class="p-6 rounded-2xl bg-surface-card border border-primary-container/15 hover:border-primary/35 transition-all group">
+            <span class="font-serif text-2xl text-primary/40 group-hover:text-primary transition-colors block mb-3">
+              {item.step}
+            </span>
+            <h3 class="font-serif text-xl text-on-surface font-normal mb-2">{item.title}</h3>
+            <p class="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href="/process"
+          class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary hover:underline"
+        >
+          <span>Read the full 5-phase process and client expectations</span>
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Testimonial Block -->
+  <section class="py-20 lg:py-28 bg-surface-container-lowest border-y border-primary-container/10 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="material-symbols-outlined text-4xl text-primary/40 mb-6">format_quote</span>
+      <blockquote class="font-serif text-2xl sm:text-3xl lg:text-4xl text-on-surface font-normal leading-snug mb-8 italic">
+        "Studio Ravya completely transformed how enterprise clients perceive our technology. The site feels like a bespoke luxury product, yet performs with software-level speed."
+      </blockquote>
+      <div class="flex flex-col items-center">
+        <p class="font-sans text-sm font-bold text-on-surface uppercase tracking-wider">Dr. Elena Rostova</p>
+        <p class="font-sans text-xs text-outline">Founder &amp; CEO, Vesper AI</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Conversion CTA Band -->
+  <section class="py-24 lg:py-32 relative overflow-hidden text-center">
+    <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-tr from-amber/20 via-primary-container/20 to-transparent rounded-full blur-[130px] opacity-75"></div>
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-2xl mx-auto space-y-6">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary font-mono block">
+          Ready to Elevate Your Digital Presence?
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-on-surface font-normal leading-tight">
+          Let's build something <br/>
+          <span class="italic text-primary">that works</span>.
+        </h2>
+        <p class="font-sans text-base text-on-surface-variant leading-relaxed">
+          Tell us about your project, timeline, and vision. We will review your goals and provide a scoped proposal.
+        </p>
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/contact"
+            class="w-full sm:w-auto inline-flex items-center justify-center bg-primary-container text-charcoal font-sans text-sm font-bold uppercase tracking-wider rounded-lg px-8 py-4 shadow-solar hover:bg-amber transition-all"
+          >
+            Start a Project
+          </a>
+          <a
+            href="/pricing"
+            class="w-full sm:w-auto inline-flex items-center justify-center font-sans text-sm font-medium text-on-surface hover:text-primary px-6 py-4 transition-colors"
+          >
+            See Pricing &amp; Packages
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

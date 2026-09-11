@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const principles = [
+  {
+    title: 'Clarity Over Cleverness',
+    desc: 'The best websites communicate immediate value within five seconds. We ruthlessly eliminate confusing agency jargon, slow gimmicks, and extraneous visual clutter.',
+  },
+  {
+    title: 'Engineering as a Form of Craft',
+    desc: 'Speed is not a nice-to-have; it is an essential commercial feature. We write semantic, production-grade markup that loads instantly and ranks reliably on search engines.',
+  },
+  {
+    title: 'Total Client Autonomy',
+    desc: 'You should never be held hostage by a web agency. You own 100% of the code, designs, and hosting accounts, with clean documentation for your team.',
+  },
+  {
+    title: 'The Solar Aesthetic',
+    desc: 'Ravya (meaning "sun" or "radiance") guides our design DNA — bringing warmth, luminance, and distinct visual identity to digital surfaces without sacrificing Swiss functional order.',
+  },
+];
+---
+
+<BaseLayout
+  title="About Studio Ravya"
+  description="Studio Ravya is a web design and digital product studio built on clarity, craft, and the idea that technology should feel alive. Meet the studio."
+>
+  <!-- Hero Section -->
+  <section class="py-20 lg:py-28 relative">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-3 font-mono">
+          Ethos &amp; Heritage
+        </span>
+        <h1 class="font-serif text-4xl sm:text-6xl text-on-surface font-normal leading-tight mb-6">
+          About the studio
+        </h1>
+        <p class="font-sans text-lg sm:text-xl text-on-surface-variant font-light leading-relaxed">
+          Studio Ravya is an independent digital studio founded to bridge high-craft visual art direction with disciplined full-stack software engineering.
+        </p>
+      </div>
+
+      <!-- Studio Workspace Image -->
+      <div class="rounded-2xl overflow-hidden aspect-[21/9] border border-primary-container/20 shadow-solar bg-surface-card mb-20">
+        <img src="/images/studio-workspace.png" alt="Studio Ravya Workspace" class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Narrative Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-primary font-mono block">
+            Why Studio Ravya Exists
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl text-on-surface font-normal leading-snug">
+            Most business websites are either pretty and broken, or functional and boring.
+          </h2>
+        </div>
+        <div class="lg:col-span-7 space-y-6 font-sans text-base sm:text-lg text-on-surface-variant leading-relaxed font-light">
+          <p>
+            On one end of the spectrum, traditional agencies deliver bloated design files that get bogged down by clumsy development, slow load times, and broken mobile layouts. On the other end, generic templates result in cookie-cutter websites that fail to reflect the caliber of what you actually do.
+          </p>
+          <p>
+            We built Studio Ravya to eliminate that false compromise. We operate as a focused, high-agency boutique. When you hire us, you work directly with senior designers and engineers who understand business metrics as deeply as typographic hierarchy.
+          </p>
+          <p>
+            Our name — <strong class="text-primary font-serif font-normal italic">Ravya</strong> — evokes the sun: radiant, steady, and life-giving. We design digital flagships that command attention, clarify your value, and serve as long-term capital assets for your enterprise.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles Grid -->
+  <section class="py-24 bg-surface-container-lowest border-y border-primary-container/10">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-2 font-mono">
+          Core Principles
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-on-surface font-normal">
+          How we think about the web
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {principles.map((p, idx) => (
+          <div class="p-8 rounded-2xl bg-surface-card border border-primary-container/15 hover:border-primary/35 transition-all">
+            <span class="font-serif text-2xl text-primary/40 block mb-3">0{idx + 1}</span>
+            <h3 class="font-serif text-2xl text-on-surface font-normal mb-3">{p.title}</h3>
+            <p class="font-sans text-sm sm:text-base text-on-surface-variant leading-relaxed">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="py-24 text-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <h2 class="font-serif text-3xl sm:text-5xl text-on-surface font-normal">
+        Let's create your next digital flagship.
+      </h2>
+      <p class="font-sans text-sm sm:text-base text-on-surface-variant">
+        Reach out to discuss your upcoming project or explore partnerships.
+      </p>
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/contact"
+          class="w-full sm:w-auto inline-flex items-center justify-center bg-primary-container text-charcoal font-sans text-sm font-bold uppercase tracking-wider rounded-lg px-8 py-4 shadow-solar hover:bg-amber transition-all"
+        >
+          Start a Project
+        </a>
+        <a
+          href="/work"
+          class="w-full sm:w-auto inline-flex items-center justify-center font-sans text-sm font-medium text-on-surface hover:text-primary px-6 py-4 transition-colors"
+        >
+          See Our Work
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

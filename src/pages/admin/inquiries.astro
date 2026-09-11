@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Client Inquiries | Studio Ravya CMS"
+  description="Manage and review inbound client scoping inquiries from the website."
+  noindex={true}
+>
+  <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <!-- CMS Top Bar Navigation -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-8 border-b border-primary-container/15 gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-primary-container/15 border border-primary-container/30 flex items-center justify-center text-primary">
+          <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="6" fill="#F5A623"/>
+            <path d="M16 4V8M16 24V28M4 16H8M24 16H28" stroke="#F5A623" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="font-serif text-2xl text-on-surface font-semibold tracking-wide">
+            Client Inquiries &amp; Pipeline
+          </h1>
+          <p class="text-xs text-outline font-mono">Inbound Lead Capture from /contact</p>
+        </div>
+      </div>
+
+      <!-- Admin Nav Links -->
+      <nav class="flex flex-wrap items-center gap-2 sm:gap-4 text-xs font-semibold uppercase tracking-wider">
+        <a href="/admin/posts" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-elevated transition-colors">
+          Dispatches
+        </a>
+        <a href="/admin/editor" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-elevated transition-colors">
+          Editor
+        </a>
+        <a href="/admin/inquiries" class="px-3 py-1.5 rounded-lg bg-primary-container/20 text-primary border border-primary-container/30">
+          Inquiries
+        </a>
+        <a href="/admin/calendar" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-elevated transition-colors">
+          Calendar
+        </a>
+        <a href="/admin/settings" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-elevated transition-colors">
+          Settings
+        </a>
+        <button
+          type="button"
+          id="logout-btn"
+          class="px-3 py-1.5 rounded-lg text-error hover:bg-error-container/20 transition-colors cursor-pointer"
+        >
+          Logout
+        </button>
+      </nav>
+    </div>
+
+    <!-- Inquiries List Container -->
+    <div class="space-y-6" id="inquiries-container">
+      <div class="p-8 rounded-2xl bg-surface-card border border-primary-container/15 text-center text-outline">
+        Loading client submissions...
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const token = localStorage.getItem('studioravya_admin_token');
+  if (!token) {
+    window.location.href = '/admin';
+  }
+
+  document.getElementById('logout-btn')?.addEventListener('click', () => {
+    localStorage.removeItem('studioravya_admin_token');
+    window.location.href = '/admin';
+  });
+
+  const API_URL = (window as any).PUBLIC_API_URL || 'http://localhost:8000';
+
+  async function loadInquiries() {
+    const container = document.getElementById('inquiries-container');
+    if (!container) return;
+
+    let items: any[] = [];
+
+    try {
+      const res = await fetch(`${API_URL}/api/admin/inquiries`, {
+        headers: { 'Authorization': `Bearer ${token}` },
+      });
+      if (res.ok) {
+        items = await res.json();
+      }
+    } catch {
+      // Check if temporary session inquiry exists
+      try {
+        const stored = sessionStorage.getItem('last_inquiry');
+        if (stored) {
+          items = [JSON.parse(stored)];
+        }
+      } catch {}
+    }
+
+    if (items.length === 0) {
+      container.innerHTML = `
+        <div class="p-12 rounded-2xl bg-surface-card border border-primary-container/15 text-center max-w-lg mx-auto space-y-3">
+          <span class="material-symbols-outlined text-4xl text-primary/40">inbox</span>
+          <h3 class="font-serif text-xl text-on-surface">No inquiries yet</h3>
+          <p class="text-xs text-on-surface-variant">When visitors submit the scoping form on /contact, their requests will appear here instantly.</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = items.map((inq, idx) => `
+      <div class="p-6 sm:p-8 rounded-2xl bg-surface-card border border-primary-container/15 space-y-4 hover:border-primary/30 transition-all">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-primary-container/10">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-primary font-bold">Inquiry #${inq.id || idx + 1}</span>
+            <h3 class="font-serif text-2xl text-on-surface font-normal">${inq.name} <span class="text-outline text-sm font-sans">(${inq.company || 'Individual / Founder'})</span></h3>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 rounded-full text-[11px] font-mono bg-surface-elevated border border-primary-container/20 text-on-surface">
+              ${inq.budget_range || 'Flexible'}
+            </span>
+            <a href="mailto:${inq.email}?subject=Studio Ravya Scoping: ${encodeURIComponent(inq.project_type || 'Website')}" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container text-charcoal font-sans text-xs font-bold uppercase tracking-wider shadow-gold-glow hover:bg-amber transition-all">
+              <span>Reply</span>
+              <span class="material-symbols-outlined text-[14px]">mail</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
+          <div>
+            <p class="text-outline uppercase">Email</p>
+            <p class="text-primary font-medium truncate">${inq.email}</p>
+          </div>
+          <div>
+            <p class="text-outline uppercase">Project Type</p>
+            <p class="text-on-surface">${inq.project_type || 'Website'}</p>
+          </div>
+          <div>
+            <p class="text-outline uppercase">Timeline</p>
+            <p class="text-on-surface">${inq.timeline || 'Flexible'}</p>
+          </div>
+          <div>
+            <p class="text-outline uppercase">Submitted</p>
+            <p class="text-on-surface">${inq.created_at ? new Date(inq.created_at).toLocaleDateString() : 'Recently'}</p>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-primary-container/10">
+          <p class="text-xs font-mono uppercase text-outline mb-1.5">Project Overview &amp; Goals</p>
+          <p class="font-sans text-sm text-on-surface-variant leading-relaxed bg-surface-elevated p-4 rounded-xl border border-primary-container/10">
+            ${inq.message || 'No description provided.'}
+          </p>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  loadInquiries();
+</script>

@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+
+const projects = [
+  {
+    title: 'Vesper AI — Enterprise Cognitive Flagship',
+    client: 'Vesper Technologies Inc.',
+    category: 'Web Platform',
+    outcome: 'Elevated brand prestige to close a $14M Series A round with a sub-second load time and interactive canvas demos.',
+    image: '/images/showcase-saas-platform.png',
+    href: '/work/vesper-ai',
+    tags: ['Astro', 'TypeScript', 'Tailwind', 'Interactive Canvas'],
+    serviceSlug: 'website-design-development',
+  },
+  {
+    title: 'Aura Living — Editorial Luxury Commerce',
+    client: 'Aura Lifestyle Brands',
+    category: 'E-commerce',
+    outcome: 'Delivered an immersive lookbook aesthetic that reduced mobile bounce rates by 34% and increased average order value by $62.',
+    image: '/images/showcase-ecommerce.png',
+    href: '/work/aura-living',
+    tags: ['E-Commerce', 'Shopify Custom', 'Mobile First'],
+    serviceSlug: 'ecommerce-websites',
+  },
+  {
+    title: 'Monolith Protocol — Institutional Fintech Suite',
+    client: 'Monolith Capital',
+    category: 'Web App',
+    outcome: 'Engineered a high-density financial portal with real-time portfolio telemetry, zero-latency filters, and dark minimal styling.',
+    image: '/images/showcase-fintech.png',
+    href: '/work/monolith-protocol',
+    tags: ['Fintech', 'Python / FastAPI', 'TypeScript', 'Data Visuals'],
+    serviceSlug: 'custom-web-apps',
+  },
+  {
+    title: 'Lumina Architecture — Digital Monograph',
+    client: 'Lumina Spatial Studio',
+    category: 'Brand & Web',
+    outcome: 'Crafted an architectural portfolio with tactile serif typography and responsive image grids that secured 3 major commercial contracts.',
+    image: '/images/showcase-luxury-flagship.png',
+    href: '/work/lumina-architecture',
+    tags: ['Brand Identity', 'Astro', 'Editorial Design', 'Core Web Vitals 99'],
+    serviceSlug: 'brand-and-web-identity',
+  },
+  {
+    title: 'Kinetix Labs — Campaign Launch Site',
+    client: 'Kinetix BioSciences',
+    category: 'Landing Page',
+    outcome: 'Captured 8,500+ early waitlist inquiries within 10 days of public announcement through a laser-focused conversion architecture.',
+    image: '/images/studio-workspace.png',
+    href: '/work/kinetix-launch',
+    tags: ['Landing Page', 'Conversion Rate Opt', 'CRM Sync'],
+    serviceSlug: 'landing-pages',
+  },
+];
+---
+
+<BaseLayout
+  title="Our Work | Studio Ravya Portfolio"
+  description="See websites, web apps, and digital projects built by Studio Ravya — real projects, production-grade craft, and measurable business outcomes."
+>
+  <!-- Header -->
+  <section class="py-20 lg:py-28 relative">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-3 font-mono">
+        Portfolio &amp; Proof
+      </span>
+      <h1 class="font-serif text-4xl sm:text-6xl text-on-surface font-normal leading-tight mb-6">
+        Work we're proud of
+      </h1>
+      <p class="font-sans text-lg sm:text-xl text-on-surface-variant font-light leading-relaxed">
+        A selection of digital flagships, web apps, and high-converting platforms shipped for founders and companies who value craft.
+      </p>
+    </div>
+  </section>
+
+  <!-- Work Grid -->
+  <section class="pb-24 lg:pb-32">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        {projects.map((proj) => (
+          <CaseStudyCard {...proj} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="py-20 bg-surface-container-lowest border-t border-primary-container/10 text-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <h2 class="font-serif text-3xl sm:text-5xl text-on-surface font-normal">
+        Want results like these?
+      </h2>
+      <p class="font-sans text-sm sm:text-base text-on-surface-variant">
+        Every project begins with an honest scoping conversation. Tell us what you're building.
+      </p>
+      <div class="pt-2">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center bg-primary-container text-charcoal font-sans text-sm font-bold uppercase tracking-wider rounded-lg px-8 py-4 shadow-solar hover:bg-amber transition-all"
+        >
+          Start a Project
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

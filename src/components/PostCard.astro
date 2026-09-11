@@ -1,0 +1,83 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  excerpt: string;
+  category: string;
+  date: string;
+  readTime: string;
+  coverImage?: string | null;
+  featured?: boolean;
+}
+
+const {
+  title,
+  slug,
+  excerpt,
+  category,
+  date,
+  readTime,
+  coverImage,
+  featured = false,
+} = Astro.props;
+---
+
+<article
+  class={`group flex flex-col justify-between bg-surface-card border border-primary-container/15 hover:border-primary/40 rounded-2xl overflow-hidden shadow-sm hover:shadow-solar transition-all duration-300 ${
+    featured ? 'lg:col-span-2 sm:p-8 p-6' : 'p-6 sm:p-7'
+  }`}
+>
+  <div>
+    <!-- Cover Image if present -->
+    {coverImage && (
+      <a href={`/blog/${slug}`} class="block overflow-hidden rounded-xl mb-5 aspect-[16/9] bg-surface-elevated">
+        <img
+          src={coverImage}
+          alt={title}
+          loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+      </a>
+    )}
+
+    <!-- Category & Read Time -->
+    <div class="flex items-center gap-3 text-xs font-mono mb-3">
+      <span class="px-2.5 py-0.5 rounded-full bg-primary-container/15 border border-primary-container/25 text-primary uppercase tracking-wider font-semibold">
+        {category}
+      </span>
+      <span class="text-outline">{date}</span>
+      <span class="text-outline">•</span>
+      <span class="text-outline">{readTime}</span>
+    </div>
+
+    <!-- Title -->
+    <h3 class={`font-serif text-on-surface group-hover:text-primary transition-colors leading-snug mb-3 ${
+      featured ? 'text-2xl sm:text-3xl lg:text-4xl' : 'text-xl sm:text-2xl'
+    }`}>
+      <a href={`/blog/${slug}`}>
+        {title}
+      </a>
+    </h3>
+
+    <!-- Excerpt -->
+    <p class="font-sans text-sm sm:text-base text-on-surface-variant leading-relaxed mb-6 line-clamp-3">
+      {excerpt}
+    </p>
+  </div>
+
+  <!-- Footer Link -->
+  <div class="pt-4 border-t border-primary-container/10 flex items-center justify-between">
+    <a
+      href={`/blog/${slug}`}
+      class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary group-hover:text-amber transition-colors"
+    >
+      <span>Read Article</span>
+      <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
+        arrow_forward
+      </span>
+    </a>
+    <span class="material-symbols-outlined text-[18px] text-outline/50 group-hover:text-primary transition-colors">
+      bookmark_border
+    </span>
+  </div>
+</article>

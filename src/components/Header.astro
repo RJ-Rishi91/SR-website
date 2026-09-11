@@ -1,0 +1,188 @@
+---
+const currentPath = Astro.url.pathname;
+
+const services = [
+  { name: 'Website Design & Development', href: '/services/website-design-development', desc: 'Custom flagship websites built for speed and conversions' },
+  { name: 'Landing Pages & Campaigns', href: '/services/landing-pages', desc: 'High-converting single-page launches & marketing funnels' },
+  { name: 'E-commerce Websites', href: '/services/ecommerce-websites', desc: 'Seamless storefronts, checkout flows & merchant systems' },
+  { name: 'Brand & Web Identity', href: '/services/brand-and-web-identity', desc: 'Visual systems, typography, color architecture & art direction' },
+  { name: 'Custom Web Apps & Tools', href: '/services/custom-web-apps', desc: 'Full-stack software, portals & interactive business tools' },
+];
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-primary-container/15 bg-surface-base/90 backdrop-blur-md transition-all duration-200">
+  <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-9 h-9 rounded-full bg-primary-container/15 border border-primary-container/30 flex items-center justify-center text-primary-container shadow-[0_0_12px_rgba(245,166,35,0.2)] group-hover:scale-105 transition-transform">
+        <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="6" fill="#F5A623"/>
+          <path d="M16 4V8M16 24V28M4 16H8M24 16H28M7.5 7.5L10.3 10.3M21.7 21.7L24.5 24.5M7.5 24.5L10.3 21.7M21.7 10.3L24.5 7.5" stroke="#F5A623" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="font-serif text-xl tracking-wider text-on-surface font-semibold group-hover:text-primary transition-colors">
+        STUDIO RAVYA
+      </span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex items-center gap-7">
+      <!-- Services Dropdown -->
+      <div class="relative group">
+        <button
+          type="button"
+          class={`flex items-center gap-1.5 font-sans text-sm font-medium transition-colors py-2 ${
+            currentPath.startsWith('/services') ? 'text-primary' : 'text-on-surface/80 hover:text-primary'
+          }`}
+          aria-expanded="false"
+        >
+          <span>Services</span>
+          <span class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:rotate-180">
+            expand_more
+          </span>
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute top-full left-0 w-80 pt-2 pointer-events-none group-hover:pointer-events-auto">
+          <div class="p-2 bg-surface-card border border-primary-container/20 rounded-xl shadow-solar backdrop-blur-xl">
+            {services.map((item) => (
+              <a
+                href={item.href}
+                class="block p-3 rounded-lg hover:bg-surface-elevated hover:border-primary-container/20 border border-transparent transition-all group/item"
+              >
+                <p class="text-sm font-medium text-on-surface group-hover/item:text-primary transition-colors">
+                  {item.name}
+                </p>
+                <p class="text-xs text-on-surface-variant/80 mt-0.5 leading-relaxed">
+                  {item.desc}
+                </p>
+              </a>
+            ))}
+            <div class="pt-2 mt-1 border-t border-primary-container/10">
+              <a
+                href="/services"
+                class="flex items-center justify-between p-2.5 rounded-lg text-xs font-semibold text-primary hover:bg-primary-container/10 transition-colors"
+              >
+                <span>View All Services</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a
+        href="/work"
+        class={`font-sans text-sm font-medium transition-colors ${
+          currentPath.startsWith('/work') ? 'text-primary' : 'text-on-surface/80 hover:text-primary'
+        }`}
+      >
+        Work
+      </a>
+
+      <a
+        href="/process"
+        class={`font-sans text-sm font-medium transition-colors ${
+          currentPath === '/process' || currentPath === '/process/' ? 'text-primary' : 'text-on-surface/80 hover:text-primary'
+        }`}
+      >
+        Process
+      </a>
+
+      <a
+        href="/pricing"
+        class={`font-sans text-sm font-medium transition-colors ${
+          currentPath === '/pricing' || currentPath === '/pricing/' ? 'text-primary' : 'text-on-surface/80 hover:text-primary'
+        }`}
+      >
+        Pricing
+      </a>
+
+      <a
+        href="/blog"
+        class={`font-sans text-sm font-medium transition-colors ${
+          currentPath.startsWith('/blog') ? 'text-primary' : 'text-on-surface/80 hover:text-primary'
+        }`}
+      >
+        Blog
+      </a>
+
+      <a
+        href="/about"
+        class={`font-sans text-sm font-medium transition-colors ${
+          currentPath === '/about' || currentPath === '/about/' ? 'text-primary' : 'text-on-surface/80 hover:text-primary'
+        }`}
+      >
+        About
+      </a>
+    </nav>
+
+    <!-- Desktop CTA & Mobile Toggle -->
+    <div class="flex items-center gap-4">
+      <a
+        href="/contact"
+        class="hidden sm:inline-flex items-center gap-2 bg-primary-container hover:bg-amber text-charcoal font-sans text-sm font-bold px-5 py-2.5 rounded-lg shadow-[0_2px_16px_rgba(245,166,35,0.35)] hover:shadow-[0_4px_24px_rgba(245,166,35,0.5)] hover:-translate-y-0.5 transition-all"
+      >
+        <span>Start a Project</span>
+        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button
+        type="button"
+        id="mobile-menu-btn"
+        class="lg:hidden p-2 text-on-surface hover:text-primary transition-colors focus:outline-none"
+        aria-label="Toggle Navigation Menu"
+      >
+        <span class="material-symbols-outlined text-[26px]" id="mobile-menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Slideout Navigation -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-primary-container/15 bg-surface-card px-4 pt-4 pb-6 space-y-3">
+    <div class="space-y-1">
+      <a href="/services" class="block py-2 text-base font-medium text-on-surface hover:text-primary">Services</a>
+      <div class="pl-4 space-y-1.5 border-l border-primary-container/20">
+        {services.map((item) => (
+          <a href={item.href} class="block py-1 text-sm text-on-surface-variant hover:text-primary">
+            {item.name}
+          </a>
+        ))}
+      </div>
+    </div>
+    <a href="/work" class="block py-2 text-base font-medium text-on-surface hover:text-primary">Work</a>
+    <a href="/process" class="block py-2 text-base font-medium text-on-surface hover:text-primary">Process</a>
+    <a href="/pricing" class="block py-2 text-base font-medium text-on-surface hover:text-primary">Pricing</a>
+    <a href="/blog" class="block py-2 text-base font-medium text-on-surface hover:text-primary">Blog</a>
+    <a href="/about" class="block py-2 text-base font-medium text-on-surface hover:text-primary">About</a>
+    <div class="pt-3">
+      <a
+        href="/contact"
+        class="w-full inline-flex items-center justify-center gap-2 bg-primary-container text-charcoal font-sans text-sm font-bold px-5 py-3 rounded-lg shadow-gold-glow"
+      >
+        <span>Start a Project</span>
+        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('mobile-menu-icon');
+
+  if (btn && menu && icon) {
+    btn.addEventListener('click', () => {
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        icon.textContent = 'close';
+      } else {
+        menu.classList.add('hidden');
+        icon.textContent = 'menu';
+      }
+    });
+  }
+</script>

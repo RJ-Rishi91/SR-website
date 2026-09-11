@@ -1,0 +1,164 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+const API_URL = import.meta.env.PUBLIC_API_URL || process.env.PUBLIC_API_URL || 'http://localhost:8000';
+let posts: any[] = [];
+
+try {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 2000);
+  const res = await fetch(`${API_URL}/api/posts`, { signal: controller.signal });
+  clearTimeout(timeoutId);
+  if (res.ok) {
+    const apiPosts = await res.json();
+    if (Array.isArray(apiPosts) && apiPosts.length > 0) {
+      posts = apiPosts.map((p) => ({
+        slug: p.slug,
+        title: p.title,
+        excerpt: p.excerpt,
+        category: p.category,
+        date: p.published_at
+          ? new Date(p.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+          : 'Recently',
+        readTime: `${p.read_time_minutes || 5} min read`,
+        coverImage: p.cover_image,
+      }));
+    }
+  }
+} catch {
+  // Graceful fallback to local collection
+}
+
+if (posts.length === 0) {
+  const localEntries = await getCollection('blog');
+  posts = localEntries.map((e) => ({
+    slug: e.slug,
+    title: e.data.title,
+    excerpt: e.data.description,
+    category: e.data.category,
+    date: e.data.date,
+    readTime: e.data.readTime,
+    coverImage: e.data.coverImage,
+    featured: e.data.featured,
+  }));
+}
+
+const categories = [
+  'All Categories',
+  'Pricing & Planning',
+  'Web Design & UX',
+  'Development & Engineering',
+  'Strategy & Business',
+];
+---
+
+<BaseLayout
+  title="Blog | Studio Ravya — Web Design & Business Tips"
+  description="Practical advice on websites, web design costs, and growing your business online — from the engineering and design team at Studio Ravya."
+>
+  <!-- Header -->
+  <section class="py-20 lg:py-28 relative">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-3 font-mono">
+        Insights &amp; Dispatches
+      </span>
+      <h1 class="font-serif text-4xl sm:text-6xl text-on-surface font-normal leading-tight mb-6">
+        Ideas on building a <br class="hidden sm:inline"/>
+        <span class="italic text-primary">better web presence</span>
+      </h1>
+      <p class="font-sans text-lg sm:text-xl text-on-surface-variant font-light leading-relaxed">
+        Direct, actionable thinking on website costs, conversion optimization, and modern software architecture.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter Pills (Visual / Functional in JS) -->
+  <section class="pb-12">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center justify-center gap-2" id="filter-container">
+        {categories.map((cat, idx) => (
+          <button
+            type="button"
+            class={`category-filter-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all select-none ${
+              idx === 0
+                ? 'bg-primary-container text-charcoal shadow-gold-glow'
+                : 'bg-surface-card text-on-surface-variant hover:text-on-surface border border-primary-container/15'
+            }`}
+            data-category={cat === 'All Categories' ? 'all' : cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Posts Grid -->
+  <section class="pb-24 lg:pb-32">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+      {posts.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="posts-grid">
+          {posts.map((post, idx) => (
+            <div class="post-card-wrapper" data-category={post.category}>
+              <PostCard {...post} featured={idx === 0} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-20 bg-surface-card border border-primary-container/15 rounded-2xl max-w-xl mx-auto p-8">
+          <span class="material-symbols-outlined text-4xl text-primary mb-3">feed</span>
+          <h3 class="font-serif text-2xl text-on-surface mb-2">New Dispatches Coming Soon</h3>
+          <p class="text-sm text-on-surface-variant">Our team is preparing essays on pricing models, Astro performance, and conversion design.</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Closing Newsletter / Project Strip -->
+  <section class="py-20 bg-surface-container-lowest border-t border-primary-container/10 text-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <h2 class="font-serif text-3xl sm:text-4xl text-on-surface font-normal">
+        Have a specific question about your site?
+      </h2>
+      <p class="font-sans text-sm sm:text-base text-on-surface-variant">
+        Read our sample breakdown on website costs or reach out to our team directly.
+      </p>
+      <div class="pt-2">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center bg-primary-container text-charcoal font-sans text-sm font-bold uppercase tracking-wider rounded-lg px-8 py-4 shadow-solar hover:bg-amber transition-all"
+        >
+          Start a Project Inquiry
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const filterBtns = document.querySelectorAll('.category-filter-btn');
+  const postWrappers = document.querySelectorAll('.post-card-wrapper');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => {
+        b.classList.remove('bg-primary-container', 'text-charcoal', 'shadow-gold-glow');
+        b.classList.add('bg-surface-card', 'text-on-surface-variant', 'border', 'border-primary-container/15');
+      });
+      btn.classList.add('bg-primary-container', 'text-charcoal', 'shadow-gold-glow');
+      btn.classList.remove('bg-surface-card', 'text-on-surface-variant', 'border', 'border-primary-container/15');
+
+      const cat = btn.getAttribute('data-category');
+      postWrappers.forEach((pw: any) => {
+        const itemCat = pw.getAttribute('data-category');
+        if (cat === 'all' || itemCat === cat) {
+          pw.style.display = 'block';
+        } else {
+          pw.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
