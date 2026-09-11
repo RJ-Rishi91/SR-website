@@ -84,7 +84,7 @@ from fastapi.responses import HTMLResponse, PlainTextResponse
 
 # ---------- Root Gateway Dashboard ----------
 
-@app.get("/", response_class=HTMLResponse)
+@app.api_route("/", methods=["GET", "HEAD"], response_class=HTMLResponse)
 def root_gateway():
     return """<!DOCTYPE html>
 <html lang="en">
@@ -311,7 +311,7 @@ def root_gateway():
 
 # ---------- Health Check ----------
 
-@app.get("/api/health")
+@app.api_route("/api/health", methods=["GET", "HEAD"])
 def health():
     return {"status": "ok", "studio": "Studio Ravya"}
 

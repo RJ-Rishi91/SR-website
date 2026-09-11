@@ -15,11 +15,9 @@ def seed_posts():
             return
 
         try:
-            from populate_9_blogs import ARTICLES
+            from app.articles import ARTICLES
         except ImportError:
-            import sys
-            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-            from populate_9_blogs import ARTICLES
+            from .articles import ARTICLES
 
         for idx, art in enumerate(ARTICLES, 1):
             slug = art["slug"]
