@@ -10,4 +10,4 @@ fi
 
 export PYTHONPATH=.
 echo "Starting Studio Ravya FastAPI backend on http://localhost:8000..."
-exec uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+exec python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
