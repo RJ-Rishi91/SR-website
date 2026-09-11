@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: 'https://studioravya.com',
+  site: 'https://studioravya.onerishi.in',
   trailingSlash: 'ignore',
   integrations: [
     tailwind({

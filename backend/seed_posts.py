@@ -9,56 +9,38 @@ Base.metadata.create_all(bind=engine)
 def seed_posts():
     db = SessionLocal()
     try:
-        slug = "how-much-does-a-website-cost"
-        existing = db.query(Post).filter(Post.slug == slug).first()
-        if existing:
-            print(f"[Seed] Post '{slug}' already exists in database.")
+        count = db.query(Post).count()
+        if count >= 9:
+            print(f"[Seed] Database already has {count} posts.")
             return
 
-        # Find sample markdown file
-        root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        md_file = os.path.join(root_dir, "studioravya-sample-blog-post.md")
+        try:
+            from populate_9_blogs import ARTICLES
+        except ImportError:
+            import sys
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            from populate_9_blogs import ARTICLES
 
-        body_content = ""
-        if os.path.exists(md_file):
-            with open(md_file, "r", encoding="utf-8") as f:
-                raw = f.read()
-                # Split frontmatter if exists
-                if raw.startswith("---"):
-                    parts = raw.split("---", 2)
-                    if len(parts) >= 3:
-                        body_content = parts[2].strip()
-                if not body_content:
-                    body_content = raw.strip()
-        else:
-            body_content = """# How Much Does a Website Cost in 2026? A Practical Breakdown
-
-"How much does a website cost?" is one of the first questions every business owner asks, and it's also one of the hardest to answer honestly — because the real answer is "it depends."
-
-## What actually drives the price
-- **Page count and complexity.**
-- **Custom design vs. template.**
-- **E-commerce and functionality.**
-- **Content and copywriting.**
-- **Timeline.**
-"""
-
-        post = Post(
-            slug=slug,
-            title="How Much Does a Website Cost in 2026? A Practical Breakdown",
-            category="Pricing & Planning",
-            excerpt="A practical breakdown of what actually drives website pricing — from simple landing pages to custom web apps — so you know what to budget before you reach out.",
-            body=body_content,
-            cover_image="/images/showcase-saas-platform.png",
-            read_time_minutes=6,
-            status="published",
-            published_at=datetime.utcnow(),
-            meta_title="How Much Does a Website Cost in 2026? [Pricing Guide]",
-            meta_description="A practical breakdown of what actually drives website pricing — from simple landing pages to custom web apps — so you know what to budget before you reach out.",
-        )
-        db.add(post)
+        for idx, art in enumerate(ARTICLES, 1):
+            slug = art["slug"]
+            existing = db.query(Post).filter(Post.slug == slug).first()
+            if not existing:
+                post = Post(
+                    slug=slug,
+                    title=art["title"],
+                    category=art["category"],
+                    excerpt=art["excerpt"],
+                    body=art["body"],
+                    cover_image=f"/images/{slug}.jpg",
+                    read_time_minutes=art["read_time_minutes"],
+                    status="published",
+                    published_at=datetime.utcnow(),
+                    meta_title=art["meta_title"],
+                    meta_description=art["meta_description"],
+                )
+                db.add(post)
         db.commit()
-        print(f"[Seed] Successfully seeded initial article: '{post.title}'")
+        print(f"[Seed] Successfully ensured 9 articles seeded in database.")
     except Exception as e:
         print(f"[Seed] Error seeding posts: {e}")
     finally:
