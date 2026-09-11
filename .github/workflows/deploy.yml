@@ -36,7 +36,7 @@ jobs:
       - name: Build with Astro
         env:
           ASTRO_TELEMETRY_DISABLED: 1
-          PUBLIC_API_URL: http://localhost:8000
+          PUBLIC_API_URL: https://studioravya-backend.onrender.com
         run: npm run build
 
       - name: Upload artifact

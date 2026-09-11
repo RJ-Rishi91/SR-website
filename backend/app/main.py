@@ -31,10 +31,10 @@ app = FastAPI(title="Studio Ravya API", version="1.0.0")
 app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
 
 # CORS middleware allowing localhost, preview ports, and production domains
-raw_origins = os.getenv("CORS_ORIGINS", "http://localhost:4321,http://127.0.0.1:4321").split(",")
+raw_origins = os.getenv("CORS_ORIGINS", "https://studioravya.onerishi.in,http://localhost:4321,http://127.0.0.1:4321").split(",")
 origins = [o.strip() for o in raw_origins if o.strip() and o.strip() != "*"]
-if not origins:
-    origins = ["http://localhost:4321", "http://127.0.0.1:4321"]
+if "https://studioravya.onerishi.in" not in origins:
+    origins.append("https://studioravya.onerishi.in")
 
 app.add_middleware(
     CORSMiddleware,

@@ -131,17 +131,28 @@ const currentYear = new Date().getFullYear();
 
         <!-- Direct Backend Access Button -->
         <a
-          href="http://localhost:8000"
+          href="https://studioravya-backend.onrender.com"
+          id="footer-backend-btn"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-primary-container/15 hover:bg-primary-container text-primary hover:text-charcoal border border-primary-container/30 text-xs font-mono font-semibold transition-all shadow-sm group"
-          title="Access FastAPI Backend Server (http://localhost:8000)"
+          title="Access Live FastAPI Backend Server & OpenAPI Docs"
         >
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Backend Server (8000)</span>
+          <span id="footer-backend-label">Backend Server</span>
           <span class="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform">open_in_new</span>
         </a>
       </div>
     </div>
   </div>
 </footer>
+
+<script>
+  // Detect environment and point to localhost if running locally
+  const btn = document.getElementById('footer-backend-btn') as HTMLAnchorElement;
+  const label = document.getElementById('footer-backend-label');
+  if (btn && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    btn.href = 'http://localhost:8000';
+    if (label) label.textContent = 'Backend Server (8000)';
+  }
+</script>

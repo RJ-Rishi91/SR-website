@@ -197,7 +197,8 @@
       btnText.textContent = 'Transmitting Inquiry...';
       btnIcon.textContent = 'hourglass_empty';
 
-      const API_URL = (window as any).PUBLIC_API_URL || 'http://localhost:8000';
+      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const API_URL = (window as any).PUBLIC_API_URL || (isLocal ? 'http://localhost:8000' : 'https://studioravya-backend.onrender.com');
 
       try {
         const controller = new AbortController();

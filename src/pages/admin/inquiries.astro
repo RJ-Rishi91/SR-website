@@ -72,7 +72,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     window.location.href = '/admin';
   });
 
-  const API_URL = (window as any).PUBLIC_API_URL || 'http://localhost:8000';
+  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const API_URL = (window as any).PUBLIC_API_URL || (isLocal ? 'http://localhost:8000' : 'https://studioravya-backend.onrender.com');
 
   async function loadInquiries() {
     const container = document.getElementById('inquiries-container');
