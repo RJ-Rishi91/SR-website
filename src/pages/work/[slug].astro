@@ -118,6 +118,29 @@ export async function getStaticPaths() {
         ],
       },
     },
+    {
+      params: { slug: 'kinetix' },
+      props: {
+        title: 'Kinetix Labs Launch Campaign | Studio Ravya',
+        client: 'Kinetix BioSciences',
+        role: 'High-Velocity Launch Site',
+        year: '2024',
+        timeline: '3 Weeks',
+        serviceTitle: 'Landing Pages & Campaigns',
+        serviceHref: '/services/landing-pages',
+        heroImage: '/images/studio-workspace.png',
+        headline: 'Conversion-engineered launch funnel capturing 8,500+ waitlist subscribers.',
+        overview: 'Kinetix required a focused, high-conversion landing page to announce their research platform and build an audience of enterprise lab partners before their closed beta.',
+        theProblem: 'With only three weeks until their industry conference announcement, they needed rapid delivery without sacrificing visual pedigree or CRM integration accuracy.',
+        whatWeBuilt: 'We designed, wrote, and deployed a focused single-page landing site with live countdown, interactive research summaries, and direct CRM sync. The page achieved a 22.4% conversion rate.',
+        tools: ['Astro', 'Tailwind CSS', 'Webhook Sync', 'Analytics Pipelines'],
+        metrics: [
+          { label: 'Waitlist Inquiries', value: '8,500+' },
+          { label: 'Conversion Rate', value: '22.4%' },
+          { label: 'Time to Ship', value: '18 Days' },
+        ],
+      },
+    },
   ];
 }
 
