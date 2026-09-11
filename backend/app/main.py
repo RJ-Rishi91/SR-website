@@ -80,11 +80,241 @@ def startup_init():
         print(f"[Startup] Scheduler startup note: {err}")
 
 
+from fastapi.responses import HTMLResponse, PlainTextResponse
+
+# ---------- Root Gateway Dashboard ----------
+
+@app.get("/", response_class=HTMLResponse)
+def root_gateway():
+    return """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Studio Ravya API Engine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #120E0A;
+      --card: #1C1713;
+      --elevated: #28211C;
+      --primary: #F5A623;
+      --amber: #E08B10;
+      --text: #FBF8F5;
+      --muted: #A09488;
+      --border: rgba(245, 166, 35, 0.2);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 680px;
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 30px rgba(245,166,35,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .emblem {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(245, 166, 35, 0.15);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-family: monospace;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+    }
+    p.desc {
+      color: var(--muted);
+      font-size: 0.925rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .endpoint-card {
+      background: var(--elevated);
+      border: 1px solid rgba(245, 166, 35, 0.15);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .endpoint-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(245, 166, 35, 0.15);
+    }
+    .endpoint-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .endpoint-path {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--primary);
+    }
+    .endpoint-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .footer-bar {
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(245, 166, 35, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .footer-bar a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .footer-bar a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="emblem">
+        <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="6" fill="#F5A623"/>
+          <path d="M16 4V8M16 24V28M4 16H8M24 16H28M7.5 7.5L10.3 10.3M21.7 21.7L24.5 24.5M7.5 24.5L10.3 21.7M21.7 10.3L24.5 7.5" stroke="#F5A623" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1>STUDIO RAVYA</h1>
+        <p style="font-size:0.75rem; color: var(--primary); font-family: monospace; text-transform: uppercase;">FastAPI Core Engine · Localhost:8000</p>
+      </div>
+    </div>
+
+    <div class="badge">
+      <span class="dot"></span>
+      <span>SYSTEM STATUS: OPERATIONAL</span>
+    </div>
+
+    <p class="desc">
+      Welcome to the headless backend pipeline powering Studio Ravya. This server provides automated lead intake, SQLite editorial persistence, webhook dispatchers, and tokenized CMS endpoints.
+    </p>
+
+    <div class="grid">
+      <a href="/docs" class="endpoint-card">
+        <div class="endpoint-title">
+          <span>Interactive Swagger UI</span>
+          <span>↗</span>
+        </div>
+        <div class="endpoint-path">GET /docs</div>
+        <div class="endpoint-desc">Explore and test all REST endpoints interactively.</div>
+      </a>
+
+      <a href="/api/health" class="endpoint-card">
+        <div class="endpoint-title">
+          <span>Health Telemetry</span>
+          <span>↗</span>
+        </div>
+        <div class="endpoint-path">GET /api/health</div>
+        <div class="endpoint-desc">Live daemon ping and studio operational state.</div>
+      </a>
+
+      <a href="/api/posts" class="endpoint-card">
+        <div class="endpoint-title">
+          <span>Editorial Feed (9 Posts)</span>
+          <span>↗</span>
+        </div>
+        <div class="endpoint-path">GET /api/posts</div>
+        <div class="endpoint-desc">JSON array of all active published articles.</div>
+      </a>
+
+      <a href="http://localhost:4321/admin" class="endpoint-card">
+        <div class="endpoint-title">
+          <span>Admin CMS Portal</span>
+          <span>↗</span>
+        </div>
+        <div class="endpoint-path">http://localhost:4321/admin</div>
+        <div class="endpoint-desc">Editorial composer, lead inbox & settings suite.</div>
+      </a>
+    </div>
+
+    <div class="footer-bar">
+      <span>Studio Director: <a href="https://onerishi.in" target="_blank">Rushal S. (OneRishi)</a></span>
+      <a href="http://localhost:4321">← Return to Studio Website</a>
+    </div>
+  </div>
+</body>
+</html>
+"""
+
 # ---------- Health Check ----------
 
 @app.get("/api/health")
 def health():
     return {"status": "ok", "studio": "Studio Ravya"}
+
 
 
 # ---------- Public Content Endpoints ----------

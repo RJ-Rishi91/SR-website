@@ -20,6 +20,8 @@ const {
   coverImage,
   featured = false,
 } = Astro.props;
+
+const displayCoverImage = coverImage ? coverImage.replace(/^https?:\/\/(localhost|127\.0\.0\.1):8000\/uploads\//, '/uploads/') : null;
 ---
 
 <article
@@ -29,10 +31,10 @@ const {
 >
   <div>
     <!-- Cover Image if present -->
-    {coverImage && (
+    {displayCoverImage && (
       <a href={`/blog/${slug}`} class="block overflow-hidden rounded-xl mb-5 aspect-[16/9] bg-surface-elevated">
         <img
-          src={coverImage}
+          src={displayCoverImage}
           alt={title}
           loading="lazy"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

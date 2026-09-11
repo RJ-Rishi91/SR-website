@@ -61,6 +61,9 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const renderedContent = marked.parse(post.body);
+const displayCoverImage = post.data.coverImage
+  ? post.data.coverImage.replace(/^https?:\/\/(localhost|127\.0\.0\.1):8000\/uploads\//, '/uploads/')
+  : null;
 ---
 
 <BaseLayout
@@ -112,9 +115,9 @@ const renderedContent = marked.parse(post.body);
       </header>
 
       <!-- Cover Image if present -->
-      {post.data.coverImage && (
+      {displayCoverImage && (
         <div class="rounded-2xl overflow-hidden aspect-[16/9] mb-12 border border-primary-container/20 shadow-solar bg-surface-card">
-          <img src={post.data.coverImage} alt={post.data.title} class="w-full h-full object-cover" />
+          <img src={displayCoverImage} alt={post.data.title} class="w-full h-full object-cover" />
         </div>
       )}
 
