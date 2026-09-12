@@ -67,13 +67,13 @@ ARTICLES = [
         "category": "Pricing & Planning",
         "read_time_minutes": 6,
         "image_file": "blog_pricing_guide_1789098300103.jpg",
-        "excerpt": "A practical breakdown of what actually drives website pricing — from simple landing pages to custom web apps — so you know what to budget before you reach out.",
+        "excerpt": "A practical breakdown of what actually drives website pricing - from simple landing pages to custom web apps - so you know what to budget before you reach out.",
         "meta_title": "How Much Does a Website Cost in 2026? [Pricing Guide]",
-        "meta_description": "A practical breakdown of what actually drives website pricing — from simple landing pages to custom web apps — so you know what to budget before you reach out.",
+        "meta_description": "A practical breakdown of what actually drives website pricing - from simple landing pages to custom web apps - so you know what to budget before you reach out.",
         "days_ago": 1,
         "body": """# How Much Does a Website Cost in 2026? A Practical Breakdown
 
-"How much does a website cost?" is one of the first questions every business owner asks, and it's also one of the hardest to answer honestly — because the real answer is "it depends."
+"How much does a website cost?" is one of the first questions every business owner asks, and it's also one of the hardest to answer honestly - because the real answer is "it depends."
 
 A template-based brochure site and a custom full-stack web application are both technically "websites," but they require vastly different engineering disciplines, timelines, and budgets.
 
@@ -135,7 +135,7 @@ Treat your website not as a line-item expense, but as your most tireless digital
         "days_ago": 3,
         "body": """# Why Headless & Static Architecture Outperforms Monolithic CMS in 2026
 
-For nearly two decades, monolithic content management systems — where the database, server rendering, plugin ecosystem, and HTML output live inside a single execution context — were the default choice for building websites.
+For nearly two decades, monolithic content management systems - where the database, server rendering, plugin ecosystem, and HTML output live inside a single execution context - were the default choice for building websites.
 
 In 2026, that paradigm has fundamentally shifted. High-growth brands and discerning studios now overwhelmingly choose **headless and static-first architectures**.
 
@@ -189,7 +189,7 @@ At Studio Ravya, every client platform is built headless and static-first for la
         "days_ago": 5,
         "body": """# The Anatomy of a 15%+ Converting B2B Landing Page
 
-Most B2B landing pages convert between 2% and 4%. When a landing page consistently converts at **15% or higher**, it isn't luck or aggressive sales tricks — it is the result of deliberate cognitive architecture.
+Most B2B landing pages convert between 2% and 4%. When a landing page consistently converts at **15% or higher**, it isn't luck or aggressive sales tricks - it is the result of deliberate cognitive architecture.
 
 Here is the exact structural framework we use at Studio Ravya to engineer high-velocity landing pages.
 
@@ -260,7 +260,7 @@ In an era saturated with interchangeable SaaS templates styled with generic syst
 
 ## The Power of the High-Contrast Serif
 
-At Studio Ravya, we pair **Newsreader** — a transitional serif designed for long-form readability with optical sizing (`opsz`) — with **Plus Jakarta Sans**, a geometric neo-grotesque.
+At Studio Ravya, we pair **Newsreader** - a transitional serif designed for long-form readability with optical sizing (`opsz`) - with **Plus Jakarta Sans**, a geometric neo-grotesque.
 
 Why does this pairing work?
 - **Newsreader** brings warm, literary authority to display headlines, evoking the heritage of fine architectural monographs and high-craft editorial journals.
@@ -454,7 +454,7 @@ The solution is establishing **semantic design tokens** from day one.
 
 ## What Are Design Tokens?
 
-Design tokens are the atomic visual attributes of your brand — colors, spacing, typography, radii, elevation shadows — stored as platform-agnostic key-value pairs.
+Design tokens are the atomic visual attributes of your brand - colors, spacing, typography, radii, elevation shadows - stored as platform-agnostic key-value pairs.
 
 ```json
 {

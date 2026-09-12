@@ -18,7 +18,7 @@ In an era saturated with interchangeable SaaS templates styled with generic syst
 
 ## The Power of the High-Contrast Serif
 
-At Studio Ravya, we pair **Newsreader** — a transitional serif designed for long-form readability with optical sizing (`opsz`) — with **Plus Jakarta Sans**, a geometric neo-grotesque.
+At Studio Ravya, we pair **Newsreader** - a transitional serif designed for long-form readability with optical sizing (`opsz`) - with **Plus Jakarta Sans**, a geometric neo-grotesque.
 
 Why does this pairing work?
 - **Newsreader** brings warm, literary authority to display headlines, evoking the heritage of fine architectural monographs and high-craft editorial journals.

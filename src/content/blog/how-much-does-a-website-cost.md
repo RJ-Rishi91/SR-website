@@ -1,6 +1,6 @@
 ---
 title: "How Much Does a Website Cost in 2026? A Practical Breakdown"
-description: "A practical breakdown of what actually drives website pricing — from simple landing pages to custom web apps — so you know what to budget before you reach out."
+description: "A practical breakdown of what actually drives website pricing - from simple landing pages to custom web apps - so you know what to budget before you reach out."
 date: "September 10, 2026"
 category: "Pricing & Planning"
 readTime: "6 min read"
@@ -10,7 +10,7 @@ featured: true
 
 # How Much Does a Website Cost in 2026? A Practical Breakdown
 
-"How much does a website cost?" is one of the first questions every business owner asks, and it's also one of the hardest to answer honestly — because the real answer is "it depends."
+"How much does a website cost?" is one of the first questions every business owner asks, and it's also one of the hardest to answer honestly - because the real answer is "it depends."
 
 A template-based brochure site and a custom full-stack web application are both technically "websites," but they require vastly different engineering disciplines, timelines, and budgets.
 

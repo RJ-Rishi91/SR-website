@@ -1,7 +1,7 @@
 {
   "name": "studioravya-website",
   "version": "1.0.0",
-  "description": "Studio Ravya — Web Design & Digital Product Studio. Websites and digital products, built to grow your business.",
+  "description": "Studio Ravya - Web Design & Digital Product Studio. Websites and digital products, built to grow your business.",
   "type": "module",
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",

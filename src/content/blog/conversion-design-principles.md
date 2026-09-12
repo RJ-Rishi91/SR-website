@@ -10,7 +10,7 @@ featured: false
 
 # The Anatomy of a 15%+ Converting B2B Landing Page
 
-Most B2B landing pages convert between 2% and 4%. When a landing page consistently converts at **15% or higher**, it isn't luck or aggressive sales tricks — it is the result of deliberate cognitive architecture.
+Most B2B landing pages convert between 2% and 4%. When a landing page consistently converts at **15% or higher**, it isn't luck or aggressive sales tricks - it is the result of deliberate cognitive architecture.
 
 Here is the exact structural framework we use at Studio Ravya to engineer high-velocity landing pages.
 

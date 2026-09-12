@@ -1,4 +1,4 @@
-# Studio Ravya — Web Design & Digital Product Studio
+# Studio Ravya - Web Design & Digital Product Studio
 
 > Websites and digital products, built to grow your business.
 

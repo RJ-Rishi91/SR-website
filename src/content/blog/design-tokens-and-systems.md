@@ -20,7 +20,7 @@ The solution is establishing **semantic design tokens** from day one.
 
 ## What Are Design Tokens?
 
-Design tokens are the atomic visual attributes of your brand — colors, spacing, typography, radii, elevation shadows — stored as platform-agnostic key-value pairs.
+Design tokens are the atomic visual attributes of your brand - colors, spacing, typography, radii, elevation shadows - stored as platform-agnostic key-value pairs.
 
 ```json
 {

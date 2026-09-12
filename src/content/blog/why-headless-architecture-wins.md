@@ -10,7 +10,7 @@ featured: false
 
 # Why Headless & Static Architecture Outperforms Monolithic CMS in 2026
 
-For nearly two decades, monolithic content management systems — where the database, server rendering, plugin ecosystem, and HTML output live inside a single execution context — were the default choice for building websites.
+For nearly two decades, monolithic content management systems - where the database, server rendering, plugin ecosystem, and HTML output live inside a single execution context - were the default choice for building websites.
 
 In 2026, that paradigm has fundamentally shifted. High-growth brands and discerning studios now overwhelmingly choose **headless and static-first architectures**.
 
