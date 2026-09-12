@@ -29,7 +29,17 @@ const pageTitle = title.includes('Studio Ravya') ? title : `${title} | Studio Ra
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicon & App Icons (Google SERP, Desktop Tab & Mobile PWA Compliant) -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#120E0A" />
+    <meta name="msapplication-TileColor" content="#120E0A" />
 
     <!-- Primary Meta Tags -->
     {noindex && (
@@ -75,8 +85,9 @@ const pageTitle = title.includes('Studio Ravya') ? title : `${title} | Studio Ra
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Studio Ravya",
-      "url": "https://studioravya.com",
-      "logo": "https://studioravya.com/favicon.svg",
+      "url": "https://studioravya.onerishi.in",
+      "logo": "https://studioravya.onerishi.in/favicon-512x512.png",
+      "image": "https://studioravya.onerishi.in/images/studio-workspace.png",
       "description": "Studio Ravya builds fast, custom websites and digital products for businesses and creators.",
       "founder": {
         "@type": "Person",
@@ -94,7 +105,6 @@ const pageTitle = title.includes('Studio Ravya') ? title : `${title} | Studio Ra
         "Brand & Web Identity",
         "Custom Web Apps"
       ],
-      "priceRange": "$$$",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "contact@studioravya.com",
