@@ -7,7 +7,7 @@ const tiers = [
   {
     name: 'Landing Page',
     tagline: 'Ideal for product launches, venture funding announcements, and ad campaigns.',
-    priceRange: '$3,000 – $5,000',
+    priceRange: 'Bespoke Proposal',
     timeline: '2 to 3 Weeks',
     features: [
       'Single-page conversion architecture',
@@ -22,7 +22,7 @@ const tiers = [
   {
     name: 'Flagship Business Website',
     tagline: 'Our most requested service for companies demanding category authority.',
-    priceRange: '$5,000 – $10,000',
+    priceRange: 'Bespoke Proposal',
     timeline: '4 to 6 Weeks',
     popular: true,
     features: [
@@ -39,7 +39,7 @@ const tiers = [
   {
     name: 'Custom E-commerce',
     tagline: 'For luxury lifestyle brands and merchants who need editorial shopping UX.',
-    priceRange: '$8,000 – $18,000',
+    priceRange: 'Bespoke Proposal',
     timeline: '6 to 8 Weeks',
     features: [
       'Bespoke catalog and product lookbooks',
@@ -54,7 +54,7 @@ const tiers = [
   {
     name: 'Custom Web App / MVP',
     tagline: 'For startups and teams requiring authenticated portals, dashboards, or MVPs.',
-    priceRange: '$15,000+',
+    priceRange: 'Bespoke Proposal',
     timeline: '8 to 12 Weeks',
     features: [
       'Full-stack Python (FastAPI) & TypeScript build',
@@ -68,7 +68,7 @@ const tiers = [
   },
 ];
 
-const priceFactors = [
+const scopeFactors = [
   { title: 'Page Count & Scope', desc: 'A focused 5-page site requires less surface area than a 25-page library with complex category sorting.', icon: 'layers' },
   { title: 'Custom UI vs. Modified Templates', desc: 'We build bespoke designs tailored to your buyer persona, which commands higher craft than theme modifications.', icon: 'brush' },
   { title: 'Functionality & Logins', desc: 'Adding user accounts, database logic, payment processing, or custom calculations introduces engineering scope.', icon: 'code' },
@@ -76,30 +76,30 @@ const priceFactors = [
   { title: 'Urgency & Timeline', desc: 'Compressing a standard 6-week build into 2 weeks requires parallelized studio sprints and dedicated resourcing.', icon: 'bolt' },
 ];
 
-const pricingFaq = [
-  { question: 'Do you charge a fixed price or hourly rate?', answer: 'We work on a fixed-price model for defined project scopes. You receive a clear proposal with deliverables, milestones, and payment schedule before any work begins. No surprise bills.' },
-  { question: 'What is your standard payment schedule?', answer: 'Standard projects are split into milestones: 50% deposit upon kickoff to reserve studio calendar time, and 50% upon final approval prior to domain cutover.' },
-  { question: 'What happens if our requirements change mid-project?', answer: 'If you want to add new pages or features after signing, we discuss the scope change openly and issue a simple addendum with the adjusted price and timeline.' },
-  { question: 'Are there any recurring monthly fees paid to Studio Ravya?', answer: 'None. Once your site is launched and handed over, you own the code and design 100%. Hosting on platforms like GitHub Pages or Cloudflare Pages is completely free, and standard custom domains cost ~$12/year.' },
+const scopingFaq = [
+  { question: 'How do you scope and quote projects?', answer: 'We work on a fixed-scope model for defined deliverables. Once you submit an inquiry, we analyze your goals and prepare a transparent proposal with milestones, timeline, and exact deliverables before any work begins. No unexpected costs.' },
+  { question: 'What is your standard project payment schedule?', answer: 'Standard projects are split into predictable milestones: a deposit upon kickoff to reserve dedicated studio time, and completion upon final approval prior to live deployment.' },
+  { question: 'What happens if our requirements evolve mid-project?', answer: 'If you want to add new pages or capabilities after kickoff, we discuss the scope change openly and issue a simple addendum with the adjusted timeline and deliverables.' },
+  { question: 'Are there any recurring license fees paid to Studio Ravya?', answer: 'None. Once your site is launched and handed over, you own the code and design 100%. Hosting on platforms like GitHub Pages or Cloudflare Pages is completely free, with zero proprietary lock-ins.' },
 ];
 ---
 
 <BaseLayout
-  title="Website Design & Development Pricing"
-  description="Transparent pricing for website design, development, and custom builds. See package ranges and what's included before you reach out."
+  title="Project Scopes & Capabilities"
+  description="Tailored project scopes for website design, development, and custom web builds. Request a bespoke proposal with clear deliverables and milestones."
 >
   <!-- Header -->
   <section class="py-20 lg:py-28 relative">
     <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
       <span class="text-xs font-bold uppercase tracking-widest text-primary block mb-3 font-mono">
-        Transparent Investment
+        Tailored Capabilities
       </span>
       <h1 class="font-serif text-4xl sm:text-6xl text-on-surface font-normal leading-tight mb-6">
-        Pricing built around scope, <br class="hidden sm:inline"/>
-        <span class="italic text-primary">not guesswork</span>
+        Bespoke digital architecture, <br class="hidden sm:inline"/>
+        <span class="italic text-primary">tailored to your vision</span>
       </h1>
       <p class="font-sans text-lg sm:text-xl text-on-surface-variant font-light leading-relaxed">
-        Fixed-price contracts, clear milestones, and complete intellectual property ownership. No hidden retainer lock-ins.
+        Fixed-scope proposals, clear milestones, and complete intellectual property ownership. Tell us what you are building to receive a detailed quote.
       </p>
     </div>
   </section>
@@ -115,7 +115,7 @@ const pricingFaq = [
     </div>
   </section>
 
-  <!-- What Affects Price -->
+  <!-- What Affects Scope -->
   <section class="py-24 bg-surface-container-lowest border-y border-primary-container/10">
     <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-2xl mx-auto text-center mb-16">
@@ -123,15 +123,15 @@ const pricingFaq = [
           Scope Economics
         </span>
         <h2 class="font-serif text-3xl sm:text-4xl text-on-surface font-normal">
-          What actually moves the price
+          What shapes your project scope
         </h2>
         <p class="font-sans text-sm sm:text-base text-on-surface-variant mt-2">
-          Every website quote is driven by five concrete project variables:
+          Every website scope is driven by concrete project variables:
         </p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {priceFactors.map((item) => (
+        {scopeFactors.map((item) => (
           <div class="p-6 rounded-2xl bg-surface-card border border-primary-container/15">
             <div class="w-10 h-10 rounded-lg bg-primary-container/15 text-primary flex items-center justify-center mb-4">
               <span class="material-symbols-outlined text-[20px]">{item.icon}</span>
@@ -144,7 +144,7 @@ const pricingFaq = [
           <div>
             <span class="text-xs font-mono uppercase tracking-wider text-primary block mb-2">Want a straight answer?</span>
             <h3 class="font-serif text-xl text-on-surface font-normal mb-2">Get a Scoped Estimate</h3>
-            <p class="font-sans text-xs text-on-surface-variant leading-relaxed">Tell us what you're building and we'll reply with a defined scope and price.</p>
+            <p class="font-sans text-xs text-on-surface-variant leading-relaxed">Tell us what you are building and we will reply with a defined scope and timeline.</p>
           </div>
           <div class="pt-4">
             <a href="/contact" class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:underline">
@@ -157,7 +157,7 @@ const pricingFaq = [
     </div>
   </section>
 
-  <!-- Pricing FAQ -->
+  <!-- Scoping FAQ -->
   <section class="py-24">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
@@ -165,10 +165,29 @@ const pricingFaq = [
           Transparency
         </span>
         <h2 class="font-serif text-3xl sm:text-4xl text-on-surface font-normal">
-          Frequently Asked Questions About Pricing
+          Frequently Asked Questions About Scoping &amp; Proposals
         </h2>
       </div>
-      <FAQAccordion items={pricingFaq} />
+      <FAQAccordion items={scopingFaq} />
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-20 bg-surface-container-lowest border-t border-primary-container/15">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-serif text-3xl sm:text-4xl text-on-surface font-normal mb-4">
+        Ready to build your digital presence?
+      </h2>
+      <p class="font-sans text-base text-on-surface-variant mb-8 max-w-xl mx-auto">
+        Submit your project details through our scoping form. We personally review every submission and deliver a tailored proposal.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center gap-2 py-4 px-8 rounded-lg bg-primary-container text-charcoal font-sans text-sm font-bold uppercase tracking-wider shadow-gold-glow hover:bg-amber transition-all"
+      >
+        <span>Request a Tailored Proposal</span>
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </a>
     </div>
   </section>
 </BaseLayout>

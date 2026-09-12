@@ -57,4 +57,10 @@ In this guide, we break down what websites actually cost in 2026, what drives th
 
 ## Summary Takeaway
 
-Treat your website not as a line-item expense, but as your most tireless digital salesperson operating 24/7/365. Choose the tier that matches your revenue goals.
+Treat your website not as a line-item expense, but as your most tireless digital salesperson operating 24/7/365.
+
+---
+
+## Want a Precise Scope for Your Project?
+
+Every brand has distinct technical and commercial goals. Instead of guessing based on broad industry ranges, [submit a scoping inquiry](/contact) to receive a transparent, tailored proposal with defined milestones and deliverables.

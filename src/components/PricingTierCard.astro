@@ -2,7 +2,7 @@
 interface Props {
   name: string;
   tagline: string;
-  priceRange: string;
+  priceRange?: string;
   timeline: string;
   popular?: boolean;
   features: string[];
@@ -13,11 +13,11 @@ interface Props {
 const {
   name,
   tagline,
-  priceRange,
+  priceRange = 'Bespoke Proposal',
   timeline,
   popular = false,
   features,
-  ctaText = 'Get a Detailed Quote',
+  ctaText = 'Request Proposal',
   ctaHref = '/contact',
 } = Astro.props;
 ---
@@ -48,10 +48,10 @@ const {
       </p>
     </div>
 
-    <!-- Pricing & Timeline -->
-    <div class="p-4 rounded-xl bg-surface-base/60 border border-primary-container/10 mb-8 space-y-1.5">
-      <div class="flex items-baseline justify-between">
-        <span class="font-serif text-2xl sm:text-3xl text-primary font-medium">
+    <!-- Scope & Timeline -->
+    <div class="p-4 rounded-xl bg-surface-base/60 border border-primary-container/10 mb-8 space-y-2">
+      <div class="flex items-center justify-between">
+        <span class="px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-primary-container/15 text-primary border border-primary-container/30 font-mono">
           {priceRange}
         </span>
       </div>

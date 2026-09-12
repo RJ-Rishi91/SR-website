@@ -55,7 +55,7 @@ class Inquiry(Base):
     email = Column(String, nullable=False)
     company = Column(String, nullable=True)
     project_type = Column(String, nullable=False, default="Website Design & Dev")
-    budget_range = Column(String, nullable=False, default="$5,000 – $10,000")
+    budget_range = Column(String, nullable=True, default="Custom Proposal")
     timeline = Column(String, nullable=True)
     message = Column(Text, nullable=False)
     status = Column(String, nullable=False, default="new")  # new | contacted | archived

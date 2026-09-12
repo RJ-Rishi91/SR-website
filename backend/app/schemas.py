@@ -55,7 +55,7 @@ class InquiryCreate(BaseModel):
     email: str
     company: str | None = None
     project_type: str = "Website Design & Dev"
-    budget_range: str = "$5,000 – $10,000"
+    budget_range: str | None = "Custom Proposal"
     timeline: str | None = None
     message: str
 
@@ -66,7 +66,7 @@ class InquiryOut(BaseModel):
     email: str
     company: str | None = None
     project_type: str
-    budget_range: str
+    budget_range: str | None = "Custom Proposal"
     timeline: str | None = None
     message: str
     status: str
