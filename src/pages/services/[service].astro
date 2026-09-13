@@ -182,6 +182,8 @@ const {
   pricingTeaser,
   faq,
 } = Astro.props;
+
+const caseStudyWebpImage = caseStudy.image ? caseStudy.image.replace(/\.(png|jpe?g)$/i, '.webp') : null;
 ---
 
 <BaseLayout title={title} description={metaDescription}>
@@ -262,7 +264,18 @@ const {
               {caseStudy.outcome}
             </p>
             <div class="rounded-xl overflow-hidden aspect-[16/9] mb-6 bg-surface-elevated">
-              <img src={caseStudy.image} alt={caseStudy.title} class="w-full h-full object-cover" />
+              <picture>
+                {caseStudyWebpImage && <source srcset={caseStudyWebpImage} type="image/webp" />}
+                <img
+                  src={caseStudy.image}
+                  alt={caseStudy.title}
+                  width="800"
+                  height="450"
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover"
+                />
+              </picture>
             </div>
           </div>
           <div>

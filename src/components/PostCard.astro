@@ -8,6 +8,7 @@ interface Props {
   readTime: string;
   coverImage?: string | null;
   featured?: boolean;
+  priority?: boolean;
 }
 
 const {
@@ -19,9 +20,11 @@ const {
   readTime,
   coverImage,
   featured = false,
+  priority = false,
 } = Astro.props;
 
 const displayCoverImage = coverImage ? coverImage.replace(/^https?:\/\/(localhost|127\.0\.0\.1):8000\/uploads\//, '/uploads/') : null;
+const webpCoverImage = displayCoverImage ? displayCoverImage.replace(/\.(png|jpe?g)$/i, '.webp') : null;
 ---
 
 <article
@@ -33,12 +36,19 @@ const displayCoverImage = coverImage ? coverImage.replace(/^https?:\/\/(localhos
     <!-- Cover Image if present -->
     {displayCoverImage && (
       <a href={`/blog/${slug}`} class="block overflow-hidden rounded-xl mb-5 aspect-[16/9] bg-surface-elevated">
-        <img
-          src={displayCoverImage}
-          alt={title}
-          loading="lazy"
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
+        <picture>
+          {webpCoverImage && <source srcset={webpCoverImage} type="image/webp" />}
+          <img
+            src={displayCoverImage}
+            alt={title}
+            width="800"
+            height="450"
+            loading={priority ? 'eager' : 'lazy'}
+            decoding="async"
+            fetchpriority={priority ? 'high' : 'auto'}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </picture>
       </a>
     )}
 

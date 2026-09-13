@@ -64,6 +64,7 @@ const renderedContent = marked.parse(post.body);
 const displayCoverImage = post.data.coverImage
   ? post.data.coverImage.replace(/^https?:\/\/(localhost|127\.0\.0\.1):8000\/uploads\//, '/uploads/')
   : null;
+const webpCoverImage = displayCoverImage ? displayCoverImage.replace(/\.(png|jpe?g)$/i, '.webp') : null;
 ---
 
 <BaseLayout
@@ -71,6 +72,17 @@ const displayCoverImage = post.data.coverImage
   description={post.data.effective_meta_description}
   ogImage={post.data.effective_og_image || '/images/showcase-saas-platform.png'}
 >
+  {webpCoverImage && (
+    <link
+      slot="head"
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href={webpCoverImage}
+      fetchpriority="high"
+    />
+  )}
+
   <ReadingProgress />
 
   <article class="py-16 lg:py-24 relative">
@@ -117,7 +129,19 @@ const displayCoverImage = post.data.coverImage
       <!-- Cover Image if present -->
       {displayCoverImage && (
         <div class="rounded-2xl overflow-hidden aspect-[16/9] mb-12 border border-primary-container/20 shadow-solar bg-surface-card">
-          <img src={displayCoverImage} alt={post.data.title} class="w-full h-full object-cover" />
+          <picture>
+            {webpCoverImage && <source srcset={webpCoverImage} type="image/webp" />}
+            <img
+              src={displayCoverImage}
+              alt={post.data.title}
+              width="1200"
+              height="675"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              class="w-full h-full object-cover"
+            />
+          </picture>
         </div>
       )}
 

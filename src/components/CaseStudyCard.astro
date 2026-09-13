@@ -20,17 +20,25 @@ const {
   tags = [],
   featured = false,
 } = Astro.props;
+
+const webpImage = image ? image.replace(/\.(png|jpe?g)$/i, '.webp') : null;
 ---
 
 <div class={`group flex flex-col bg-surface-card border border-primary-container/15 hover:border-primary/40 rounded-2xl overflow-hidden shadow-sm hover:shadow-solar transition-all duration-300 ${featured ? 'lg:col-span-2' : ''}`}>
   <!-- Mockup Image Preview -->
   <a href={href} class="relative block overflow-hidden aspect-[16/10] bg-surface-elevated">
-    <img
-      src={image}
-      alt={title}
-      loading="lazy"
-      class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-    />
+    <picture>
+      {webpImage && <source srcset={webpImage} type="image/webp" />}
+      <img
+        src={image}
+        alt={title}
+        width="800"
+        height="500"
+        loading="lazy"
+        decoding="async"
+        class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+      />
+    </picture>
     <div class="absolute inset-0 bg-gradient-to-t from-surface-card via-surface-card/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
     <div class="absolute top-4 left-4">
       <span class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-surface-base/80 backdrop-blur-md border border-primary-container/25 text-primary">

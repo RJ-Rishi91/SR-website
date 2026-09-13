@@ -42,7 +42,18 @@ const principles = [
 
       <!-- Studio Workspace Image -->
       <div class="rounded-2xl overflow-hidden aspect-[21/9] border border-primary-container/20 shadow-solar bg-surface-card mb-20">
-        <img src="/images/studio-workspace.png" alt="Studio Ravya Workspace" class="w-full h-full object-cover" />
+        <picture>
+          <source srcset="/images/studio-workspace.webp" type="image/webp" />
+          <img
+            src="/images/studio-workspace.png"
+            alt="Studio Ravya Workspace"
+            width="1200"
+            height="514"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover"
+          />
+        </picture>
       </div>
 
       <!-- Narrative Section -->

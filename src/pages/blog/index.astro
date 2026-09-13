@@ -102,7 +102,7 @@ const categories = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="posts-grid">
           {posts.map((post, idx) => (
             <div class="post-card-wrapper" data-category={post.category}>
-              <PostCard {...post} featured={idx === 0} />
+              <PostCard {...post} featured={idx === 0} priority={idx === 0} />
             </div>
           ))}
         </div>
