@@ -39,12 +39,49 @@ const processFaqs = [
     answer: 'Every build comes with a 30-day post-launch warranty. During this period, any unexpected bugs, display quirks, or alignment issues are resolved immediately at no cost. We also provide CMS documentation and optional ongoing retainer support.',
   },
 ];
+
+const allFaqs = [...generalFaqs, ...processFaqs];
 ---
 
 <BaseLayout
-  title="FAQ | Studio Ravya - Common Questions"
-  description="Common questions about hiring Studio Ravya for website design, custom development, project timelines, revisions, and code ownership."
+  title="Frequently Asked Questions | Studio Ravya"
+  description="Clear answers about working with Studio Ravya: custom website development, turnaround timelines, fixed-scope proposals, code ownership, and warranties."
 >
+  <Fragment slot="head">
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": allFaqs.map((f) => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.answer
+        }
+      }))
+    })} />
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://studioravya.onerishi.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQ",
+          "item": "https://studioravya.onerishi.in/faq/"
+        }
+      ]
+    })} />
+  </Fragment>
   <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
     <!-- Header -->
     <header class="max-w-3xl mb-16 text-center mx-auto">

@@ -31,7 +31,7 @@ const webpImage = image ? image.replace(/\.(png|jpe?g)$/i, '.webp') : null;
       {webpImage && <source srcset={webpImage} type="image/webp" />}
       <img
         src={image}
-        alt={title}
+        alt={`${title} - Case Study by Studio Ravya`}
         width="800"
         height="500"
         loading="lazy"

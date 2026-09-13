@@ -90,9 +90,44 @@ const clientInputs = [
 ---
 
 <BaseLayout
-  title="Our Process | How We Build"
-  description="How a project with Studio Ravya actually works - from discovery to launch. See the steps, timeline, and what to expect."
+  title="Our Process - How We Build High-Performance Websites | Studio Ravya"
+  description="Discover Studio Ravya's disciplined 5-phase web design and software engineering process - from discovery and Figma prototypes to production deployment."
 >
+  <Fragment slot="head">
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://studioravya.onerishi.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Process",
+          "item": "https://studioravya.onerishi.in/process/"
+        }
+      ]
+    })} />
+
+    <!-- JSON-LD: HowTo -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How Studio Ravya Designs and Engineers High-Performance Websites",
+      "description": "A disciplined, five-phase delivery framework designed to eliminate guesswork, respect your schedule, and ship exceptional web software.",
+      "step": steps.map((s, idx) => ({
+        "@type": "HowToStep",
+        "position": idx + 1,
+        "name": s.title,
+        "text": s.description
+      }))
+    })} />
+  </Fragment>
   <!-- Header -->
   <section class="py-20 lg:py-28 relative">
     <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">

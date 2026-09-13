@@ -22,9 +22,30 @@ const principles = [
 ---
 
 <BaseLayout
-  title="About Studio Ravya"
-  description="Studio Ravya is a web design and digital product studio built on clarity, craft, and the idea that technology should feel alive. Meet the studio."
+  title="About Studio Ravya | Web Design & Digital Product Studio"
+  description="Studio Ravya is an independent digital studio founded to bridge high-craft visual art direction with disciplined full-stack software engineering. Learn our story."
 >
+  <Fragment slot="head">
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://studioravya.onerishi.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://studioravya.onerishi.in/about/"
+        }
+      ]
+    })} />
+  </Fragment>
   <!-- Hero Section -->
   <section class="py-20 lg:py-28 relative">
     <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">

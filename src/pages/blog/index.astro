@@ -55,9 +55,44 @@ const categories = [
 ---
 
 <BaseLayout
-  title="Blog | Studio Ravya - Web Design & Business Tips"
-  description="Practical advice on websites, web design costs, and growing your business online - from the engineering and design team at Studio Ravya."
+  title="Blog & Digital Insights | Studio Ravya"
+  description="Direct, actionable advice on website development costs, conversion rate design, Core Web Vitals, and modern web architecture from Studio Ravya."
 >
+  <Fragment slot="head">
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://studioravya.onerishi.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://studioravya.onerishi.in/blog/"
+        }
+      ]
+    })} />
+
+    <!-- JSON-LD: CollectionPage -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Insights & Dispatches | Studio Ravya",
+      "description": "Practical advice and technical playbooks on website design, conversion architecture, Core Web Vitals, and modern software engineering.",
+      "url": "https://studioravya.onerishi.in/blog/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Studio Ravya",
+        "url": "https://studioravya.onerishi.in"
+      }
+    })} />
+  </Fragment>
   <!-- Header -->
   <section class="py-20 lg:py-28 relative">
     <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">

@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 
 export async function GET(context: any) {
-  const siteUrl = context.site?.toString().replace(/\/$/, '') || 'https://studioravya.com';
+  const siteUrl = context.site?.toString().replace(/\/$/, '') || 'https://studioravya.onerishi.in';
   const API_URL = import.meta.env.PUBLIC_API_URL || process.env.PUBLIC_API_URL || 'http://localhost:8000';
 
   const staticPages = [
@@ -60,12 +60,28 @@ export async function GET(context: any) {
   const urls: Array<{ loc: string; lastmod?: string; changefreq: string; priority: string }> = [];
 
   staticPages.forEach((page) => {
-    const isRoot = page === '';
+    let priority = '0.8';
+    let changefreq = 'monthly';
+
+    if (page === '') {
+      priority = '1.0';
+      changefreq = 'weekly';
+    } else if (['services', 'work', 'contact'].includes(page)) {
+      priority = '0.9';
+      changefreq = 'weekly';
+    } else if (page.startsWith('services/') || page.startsWith('work/')) {
+      priority = '0.85';
+      changefreq = 'monthly';
+    } else if (['privacy-policy', 'terms-of-service'].includes(page)) {
+      priority = '0.3';
+      changefreq = 'yearly';
+    }
+
     urls.push({
       loc: page ? `${siteUrl}/${page}/` : `${siteUrl}/`,
       lastmod: latestDate,
-      changefreq: isRoot ? 'weekly' : 'monthly',
-      priority: isRoot ? '1.0' : '0.8',
+      changefreq,
+      priority,
     });
   });
 
@@ -74,7 +90,7 @@ export async function GET(context: any) {
       loc: `${siteUrl}/blog/${post.slug}/`,
       lastmod: post.lastmod || latestDate,
       changefreq: 'monthly',
-      priority: '0.7',
+      priority: '0.75',
     });
   });
 

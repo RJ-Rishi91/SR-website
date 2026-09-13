@@ -38,7 +38,7 @@ export async function GET(context: any) {
   return rss({
     title: 'Studio Ravya - Web Design & Engineering Insights',
     description: 'Practical advice on websites, web design costs, and digital products from Studio Ravya.',
-    site: context.site || 'https://studioravya.com',
+    site: context.site || 'https://studioravya.onerishi.in',
     items,
     customData: `<language>en-us</language>`,
   });

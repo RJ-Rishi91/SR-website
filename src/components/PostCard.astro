@@ -40,7 +40,7 @@ const webpCoverImage = displayCoverImage ? displayCoverImage.replace(/\.(png|jpe
           {webpCoverImage && <source srcset={webpCoverImage} type="image/webp" />}
           <img
             src={displayCoverImage}
-            alt={title}
+            alt={`${title} - Studio Ravya Article`}
             width="800"
             height="450"
             loading={priority ? 'eager' : 'lazy'}

@@ -85,9 +85,44 @@ const scopingFaq = [
 ---
 
 <BaseLayout
-  title="Project Scopes & Capabilities"
+  title="Project Scopes & Capabilities | Studio Ravya"
   description="Tailored project scopes for website design, development, and custom web builds. Request a bespoke proposal with clear deliverables and milestones."
 >
+  <Fragment slot="head">
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": scopingFaq.map((f) => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.answer
+        }
+      }))
+    })} />
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://studioravya.onerishi.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Project Scopes",
+          "item": "https://studioravya.onerishi.in/pricing/"
+        }
+      ]
+    })} />
+  </Fragment>
   <!-- Header -->
   <section class="py-20 lg:py-28 relative">
     <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">

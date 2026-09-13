@@ -1,0 +1,10 @@
+# Studio Ravya - Robots Configuration
+# https://studioravya.onerishi.in
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://studioravya.onerishi.in/sitemap.xml

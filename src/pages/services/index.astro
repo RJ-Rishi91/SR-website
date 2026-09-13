@@ -76,9 +76,43 @@ const situations = [
 ---
 
 <BaseLayout
-  title="Web Design & Development Services"
-  description="Explore Studio Ravya's website and web app services - design, development, e-commerce, landing pages, and custom builds. Get a quote for your project."
+  title="Web Design & Development Services | Studio Ravya"
+  description="Explore Studio Ravya's website and web app services - bespoke web design, full-stack development, e-commerce storefronts, brand identity, and custom web applications."
 >
+  <Fragment slot="head">
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://studioravya.onerishi.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://studioravya.onerishi.in/services/"
+        }
+      ]
+    })} />
+
+    <!-- JSON-LD: ItemList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Studio Ravya Services",
+      "itemListElement": services.map((s, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "name": s.title,
+        "url": `https://studioravya.onerishi.in${s.href}/`
+      }))
+    })} />
+  </Fragment>
   <!-- Header -->
   <section class="py-20 lg:py-28 relative">
     <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
