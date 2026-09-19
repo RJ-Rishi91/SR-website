@@ -80,6 +80,25 @@ const projects = [
         }
       ]
     })} />
+
+    <!-- JSON-LD: CollectionPage & ItemList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Selected Work & Digital Flagships | Studio Ravya",
+      "description": "Explore selected web design, web application, and e-commerce case studies shipped by Studio Ravya.",
+      "url": "https://studioravya.onerishi.in/work/",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Studio Ravya Case Studies",
+        "itemListElement": projects.map((p, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "name": p.title,
+          "url": `https://studioravya.onerishi.in${p.href}/`
+        }))
+      }
+    })} />
   </Fragment>
   <!-- Header -->
   <section class="py-20 lg:py-28 relative">

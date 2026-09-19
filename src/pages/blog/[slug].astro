@@ -63,19 +63,32 @@ const { post } = Astro.props;
 const cleanedBody = (post.body || '').replace(/^\s*#\s+[^\n]+\n*/, '');
 const renderedContent = marked.parse(cleanedBody);
 const displayCoverImage = post.data.coverImage
-  ? post.data.coverImage.replace(/^https?:\/\/(localhost|127\.0\.0\.1):8000\/uploads\//, '/uploads/')
+  ? post.data.coverImage.replace(/^https?:\/\/(localhost|127\.0\.0\.1):8000/, '').replace(/^https?:\/\/studioravya-backend\.onrender\.com/, '')
   : null;
 const webpCoverImage = displayCoverImage ? displayCoverImage.replace(/\.(png|jpe?g)$/i, '.webp') : null;
 const postCanonicalUrl = `https://studioravya.onerishi.in/blog/${post.slug}/`;
-const postOgImage = post.data.effective_og_image 
-  ? new URL(post.data.effective_og_image, 'https://studioravya.onerishi.in').href 
-  : 'https://studioravya.onerishi.in/images/studio-workspace.webp';
+
+const rawOgImage = (post.data.effective_og_image || post.data.coverImage || '/images/studio-workspace.webp')
+  .replace(/^https?:\/\/(localhost|127\.0\.0\.1):8000/, '')
+  .replace(/^https?:\/\/studioravya-backend\.onrender\.com/, '');
+const postOgImage = rawOgImage.startsWith('http') 
+  ? rawOgImage 
+  : `https://studioravya.onerishi.in${rawOgImage.startsWith('/') ? '' : '/'}${rawOgImage}`;
+
+const isoPublishedDate = (() => {
+  try {
+    const d = new Date(post.data.date);
+    return isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+  } catch {
+    return new Date().toISOString();
+  }
+})();
 ---
 
 <BaseLayout
   title={post.data.effective_meta_title}
   description={post.data.effective_meta_description}
-  ogImage={post.data.effective_og_image || '/images/showcase-saas-platform.png'}
+  ogImage={postOgImage}
 >
   <!-- High-Priority LCP Hero Preload & Article Schemas -->
   <Fragment slot="head">
@@ -100,8 +113,8 @@ const postOgImage = post.data.effective_og_image
       "headline": post.data.title,
       "description": post.data.description,
       "image": [postOgImage],
-      "datePublished": post.data.date,
-      "dateModified": post.data.date,
+      "datePublished": isoPublishedDate,
+      "dateModified": isoPublishedDate,
       "author": {
         "@type": "Person",
         "name": "Rushal Sharma",

@@ -15,6 +15,7 @@ export async function getStaticPaths() {
         serviceHref: '/services/website-design-development',
         heroImage: '/images/showcase-saas-platform.png',
         headline: 'A flagship web platform for an enterprise cognitive software suite.',
+        metaDescription: 'How Studio Ravya engineered a flagship web platform and interactive playground for Vesper AI ahead of their $14M Series A round.',
         overview: 'Vesper AI had proprietary enterprise AI infrastructure, but their existing marketing website looked like a generic software template. They needed a digital home that matched the intellectual rigor and enterprise security of their product ahead of their $14M Series A fundraising.',
         theProblem: 'The original website struggled with three distinct issues: complex narrative that confused non-technical enterprise buyers, slow load times due to heavy unoptimized script libraries, and a lack of tangible proof of how the underlying model worked.',
         whatWeBuilt: 'We designed and engineered a custom Astro + Tailwind web platform featuring a live interactive demo playground. We structured the content around enterprise buying triggers - security certifications, API latency benchmarks, and verifiable deployment case studies.',
@@ -38,6 +39,7 @@ export async function getStaticPaths() {
         serviceHref: '/services/ecommerce-websites',
         heroImage: '/images/showcase-ecommerce.png',
         headline: 'Tactile editorial shopping experience for high-craft home lifestyle products.',
+        metaDescription: 'How Studio Ravya built a bespoke editorial e-commerce storefront for Aura Living, cutting mobile bounce rates by 34% and scaling AOV.',
         overview: 'Aura Living crafts high-end furniture and lifestyle objects. Standard e-commerce templates failed to communicate the material craft and tactile weight of their catalog, resulting in high checkout abandonment.',
         theProblem: 'Standard marketplace layouts forced product descriptions into tiny tabs and compressed rich photography, degrading the perceived luxury value of premium items.',
         whatWeBuilt: 'We built a bespoke storefront focused on editorial imagery, full-bleed lookbooks, and frictionless single-step mobile checkout. Product pages were restructured as visual architectural essays explaining the provenance and materials of each item.',
@@ -61,6 +63,7 @@ export async function getStaticPaths() {
         serviceHref: '/services/custom-web-apps',
         heroImage: '/images/showcase-fintech.png',
         headline: 'Institutional-grade dark minimal fintech portal and portfolio telemetry.',
+        metaDescription: 'How Studio Ravya developed an institutional-grade dark minimal fintech portal with real-time portfolio telemetry and sub-second speed.',
         overview: 'Monolith Capital required an ultra-clean, real-time analytics portal where institutional partners could monitor allocation performance, liquidity pools, and capital flow with sub-second responsiveness.',
         theProblem: 'Legacy financial web tools were cluttered, poorly responsive on tablets, and burdened by heavy client-side JavaScript that caused frequent UI freezing during volatile market data streams.',
         whatWeBuilt: 'We engineered a dark minimalist web application using Python FastAPI on the backend with a lightning-fast TypeScript frontend. We implemented custom telemetry data tables with instant keyboard navigation and live SVG charting.',
@@ -84,6 +87,7 @@ export async function getStaticPaths() {
         serviceHref: '/services/brand-and-web-identity',
         heroImage: '/images/showcase-luxury-flagship.png',
         headline: 'An architectural digital monograph designed with Swiss precision and solar warmth.',
+        metaDescription: 'How Studio Ravya created an architectural digital monograph with tactile serif typography and responsive layouts that closed 3 major contracts.',
         overview: 'Lumina needed a digital portfolio that could stand alongside physical architectural publications when pitching $5M+ commercial construction projects.',
         theProblem: 'Their existing portfolio was hosted on a slow, generic template that broke on high-DPI displays and failed to convey their minimalist design philosophy.',
         whatWeBuilt: 'We defined a complete brand design system rooted in classical serif headlines, generous negative space, and razor-sharp golden keylines. The site showcases architectural photography with zero visual distraction.',
@@ -107,6 +111,7 @@ export async function getStaticPaths() {
         serviceHref: '/services/landing-pages',
         heroImage: '/images/studio-workspace.png',
         headline: 'Conversion-engineered launch funnel capturing 8,500+ waitlist subscribers.',
+        metaDescription: 'How Studio Ravya designed and deployed a high-velocity launch campaign that captured 8,500+ waitlist inquiries in 10 days.',
         overview: 'Kinetix required a focused, high-conversion landing page to announce their research platform and build an audience of enterprise lab partners before their closed beta.',
         theProblem: 'With only three weeks until their industry conference announcement, they needed rapid delivery without sacrificing visual pedigree or CRM integration accuracy.',
         whatWeBuilt: 'We designed, wrote, and deployed a focused single-page landing site with live countdown, interactive research summaries, and direct CRM sync. The page achieved a 22.4% conversion rate.',
@@ -130,6 +135,7 @@ export async function getStaticPaths() {
         serviceHref: '/services/landing-pages',
         heroImage: '/images/studio-workspace.png',
         headline: 'Conversion-engineered launch funnel capturing 8,500+ waitlist subscribers.',
+        metaDescription: 'How Studio Ravya designed and deployed a high-velocity launch campaign that captured 8,500+ waitlist inquiries in 10 days.',
         overview: 'Kinetix required a focused, high-conversion landing page to announce their research platform and build an audience of enterprise lab partners before their closed beta.',
         theProblem: 'With only three weeks until their industry conference announcement, they needed rapid delivery without sacrificing visual pedigree or CRM integration accuracy.',
         whatWeBuilt: 'We designed, wrote, and deployed a focused single-page landing site with live countdown, interactive research summaries, and direct CRM sync. The page achieved a 22.4% conversion rate.',
@@ -139,6 +145,8 @@ export async function getStaticPaths() {
           { label: 'Conversion Rate', value: '22.4%' },
           { label: 'Time to Ship', value: '18 Days' },
         ],
+        isRedirect: true,
+        redirectTo: '/work/kinetix-launch',
       },
     },
   ];
@@ -154,21 +162,31 @@ const {
   serviceHref,
   heroImage,
   headline,
+  metaDescription,
   overview,
   theProblem,
   whatWeBuilt,
   tools,
   metrics,
+  isRedirect,
+  redirectTo,
 } = Astro.props;
 
 const currentSlug = Astro.params.slug;
 const currentUrl = `https://studioravya.onerishi.in/work/${currentSlug}/`;
+const canonicalTargetUrl = isRedirect && redirectTo ? `https://studioravya.onerishi.in${redirectTo}/` : currentUrl;
 const webpHeroImage = heroImage ? heroImage.replace(/\.(png|jpe?g)$/i, '.webp') : null;
 const caseStudyOgImage = heroImage ? new URL(heroImage, 'https://studioravya.onerishi.in').href : 'https://studioravya.onerishi.in/images/studio-workspace.webp';
 ---
 
-<BaseLayout title={title} description={overview} ogImage={heroImage}>
+<BaseLayout title={title} description={metaDescription || overview} ogImage={heroImage}>
   <Fragment slot="head">
+    {isRedirect && redirectTo && (
+      <>
+        <meta http-equiv="refresh" content={`0;url=${redirectTo}`} />
+        <link rel="canonical" href={canonicalTargetUrl} />
+      </>
+    )}
     {webpHeroImage && (
       <link
         rel="preload"

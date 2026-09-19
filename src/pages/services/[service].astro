@@ -53,10 +53,10 @@ export async function getStaticPaths() {
           { title: 'High-Impact Visual Assets', desc: 'Custom 3D-style mockups, interactive calculators, and micro-interactions that captivate visitors.', icon: 'auto_awesome' },
         ],
         caseStudy: {
-          title: 'Fintech Protocol Launch Funnel',
-          image: '/images/showcase-fintech.png',
-          outcome: 'Generated 4,200+ qualified waitlist registrations in the first 72 hours of product announcement.',
-          href: '/work/monolith-protocol',
+          title: 'Kinetix Labs Launch Campaign',
+          image: '/images/studio-workspace.png',
+          outcome: 'Captured 8,500+ waitlist inquiries within 10 days of public announcement through a laser-focused conversion architecture.',
+          href: '/work/kinetix-launch',
         },
         pricingTeaser: {
           range: 'Bespoke Proposal',
@@ -122,7 +122,7 @@ export async function getStaticPaths() {
           title: 'Architectural Luxury Identity',
           image: '/images/showcase-luxury-flagship.png',
           outcome: 'Established a premium digital presence that allowed client to command 3x higher retainers.',
-          href: '/work/vesper-ai',
+          href: '/work/lumina-architecture',
         },
         pricingTeaser: {
           range: 'Bespoke Proposal',
@@ -188,7 +188,7 @@ const currentUrl = `https://studioravya.onerishi.in/services/${currentService}/`
 const caseStudyWebpImage = caseStudy.image ? caseStudy.image.replace(/\.(png|jpe?g)$/i, '.webp') : null;
 ---
 
-<BaseLayout title={title} description={metaDescription}>
+<BaseLayout title={title} description={metaDescription} ogImage={caseStudy.image}>
   <Fragment slot="head">
     <!-- JSON-LD: Service Schema -->
     <script type="application/ld+json" set:html={JSON.stringify({

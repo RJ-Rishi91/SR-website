@@ -20,8 +20,11 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://studioravya.onerishi.in');
-const pageTitle = title.includes('Studio Ravya') ? title : `${title} | Studio Ravya`;
-const ogImageURL = new URL(ogImage, canonicalURL).href;
+const pageTitle = title.includes('Studio Ravya') ? title : (title.length > 50 ? title : `${title} | Studio Ravya`);
+const rawOgImage = (ogImage || '/images/studio-workspace.png')
+  .replace(/^https?:\/\/(localhost|127\.0\.0\.1):8000/, '')
+  .replace(/^https?:\/\/studioravya-backend\.onrender\.com/, '');
+const ogImageURL = rawOgImage.startsWith('http') ? rawOgImage : new URL(rawOgImage, 'https://studioravya.onerishi.in').href;
 ---
 
 <!DOCTYPE html>
@@ -185,12 +188,34 @@ const ogImageURL = new URL(ogImage, canonicalURL).href;
             "Brand & Web Identity",
             "Custom Web Apps & Tools"
           ],
+          "areaServed": [
+            "Worldwide",
+            "United States",
+            "United Kingdom",
+            "Canada",
+            "Europe",
+            "India"
+          ],
           "contactPoint": {
             "@type": "ContactPoint",
             "email": "contact@studioravya.com",
             "contactType": "customer support",
             "availableLanguage": ["English"]
           }
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://studioravya.onerishi.in/#navigation",
+          "name": "Main Navigation",
+          "hasPart": [
+            { "@type": "WebPage", "name": "Services", "url": "https://studioravya.onerishi.in/services/" },
+            { "@type": "WebPage", "name": "Work", "url": "https://studioravya.onerishi.in/work/" },
+            { "@type": "WebPage", "name": "Process", "url": "https://studioravya.onerishi.in/process/" },
+            { "@type": "WebPage", "name": "Pricing", "url": "https://studioravya.onerishi.in/pricing/" },
+            { "@type": "WebPage", "name": "About", "url": "https://studioravya.onerishi.in/about/" },
+            { "@type": "WebPage", "name": "Blog", "url": "https://studioravya.onerishi.in/blog/" },
+            { "@type": "WebPage", "name": "Contact", "url": "https://studioravya.onerishi.in/contact/" }
+          ]
         }
       ]
     })} />

@@ -26,6 +26,19 @@ const principles = [
   description="Studio Ravya is an independent digital studio founded to bridge high-craft visual art direction with disciplined full-stack software engineering. Learn our story."
 >
   <Fragment slot="head">
+    <!-- JSON-LD: AboutPage -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About Studio Ravya",
+      "description": "Studio Ravya is an independent digital studio founded to bridge high-craft visual art direction with disciplined full-stack software engineering.",
+      "url": "https://studioravya.onerishi.in/about/",
+      "mainEntity": {
+        "@type": "ProfessionalService",
+        "@id": "https://studioravya.onerishi.in/#organization"
+      }
+    })} />
+
     <!-- JSON-LD: BreadcrumbList -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
