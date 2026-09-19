@@ -464,7 +464,7 @@ Automating these foundation layers cuts delivery timelines from 14 weeks down to
 
 ## The Studio Ravya Philosophy
 
-Under the direction of **Rushal S. (OneRishi)**, Studio Ravya treats code and design not as competing disciplines, but as a single coherent craft: *Marketing × Technology × Creativity*.
+Under the direction of **Rushal Sharma (OneRishi)**, Studio Ravya treats code and design not as competing disciplines, but as a single coherent craft: *Marketing × Technology × Creativity*.
 
 By using machine velocity to eliminate boilerplate, we channel 100% of our creative energy into building digital monuments that stand apart.
 """

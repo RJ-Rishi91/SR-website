@@ -301,7 +301,7 @@ def root_gateway():
     </div>
 
     <div class="footer-bar">
-      <span>Studio Director: <a href="https://onerishi.in" target="_blank">Rushal S. (OneRishi)</a></span>
+      <span>Studio Director: <a href="https://onerishi.in" target="_blank">Rushal Sharma (OneRishi)</a></span>
       <a href="http://localhost:4321">← Return to Studio Website</a>
     </div>
   </div>
