@@ -17,14 +17,21 @@ const {
   ogImage = '/images/studio-workspace.png',
   articleDate,
   noindex = false,
+  googleSiteVerification,
+  msValidate,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://studioravya.onerishi.in');
+// Enforce trailing slash on canonical URLs to prevent redirect loops
+const normalizedPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonicalURL = new URL(normalizedPath, Astro.site || 'https://studioravya.onerishi.in');
 const pageTitle = title.includes('Studio Ravya') ? title : (title.length > 50 ? title : `${title} | Studio Ravya`);
 const rawOgImage = (ogImage || '/images/studio-workspace.png')
   .replace(/^https?:\/\/(localhost|127\.0\.0\.1):8000/, '')
   .replace(/^https?:\/\/studioravya-backend\.onrender\.com/, '');
 const ogImageURL = rawOgImage.startsWith('http') ? rawOgImage : new URL(rawOgImage, 'https://studioravya.onerishi.in').href;
+
+const googleVerification = googleSiteVerification || import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION || process.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+const bingVerification = msValidate || import.meta.env.PUBLIC_BING_SITE_VERIFICATION || process.env.PUBLIC_BING_SITE_VERIFICATION;
 ---
 
 <!DOCTYPE html>
@@ -33,6 +40,10 @@ const ogImageURL = rawOgImage.startsWith('http') ? rawOgImage : new URL(rawOgIma
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href={canonicalURL} />
+
+    {/* Search Engine Ownership Verification */}
+    {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
+    {bingVerification && <meta name="msvalidate.01" content={bingVerification} />}
 
     <!-- RSS Feed Auto-Discovery -->
     <link rel="alternate" type="application/rss+xml" title="Studio Ravya Insights RSS Feed" href="/rss.xml" />

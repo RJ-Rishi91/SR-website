@@ -3,14 +3,26 @@
 
 User-agent: *
 Allow: /
-Disallow: /admin
 Disallow: /admin/
 Disallow: /api/
-Disallow: /thank-you
 Disallow: /thank-you/
 
-# Search Engine Host
-Host: studioravya.onerishi.in
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /thank-you/
 
-# Sitemaps
+User-agent: Googlebot-Image
+Allow: /
+Allow: /images/
+Allow: /uploads/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /thank-you/
+
+# XML Sitemap
 Sitemap: https://studioravya.onerishi.in/sitemap.xml

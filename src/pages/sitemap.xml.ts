@@ -2,110 +2,125 @@ import { getCollection } from 'astro:content';
 
 export async function GET(context: any) {
   const siteUrl = context.site?.toString().replace(/\/$/, '') || 'https://studioravya.onerishi.in';
-  const API_URL = import.meta.env.PUBLIC_API_URL || process.env.PUBLIC_API_URL || 'http://localhost:8000';
+  const latestDate = new Date().toISOString().split('T')[0];
+
+  const caseStudyImages: Record<string, { image: string; title: string }> = {
+    'work/vesper-ai': {
+      image: `${siteUrl}/images/showcase-saas-platform.png`,
+      title: 'Vesper AI Flagship Web Platform Case Study',
+    },
+    'work/aura-living': {
+      image: `${siteUrl}/images/showcase-ecommerce.png`,
+      title: 'Aura Living Editorial E-Commerce Storefront Case Study',
+    },
+    'work/monolith-protocol': {
+      image: `${siteUrl}/images/showcase-fintech.png`,
+      title: 'Monolith Protocol Fintech Web Application Case Study',
+    },
+    'work/lumina-architecture': {
+      image: `${siteUrl}/images/showcase-architecture.png`,
+      title: 'Lumina Architecture Minimalist Portfolio Case Study',
+    },
+    'work/kinetix-launch': {
+      image: `${siteUrl}/images/showcase-landing.png`,
+      title: 'Kinetix Launch High-Converting Campaign Page Case Study',
+    },
+  };
 
   const staticPages = [
-    '',
-    'services',
-    'services/website-design-development',
-    'services/landing-pages',
-    'services/ecommerce-websites',
-    'services/brand-and-web-identity',
-    'services/custom-web-apps',
-    'work',
-    'work/vesper-ai',
-    'work/aura-living',
-    'work/monolith-protocol',
-    'work/lumina-architecture',
-    'work/kinetix-launch',
-    'process',
-    'pricing',
-    'about',
-    'blog',
-    'contact',
-    'faq',
-    'privacy-policy',
-    'terms-of-service',
+    { path: '', priority: '1.0', changefreq: 'weekly', image: `${siteUrl}/images/studio-workspace.png`, imageTitle: 'Studio Ravya Web Design and Digital Product Studio' },
+    { path: 'services', priority: '0.9', changefreq: 'weekly' },
+    { path: 'services/website-design-development', priority: '0.85', changefreq: 'monthly' },
+    { path: 'services/landing-pages', priority: '0.85', changefreq: 'monthly' },
+    { path: 'services/ecommerce-websites', priority: '0.85', changefreq: 'monthly' },
+    { path: 'services/brand-and-web-identity', priority: '0.85', changefreq: 'monthly' },
+    { path: 'services/custom-web-apps', priority: '0.85', changefreq: 'monthly' },
+    { path: 'work', priority: '0.9', changefreq: 'weekly' },
+    { path: 'work/vesper-ai', priority: '0.85', changefreq: 'monthly' },
+    { path: 'work/aura-living', priority: '0.85', changefreq: 'monthly' },
+    { path: 'work/monolith-protocol', priority: '0.85', changefreq: 'monthly' },
+    { path: 'work/lumina-architecture', priority: '0.85', changefreq: 'monthly' },
+    { path: 'work/kinetix-launch', priority: '0.85', changefreq: 'monthly' },
+    { path: 'process', priority: '0.8', changefreq: 'monthly' },
+    { path: 'pricing', priority: '0.85', changefreq: 'monthly' },
+    { path: 'about', priority: '0.8', changefreq: 'monthly' },
+    { path: 'blog', priority: '0.85', changefreq: 'weekly' },
+    { path: 'contact', priority: '0.9', changefreq: 'weekly' },
+    { path: 'faq', priority: '0.7', changefreq: 'monthly' },
+    { path: 'privacy-policy', priority: '0.3', changefreq: 'yearly' },
+    { path: 'terms-of-service', priority: '0.3', changefreq: 'yearly' },
   ];
 
-  let blogPosts: Array<{ slug: string; lastmod?: string }> = [];
+  const localPosts = await getCollection('blog');
+  const urls: Array<{
+    loc: string;
+    lastmod: string;
+    changefreq: string;
+    priority: string;
+    image?: string;
+    imageTitle?: string;
+  }> = [];
 
-  try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 2000);
-    const res = await fetch(`${API_URL}/api/posts`, { signal: controller.signal });
-    clearTimeout(timeoutId);
-    if (res.ok) {
-      const apiPosts = await res.json();
-      if (Array.isArray(apiPosts) && apiPosts.length > 0) {
-        blogPosts = apiPosts.map((p) => ({
-          slug: p.slug,
-          lastmod: p.published_at ? new Date(p.published_at).toISOString().split('T')[0] : undefined,
-        }));
-      }
-    }
-  } catch {
-    // Fallback
-  }
-
-  if (blogPosts.length === 0) {
-    const localPosts = await getCollection('blog');
-    blogPosts = localPosts.map((post) => ({
-      slug: post.slug,
-      lastmod: new Date().toISOString().split('T')[0],
-    }));
-  }
-
-  const latestDate = new Date().toISOString().split('T')[0];
-  const urls: Array<{ loc: string; lastmod?: string; changefreq: string; priority: string }> = [];
-
-  staticPages.forEach((page) => {
-    let priority = '0.8';
-    let changefreq = 'monthly';
-
-    if (page === '') {
-      priority = '1.0';
-      changefreq = 'weekly';
-    } else if (['services', 'work', 'contact'].includes(page)) {
-      priority = '0.9';
-      changefreq = 'weekly';
-    } else if (page.startsWith('services/') || page.startsWith('work/')) {
-      priority = '0.85';
-      changefreq = 'monthly';
-    } else if (['privacy-policy', 'terms-of-service'].includes(page)) {
-      priority = '0.3';
-      changefreq = 'yearly';
-    }
+  // Add static pages
+  staticPages.forEach((item) => {
+    const loc = item.path ? `${siteUrl}/${item.path}/` : `${siteUrl}/`;
+    const caseImg = caseStudyImages[item.path];
+    const image = caseImg ? caseImg.image : item.image;
+    const imageTitle = caseImg ? caseImg.title : item.imageTitle;
 
     urls.push({
-      loc: page ? `${siteUrl}/${page}/` : `${siteUrl}/`,
+      loc,
       lastmod: latestDate,
-      changefreq,
-      priority,
+      changefreq: item.changefreq,
+      priority: item.priority,
+      image,
+      imageTitle,
     });
   });
 
-  blogPosts.forEach((post) => {
+  // Add blog posts with image metadata
+  localPosts.forEach((post) => {
+    const rawCover = post.data.coverImage || '';
+    const cleanCover = rawCover
+      .replace(/^https?:\/\/(localhost|127\.0\.0\.1):8000/, '')
+      .replace(/^https?:\/\/studioravya-backend\.onrender\.com/, '');
+    const fullImageUrl = cleanCover.startsWith('http')
+      ? cleanCover
+      : `${siteUrl}${cleanCover.startsWith('/') ? '' : '/'}${cleanCover}`;
+
     urls.push({
       loc: `${siteUrl}/blog/${post.slug}/`,
-      lastmod: post.lastmod || latestDate,
+      lastmod: latestDate,
       changefreq: 'monthly',
       priority: '0.75',
+      image: cleanCover ? fullImageUrl : undefined,
+      imageTitle: post.data.title,
     });
   });
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${urls
   .map((u) => {
     const lines = [
       '  <url>',
       `    <loc>${u.loc}</loc>`,
-      u.lastmod ? `    <lastmod>${u.lastmod}</lastmod>` : null,
+      `    <lastmod>${u.lastmod}</lastmod>`,
       `    <changefreq>${u.changefreq}</changefreq>`,
       `    <priority>${u.priority}</priority>`,
-      '  </url>',
-    ].filter(Boolean);
+    ];
+
+    if (u.image) {
+      lines.push('    <image:image>');
+      lines.push(`      <image:loc>${u.image.replace(/&/g, '&amp;')}</image:loc>`);
+      if (u.imageTitle) {
+        lines.push(`      <image:title>${u.imageTitle.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</image:title>`);
+      }
+      lines.push('    </image:image>');
+    }
+
+    lines.push('  </url>');
     return lines.join('\n');
   })
   .join('\n')}
@@ -114,6 +129,8 @@ ${urls
   return new Response(sitemapXml, {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
+      'X-Content-Type-Options': 'nosniff',
+      'Cache-Control': 'public, max-age=3600',
     },
   });
 }
